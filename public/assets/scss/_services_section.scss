@@ -1,0 +1,116 @@
+.services-area {
+    @media #{$md}{
+        padding-top:0px;
+        padding-bottom: 50px;
+     }
+    @media #{$sm}{
+        padding-top:0px;
+        padding-bottom: 20px;
+     }
+    @media #{$xs}{
+       padding-top:0px;
+       padding-bottom: 20px;
+    }
+
+    .single-cat{
+        padding: 61px 41px;
+        @include transition(.4s);
+        position: relative;
+        z-index: 1;
+        background: #fff;
+        overflow: hidden;
+        @media #{$md}{
+            padding: 51px 14px;
+         }
+        .cat-icon{
+            i{
+                color: #000;
+                font-size: 50px;
+                margin-bottom: 30px;
+                display: block;
+            }
+        }
+        .cat-cap{
+            h5{
+             & > a{
+                 font-family: $font_1;
+                font-size: 24px;
+                font-weight: 400;
+                margin-bottom: 21px;
+                display: block;
+                color: #06080a;
+                text-transform: uppercase;
+                @include transition(.2s);
+                @media #{$lg}{
+                    font-size: 18px;
+                }
+                @media #{$sm}{
+                    font-size: 19px;
+                }
+                @media #{$sm}{
+                    font-size: 19px;
+                }
+                &:Hover{
+                    color: $theme-color;
+                }
+              }
+            }
+            p{
+                margin-bottom: 36px;
+                color: #303133;
+                font-size: 16px;
+                @include transition(.2s);
+                @media #{$sm}{
+                    font-size: 15px;
+                }
+                @media #{$lg}{
+                    font-size: 15px;
+                }
+                @media #{$xs}{
+                    font-size: 14px;
+                }
+            }
+        }
+        // Hover Effect In single    
+         .img-cap {
+            position: absolute;
+            bottom: -17%;
+            width: 100%;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(.4s);
+            a {
+                font-family: $font_1;
+                font-size: 16px;
+                color:#fff;
+                background:#f81f1f;
+                font-size: 16px;
+                text-transform: uppercase;
+                padding:20px 0;
+                display:block;
+                cursor:pointer;
+                i{
+                    position: relative;
+                    left: 23px;
+                    font-size: 13px;
+                }
+               }
+        }
+        &:hover{
+            .img-cap {
+                bottom: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+            .cat-icon{
+                i{
+                    color:#f81f1f;
+                }
+            }
+        }
+        &.single-cat2{
+            background: #f7fbff;
+        }
+    }
+}

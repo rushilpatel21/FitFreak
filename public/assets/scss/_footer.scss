@@ -1,0 +1,112 @@
+.footer-area{
+    // Footer Menu
+    .footer-top{
+        .single-footer-caption{
+            .footer-logo{
+                margin-bottom:30px;
+            }
+            .footer-pera{
+                 .info1{
+                    line-height: 1.8;
+                    margin-bottom: 30px;
+                    padding-right: 0;
+                    color: #c4c4c4;
+                    font-size: 14px;
+                    @media #{$lg}{
+                        padding-right: 0px;
+                    }
+                    @media #{$md}{
+                        padding-right: 0px;
+                    }
+                    @media #{$sm}{
+                        padding-right: 0px;
+                    }
+                    @media #{$sm}{
+                        padding-right: 0px;
+                    }
+                 }
+            }
+            .footer-tittle{
+                h4{
+                    color: #fff;
+                    font-family:$font_1;
+                    font-size: 18px;
+                    margin-bottom: 38px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+                ul{
+                    li{
+                        color: #c4c4c4;
+                        margin-bottom: 15px;
+                        text-transform: capitalize;
+                        a{
+                            color: #c4c4c4;
+                            font-weight: 300;
+                            font-size: 16px;
+                            &:hover{
+                                color:#fff;
+                                padding-left: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    //copy Right 
+    .footer-bottom{
+        border-top: 1px solid #1f2024;
+        padding-bottom: 50px;
+        padding-top: 40px;
+        .footer-copy-right{
+            p{
+                color: #c4c4c4;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 12px;
+                & i{
+                    color:$theme-color;
+                }
+                a{
+                    color: $theme-color;
+                    &:hover{
+                        color: #fff;
+                    }
+                     
+                }
+            }
+        }
+    }
+    // Instagram
+
+    // Footer SociaL
+    .footer-social {
+        a{
+            color: #c4c4c4;
+            font-size: 18px;
+            text-align: center;
+            margin-left: 24px;
+            &:first-child{
+                margin-left: 0px;
+            }
+            &:hover {
+                color: #fff;
+            }
+            i {
+                @include transition(.4s);
+                transform: rotateY(0deg);
+            }
+            &:hover{
+                color: #fff;
+                i {
+                    transform: rotateY(180deg);
+                }
+            }
+
+        }
+    }
+}
+
