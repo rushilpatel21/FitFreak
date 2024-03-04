@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    
+  <div class="menu-bar">
+    <div>
+      <p id="title-name">
+          <a href="index.html">
+              <img id="title-image" src="assets\logo.png" alt="FITFREAK"> 
+          </a> 
+      </p>
+    </div>
+    <div>
+      <p id="web-links">
+          <a href="music.html">
+              Music 
+          </a>
+          <a href="graph.html">
+              Graph
+          </a>
+      </p>
+    </div>
+    <div>
+        <p id="datetime"></p>
+    </div>
+  </div>
+
+
+
+  <div id="content">
+  <h1>Music Player</h1>
+
+  <label for="search">Search for music:</label>
+  <input type="text" id="search" placeholder="Enter a song or artist">
+  <button onclick="searchMusic()">Search</button>
+
+  <div id="results"></div>
+
+  </div>
+
+  <script>
+
+    var taskinp = document.getElementById("search");
+    taskinp.addEventListener("keydown",function (e){
+        if(e.code === "Enter"){
+            e.preventDefault();
+            const searchTerm = document.getElementById('search').value;
+            if(searchTerm.trim() !== ''){
+              searchMusic();
+            }
+            console.log(searchTerm);
+            // searchMusic();
+        }
+    });
+
+    var now = new Date();
+    var datetime = now.toLocaleString();
+    document.getElementById("datetime").innerHTML = datetime;
+    function searchMusic() {
+      const searchTerm = document.getElementById('search').value;
+      const apiKey = 'AIzaSyBqclrJZu6dYrSj5-Kl_5dMpn-t0w7esK4';
+
+      fetch(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${apiKey}&part=snippet&type=video`)
+        .then(response => response.json())
+        .then(data => {
+          displayResults(data.items);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+
+    function displayResults(results) {
+      const resultsContainer = document.getElementById('results');
+      resultsContainer.innerHTML = ''; // Clear previous results
+
+      results.forEach(result => {
+        const videoId = result.id.videoId;
+        const title = result.snippet.title;
+
+        // Create a list item with a link to play the video
+        const listItem = document.createElement('li');
+        const videoLink = document.createElement('a');
+        videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+        videoLink.target = '_blank';
+        videoLink.textContent = title;
+
+        // Append the link to the list item
+        listItem.appendChild(videoLink);
+
+        // Append the list item to the results container
+        resultsContainer.appendChild(listItem);
+      });
+    }
+
+    
+  </script>
+
+</body>
+</html>
+
+
+
+

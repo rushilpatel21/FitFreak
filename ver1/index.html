@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Freaks</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <div class="menu-bar">
+        <div>
+            <p id="title-name">
+                <a href="index.html">
+                    <img id="title-image" src="assets\logo.png" alt="FITFREAK"> 
+                </a> 
+            </p>
+        </div>
+        <div>
+            <p id="web-links">
+                <a href="music.html">
+                    Music 
+                </a>
+                <a href="graph.html">
+                    Graph
+                </a>
+            </p>
+        </div>
+        <div>
+            <p id="datetime"></p>
+        </div>
+    </div>
+
+    <div id="content">
+        
+    </div>
+    <script>
+        //This is for real time date
+        var now = new Date();
+        var datetime = now.toLocaleString();
+        document.getElementById("datetime").innerHTML = datetime;
+        //Date ends
+    </script>
+</body>
+</html>
