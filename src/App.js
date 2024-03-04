@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css'; // Import your CSS file
-import logo from './assets/logo.png'; // Import your logo image
+import './App.css'; 
+import logo from './assets/logo.png'; 
 
-function MenuBar() {
-  return (
-    <div className="menu-bar">
-      <div>
-        <p id="title-name">
-          <Link to="/">
-            <img id="title-image" src={logo} alt="FITFREAK" />
-          </Link> 
-        </p>
-      </div>
-      <div>
-        <p id="web-links">
-          <Link to="/music">Music</Link>
-          <Link to="/graph">Graph</Link>
-        </p>
-      </div>
-      <div>
-        <p id="datetime"></p>
-      </div>
-    </div>
-  );
-}
+// function MenuBar() {
+//   return (
+//     <div className="menu-bar">
+//       <div>
+//         <p id="title-name">
+//           <Link to="/">
+//             <img id="title-image" src={logo} alt="FITFREAK" />
+//           </Link> 
+//         </p>
+//       </div>
+//       <div>
+//         <p id="web-links">
+//           <Link to="/music">Music</Link>
+//           <Link to="/graph">Graph</Link>
+//         </p>
+//       </div>
+//       <div>
+//         <p id="datetime"></p>
+//       </div>
+//     </div>
+//   );
+// }
 
 function Header() {
   return (
@@ -104,10 +104,8 @@ function Signup() {
       username: username,
       email: email,
     };
-    // Save user data (e.g., send it to a server or store it locally)
-    console.log('User data:', userData);
+    console.log('User data:', userData); //Saving data
 
-    // Reset form fields after submission
     setUsername('');
     setEmail('');
   };
@@ -143,11 +141,17 @@ function Signup() {
 }
 
 function Signin(){
-
+  return (
+    <></>
+  );
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return (
+    <div>
+    <h2>Home</h2>
+    </div>
+  );
 }
 
 function About() {
@@ -157,7 +161,9 @@ function About() {
 }
 
 function WorkoutLog() {
-  return <h2>Services</h2>;
+  return (
+    <h2>Services</h2>
+  );
 }
 
 function CaloriesBurnt(){
@@ -179,15 +185,21 @@ function WaterIntake(){
 }
 
 function Music() {
-  return <h2>Music</h2>;
+  return (
+    <h2>Music</h2>
+  );
 }
 
 function Diet() {
-  return <h2>Diet</h2>;
+  return (
+    <h2>Diet</h2>
+  );
 }
 
 function Contact() {
-  return <h2>Contact</h2>;
+  return (
+    <h2>Contact</h2>
+  );
 }
 
 function App() {
