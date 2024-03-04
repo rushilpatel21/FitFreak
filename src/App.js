@@ -45,7 +45,7 @@ function Header() {
                       <ul id="navigation">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link to="/services">Workout Log</Link></li> {/*We give them suggestions too, We allow user to log workout and view their logged workout*/}
+                        <li><Link to="/workoutLog">Workout Log</Link></li> {/*We give them suggestions too, We allow user to log workout and view their logged workout*/}
                         <li><Link>Progress</Link>
                           <ul className="submenu">
                             <li><Link to="/caloriesBurnt">Calories Burnt</Link></li>
@@ -53,8 +53,8 @@ function Header() {
                             <li><Link to="/waterIntake">Water Intake</Link></li>
                           </ul>
                         </li> {/*We show user a graph for their workout*/}
-                        <li><Link to="/gallery">Music</Link></li>
-                        <li><Link to="/blog">Diet</Link></li>
+                        <li><Link to="/music">Music</Link></li>
+                        <li><Link to="/diet">Diet</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                       </ul>
                     </nav>
@@ -156,20 +156,34 @@ function About() {
   );
 }
 
-function Services() {
+function WorkoutLog() {
   return <h2>Services</h2>;
 }
 
-function Schedule() {
-  return <h2>Schedule</h2>;
+function CaloriesBurnt(){
+  return (
+    <h1>Hello</h1>
+  );
 }
 
-function Gallery() {
-  return <h2>Gallery</h2>;
+function WorkoutMinutes(){
+  return (
+    <h1>Hello</h1>
+  );
 }
 
-function Blog() {
-  return <h2>Blog</h2>;
+function WaterIntake(){
+  return (
+    <h1>Hello</h1>
+  );
+}
+
+function Music() {
+  return <h2>Music</h2>;
+}
+
+function Diet() {
+  return <h2>Diet</h2>;
 }
 
 function Contact() {
@@ -186,10 +200,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/schedule" element={<Schedule />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/workoutLog" element={<WorkoutLog />} />
+          <Route path="/caloriesBurnt" element={<CaloriesBurnt />} />
+          <Route path="/workoutMinutes" element={<WorkoutMinutes />} />
+          <Route path="/waterIntake" element={<WaterIntake />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/diet" element={<Diet />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
