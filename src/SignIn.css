@@ -1,0 +1,48 @@
+.sign-in-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* background-color: #f9f9f9; */
+}
+
+.sign-in-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: red;
+}
+
+.sign-in-form label {
+  display: block;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.sign-in-form input[type="text"],
+.sign-in-form input[type="email"],
+.sign-in-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.sign-in-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-in-form button:hover {
+  background-color: #0056b3;
+}
