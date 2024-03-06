@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 import './App.css'; 
 import logo from './assets/logo.png';
 import './SignIn.css';
@@ -30,6 +31,11 @@ import './SignUp.css';
 // }
 
 function Header() {
+  const [signUpText, setSignUpText] = useState('Sign Up');
+
+  const updateSignUpText = (text) => {
+    setSignUpText(text);
+  };
   return (
     <header>
       <div className="header-area header-transparent">
@@ -69,11 +75,11 @@ function Header() {
                     </Routes>
 
                     </a> */}
-                    <div className="btn header-btn">
-                      <Link  to="/signup" >Sign Up</Link>
+                    <div id='SignUp' className="btn header-btn">
+                      <Link to="/signup" id='This-Text' >Sign Up</Link>
                     </div>
                     <div className="btn header-btn">
-                      <Link  to="/signin" >Sign In</Link>
+                      <Link to="/signin" >Sign In</Link>
                     </div>
                   </div>
                 </div>
@@ -159,7 +165,7 @@ function Signin() {
   );
 }
 
-function Signup() {
+function Signup({updateSignUpText}) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -191,18 +197,38 @@ function Signup() {
     };
     console.log('User data:', userData); //Saving data
 
-    setUsername('');
-    setEmail('');
-    setPassword('');
-    setWeight('');
-    // setTargetWeight('');
-    // setGoal('');
-    setLifestyle('');
-    setHeight('');
-    setBmi('');
-    setBirthday('');
-    setAge('');
-    setSex('');
+    //comment the below part 
+    
+    // const valueForSignUp = document.getElementById('SignUp');
+    // const name1 = username;
+    // // const name = '${name1}';
+    // const linkElement = <Link to="/signup">{name1}</Link>;
+    // ReactDOM.render(linkElement, valueForSignUp);
+
+
+    // if (username) {
+    //   console.log(username);
+    //   console.log(document.querySelector('#This-Text').innerHTML);
+    //   document.querySelector('#This-Text').innerHTML = username;
+    //   document.querySelector('#This-Text').setAttribute('to','/profile-details');
+    //   // document.querySelector('#This-Text') = 
+    //   // updateSignUpText(username);
+    // }
+
+    //un comment the below part 
+
+    // setUsername('');
+    // setEmail('');
+    // setPassword('');
+    // setWeight('');
+    // // setTargetWeight('');
+    // // setGoal('');
+    // setLifestyle('');
+    // setHeight('');
+    // setBmi('');
+    // setBirthday('');
+    // setAge('');
+    // setSex('');
   };
 
   const calculateAge = () => {
@@ -272,26 +298,6 @@ function Signup() {
             required
           />
         </div>
-        {/* <div>
-          <label htmlFor="targetWeight">Target Weight:</label>
-          <input
-            type="number"
-            id="targetWeight"
-            value={targetWeight}
-            onChange={(e) => setTargetWeight(e.target.value)}
-            required
-          />
-        </div> */}
-        {/* <div>
-          <label htmlFor="goal">Goal:</label>
-          <input
-            type="text"
-            id="goal"
-            value={goal}
-            onChange={(e) => setGoal(e.target.value)}
-            required
-          />
-        </div> */}
         <div>
           <label htmlFor="lifestyle">Lifestyle:</label>
           <select
@@ -432,8 +438,17 @@ function Contact() {
     <h2>Contact</h2>
   );
 }
-
+function ProfileDetails(){
+  return(
+    <h2>This is Profile Details</h2>
+  );
+}
 function App() {
+  const [signUpText, setSignUpText] = useState('Sign Up');
+
+  const updateSignUpText = (text) => {
+    setSignUpText(text);
+  };
   return (
     <Router>
       <div>
@@ -450,8 +465,10 @@ function App() {
           <Route path="/music" element={<Music />} />
           <Route path="/diet" element={<Diet />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/profile-details" element={<ProfileDetails />} />
+          <Route path="/signup" element={<Signup updateSignUpText={updateSignUpText} />} />
+          <Route path="/signin" element={<Signin updateSignUpText={updateSignUpText} />} />
+          
         </Routes>
       </div>
     </Router>
