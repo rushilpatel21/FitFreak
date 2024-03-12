@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 // import './SignIn.css';
 
 
-function Signin() {
+function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute}) {
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
+    // const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
   
     const handleSignIn = (e) => {
       e.preventDefault();
       const userData = {
         username: username,
-        email: email,
+        // email: email,
         password: password,
       };
       console.log('User data:', userData); //Saving data
   
       setUsername('');
-      setEmail('');
+      // setEmail('');
       setPassword('');
     };
   
@@ -36,7 +36,7 @@ function Signin() {
               required
             />
           </div>
-          <div>
+          {/* <div>
             <label htmlFor="email">Email:</label>
             <input
               type="email"
@@ -46,7 +46,7 @@ function Signin() {
               placeholder='Enter email'
               required
             />
-          </div>
+          </div> */}
           <div>
             <label htmlFor="password">Password</label>
             <input

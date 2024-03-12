@@ -12,12 +12,12 @@
   margin-bottom: 20px;
   color: red;
 }
-
+/* 
 .sign-up-form label {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
-}
+} */
 
 .sign-up-form div {
   margin-bottom: 10px;
@@ -25,6 +25,7 @@
 
 .sign-up-form input[type='text'],
 .sign-up-form input[type='email'],
+/* .sign-up-form input[type='username'], */
 .sign-up-form input[type='password'],
 .sign-up-form input[type='number'],
 .sign-up-form select,

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 // import './SignUp.css';
- 
-function Signup({updateSignUpText}) {
+
+function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute  }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -11,6 +11,7 @@ function Signup({updateSignUpText}) {
     // const [targetWeight, setTargetWeight] = useState('');
     // const [goal, setGoal] = useState('');
     const [lifestyle, setLifestyle] = useState('');
+    const [goal, setGoal] = useState('');
     const [height, setHeight] = useState('');
     const [bmi,setBmi] = useState('');
     const [birthday, setBirthday] = useState('');
@@ -27,6 +28,7 @@ function Signup({updateSignUpText}) {
         // targetWeight: targetWeight,
         // goal: goal,
         lifestyle: lifestyle,
+        goal: goal,
         height: height,
         bmi : bmi,
         birthday: birthday,
@@ -36,6 +38,13 @@ function Signup({updateSignUpText}) {
       console.log('User data:', userData); //Saving data
   
       //comment the below part 
+      updateSignUpText(username);
+      setLoggedIn(true);
+      updateSignInText('Log Out');
+      updateSignInRoute('/logOut');
+      updateSignUpRoute('/userDetails');
+      // console.log(signInText);
+      // console.log(signUpText);
       
       // const valueForSignUp = document.getElementById('SignUp');
       // const name1 = username;
@@ -63,11 +72,17 @@ function Signup({updateSignUpText}) {
       // // setGoal('');
       // setLifestyle('');
       // setHeight('');
+      // setGoal('');
       // setBmi('');
       // setBirthday('');
       // setAge('');
       // setSex('');
     };
+    useEffect(() => {
+      console.log('Username:', username); // Will log the updated value
+      console.log('SignInText:', signInText); // Assuming signInText is a state or prop
+      console.log('SignUpText:', signUpText); // Assuming signUpText is a state or prop
+    }, [username, signInText, signUpText]);
   
     const calculateAge = () => {
       const today = new Date();
@@ -148,6 +163,20 @@ function Signup({updateSignUpText}) {
               <option value="sedentary">Sedentary</option>
               <option value="moderate">Moderate</option>
               <option value="active">Active</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="goal">Goal:</label>
+            <select
+              id="goal"
+              value={goal}
+              onChange={(e) => setGoal(e.target.value)}
+              required
+            >
+              <option value="">Select Goal</option>
+              <option value="weightLoss">Weight Loss</option>
+              <option value="bulking">Bulking</option>
+              {/* <option value="active">Active</option> */}
             </select>
           </div>
           <div>
