@@ -30,12 +30,23 @@ import UserDetails from './components/UserDetails.js'
 import LogOut from './components/LogOut.js'
 
 function App() {
+
+  //State for user authentication status and username
   const [signUpText, setSignUpText] = useState('Sign Up');
   const [signInText, setSignInText] = useState('Sign In');
   const [loggedIn, setLoggedIn] = useState(false); // we need to use this to verify if the user is logged in or not, especially for Progress and Workout Log
   const [signUpRoute, setSignUpRoute] = useState('/signup');
   const [signInRoute, setSignInRoute] = useState('/signin');
-
+  const [userDetails, setUserDetails] = useState('');
+  const [showUserDetails, setShowUserDetails] = useState(false);
+  
+  //Methods  for handling button clicks and routing
+  const toggleUserDetailsModal = () => {
+    setShowUserDetails(!showUserDetails);
+  };
+  const updateUserDetails = (text) => {
+    setUserDetails(text);
+  }
   const updateSignUpRoute = (text) => {
     setSignUpRoute(text);
   }
@@ -52,7 +63,7 @@ function App() {
     <Router>
       <div>
         {/* <MenuBar /> */}
-        <Header signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />
+        <Header signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />
         <Content />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -67,12 +78,13 @@ function App() {
           {/* <Route path="/profile-details" element={<ProfileDetails signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} /> */}
           <Route path="/searchMusic" element={<SearchMusic />} />
           <Route path="/recommendedMusic" element={<RecommendedMusic />} />
-          <Route path="/signup" element={<Signup signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
-          <Route path="/signin" element={<Signin signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
-          <Route path="/userDetails" element={<UserDetails />} />
-          <Route path="/logOut" element={<LogOut />} />
+          <Route path="/signup" element={<Signup signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} updateUserDetails={updateUserDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} />
+          <Route path="/signin" element={<Signin signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} updateUserDetails={updateUserDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} />
+          {/* <Route path="/userDetails" element={<UserDetails userDetails={userDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} /> */}
+          <Route path="/logOut" element={<LogOut signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} updateUserDetails={updateUserDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} />
           
         </Routes>
+        {showUserDetails && <UserDetails userDetails={userDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />}
       </div>
     </Router>
   );

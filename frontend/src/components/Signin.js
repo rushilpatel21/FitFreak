@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import './SignIn.css';
 
 
-function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute}) {
+function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute, toggleUserDetailsModal, showUserDetails}) {
     const [username, setUsername] = useState('');
     // const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

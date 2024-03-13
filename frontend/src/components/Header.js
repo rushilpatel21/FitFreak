@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
-function Header({ updateSignUpText, signUpText, loggedIn, setLoggedIn,signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute }) {
+function Header({ updateSignUpText, signUpText, loggedIn, setLoggedIn,signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute, toggleUserDetailsModal, showUserDetails}) {
     // const [signUpText, setSignUpText] = useState('Sign Up');
 
     // const handleSignUp = (username) => {
     //     setSignUpText(username); // Update button text to username
     // };
-    
+    const handleShowUserDetails = () => {
+        if(loggedIn === true){
+            toggleUserDetailsModal();
+        }
+    }
+
     return (
         <header>
             <div className="header-area header-transparent">
@@ -48,7 +53,7 @@ function Header({ updateSignUpText, signUpText, loggedIn, setLoggedIn,signInText
                                     </div>
                                     <div className="header-right-btn f-right d-none d-lg-block ml-30">
                                         <div className="btn header-btn">
-                                            <Link to={signUpRoute} id='This-Text'>{signUpText}</Link>
+                                            <Link to={signUpRoute} onClick={handleShowUserDetails} id='This-Text'>{signUpText}</Link>
                                         </div>
                                         <div className="btn header-btn">
                                             <Link to={signInRoute}>{signInText}</Link>

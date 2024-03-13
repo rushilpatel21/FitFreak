@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 // import './SignUp.css';
 
-function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute  }) {
+function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute, updateUserDetails, toggleUserDetailsModal, showUserDetails  }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,7 +18,8 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     const [birthday, setBirthday] = useState('');
     const [age, setAge] = useState('');
     const [sex, setSex] = useState('');
-  
+    const navigate = useNavigate();
+
     const handleSignUp = (e) => {
       e.preventDefault();
       const userData = {
@@ -36,13 +38,28 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         sex: sex,
       };
       console.log('User data:', userData); //Saving data
-  
+      updateUserDetails(userData);
+      // console.table(userData);
       //comment the below part 
       updateSignUpText(username);
       setLoggedIn(true);
       updateSignInText('Log Out');
       updateSignInRoute('/logOut');
-      updateSignUpRoute('/userDetails');
+      updateSignUpRoute('#');
+      // updateSignUpRoute('/userDetails'); 
+      setUsername('');
+      setEmail('');
+      setPassword('');
+      setWeight('');
+      setLifestyle('');
+      setHeight('');
+      setGoal('');
+      setBmi('');
+      setBirthday('');
+      setAge('');
+      setSex('');
+      navigate('/');
+
       // console.log(signInText);
       // console.log(signUpText);
       
@@ -64,25 +81,13 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
   
       //un comment the below part 
   
-      // setUsername('');
-      // setEmail('');
-      // setPassword('');
-      // setWeight('');
-      // // setTargetWeight('');
-      // // setGoal('');
-      // setLifestyle('');
-      // setHeight('');
-      // setGoal('');
-      // setBmi('');
-      // setBirthday('');
-      // setAge('');
-      // setSex('');
+      
     };
-    useEffect(() => {
-      console.log('Username:', username); // Will log the updated value
-      console.log('SignInText:', signInText); // Assuming signInText is a state or prop
-      console.log('SignUpText:', signUpText); // Assuming signUpText is a state or prop
-    }, [username, signInText, signUpText]);
+    // useEffect(() => {
+    //   console.log('Username:', username); // Will log the updated value
+    //   console.log('SignInText:', signInText); // Assuming signInText is a state or prop
+    //   console.log('SignUpText:', signUpText); // Assuming signUpText is a state or prop
+    // }, [username, signInText, signUpText]);
   
     const calculateAge = () => {
       const today = new Date();
