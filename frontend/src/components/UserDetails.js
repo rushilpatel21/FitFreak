@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Popup from './Popup.js'; // Import Popup component
 
-function UserDetails({ userDetails, toggleUserDetailsModal, showUserDetails }) {
+function UserDetails({ updateUserDetails, userDetails, toggleUserDetailsModal, showUserDetails }) {
   const [showModal, setShowModal] = useState(true);
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
-
+  useEffect(() => {
+    if(localStorage.getItem("isLoggedIn") === 'true'){
+      console.log('user has already logged in');
+      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      // let username = storedUser.username;
+      updateUserDetails(storedUser);
+      // navigate('/');
+    }
+  }, []);
   return (
     <div className="user-details-container">
       {/* <button onClick={toggleModal}>Open Modal</button> */}

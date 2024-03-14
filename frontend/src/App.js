@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 
@@ -28,6 +28,7 @@ import Contact from './components/Contact.js'
 // import ProfileDetails from './components/ProfileDetails.js'
 import UserDetails from './components/UserDetails.js'
 import LogOut from './components/LogOut.js'
+import WorkoutHistory from './components/WorkoutHistory.js'
 
 function App() {
 
@@ -59,6 +60,21 @@ function App() {
   const updateSignInText = (text) => {
     setSignInText(text);
   };
+
+  useEffect(() => {
+    if(localStorage.getItem("isLoggedIn") === 'true'){
+      console.log('user has already logged in');
+      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      let username = storedUser.username;
+      updateSignUpText(username);
+      setLoggedIn(true);
+      updateSignInText('Log Out');
+      updateSignInRoute('/logOut');
+      updateSignUpRoute('#');
+      // navigate('/');
+    }
+  }, []);
+
   return (
     <Router>
       <div>
@@ -69,6 +85,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/workoutLog" element={<WorkoutLog signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
+          <Route path="/workoutHistory" element={<WorkoutHistory signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           <Route path="/caloriesBurnt" element={<CaloriesBurnt signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           <Route path="/workoutMinutes" element={<WorkoutMinutes signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           <Route path="/waterIntake" element={<WaterIntake signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
@@ -84,7 +101,7 @@ function App() {
           <Route path="/logOut" element={<LogOut signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} updateUserDetails={updateUserDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} />
           
         </Routes>
-        {showUserDetails && <UserDetails userDetails={userDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />}
+        {showUserDetails && <UserDetails updateUserDetails={updateUserDetails} userDetails={userDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />}
       </div>
     </Router>
   );

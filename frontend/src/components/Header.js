@@ -32,7 +32,14 @@ function Header({ updateSignUpText, signUpText, loggedIn, setLoggedIn,signInText
                                             <ul id="navigation">
                                                 <li><Link to="/">Home</Link></li>
                                                 <li><Link to="/about">About</Link></li>
-                                                <li><Link to="/workoutLog">Workout Log</Link></li>
+                                                {/* <li><Link to="/workoutLog">Workout Log</Link></li> */}
+                                                <li><Link>Workout</Link>
+                                                    <ul className="submenu">
+                                                        <li><Link to="/workoutLog">Workout Log</Link></li>
+                                                        <li><Link to="/workoutHistory">Workout History</Link></li>
+                                                        {/* <li><Link to="/waterIntake">Water Intake</Link></li> */}
+                                                    </ul>
+                                                </li>
                                                 <li><Link>Progress</Link>
                                                     <ul className="submenu">
                                                         <li><Link to="/caloriesBurnt">Calories Burnt</Link></li>

@@ -8,6 +8,8 @@ function LogOut({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
   updateSignInText('Sign In');
   updateSignInRoute('/signin');
   updateSignUpRoute('/signup');
+  localStorage.setItem("isLoggedIn",false);
+
   navigate('/');
 
     return (

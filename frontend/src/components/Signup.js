@@ -19,6 +19,8 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     const [age, setAge] = useState('');
     const [sex, setSex] = useState('');
     const navigate = useNavigate();
+    
+    
 
     const handleSignUp = (e) => {
       e.preventDefault();
@@ -58,6 +60,11 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       setBirthday('');
       setAge('');
       setSex('');
+      localStorage.setItem('userDetail',JSON.stringify(userData));
+      localStorage.setItem('isLoggedIn',true);
+      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+
+      console.log(storedUser);
       navigate('/');
 
       // console.log(signInText);
