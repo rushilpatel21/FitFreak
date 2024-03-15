@@ -18,7 +18,7 @@ function UserDetails({ updateUserDetails, userDetails, toggleUserDetailsModal, s
     }
   }, []);
   return (
-    <div className="user-details-container">
+    <div className="user-details-container align-modal">
       {/* <button onClick={toggleModal}>Open Modal</button> */}
       {showModal && (
         <Popup>
