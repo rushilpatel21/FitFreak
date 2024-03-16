@@ -1,0 +1,159 @@
+.food-log-container {
+  /* display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 auto; */
+
+  /* display: grid;
+  grid-template-columns: auto 1fr; 
+  margin: 0 auto;
+  padding-left: 190px; */
+  display: grid;
+  grid-template-columns: auto 1fr; /* This creates two columns, the first one is auto-sized, and the second one takes the remaining space */
+  margin: 0 auto;
+  padding-left: 190px;
+}
+.food-log-right {
+  grid-column: 2;
+}
+.today-food-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: red;
+}
+.today-food-log-container {
+  max-width: auto;
+  margin: 0 100px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  grid-column: 1;
+  
+}
+.food-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  grid-column: 1;
+}
+
+.food-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+
+  color: red;
+}
+.date-food-log {
+  width: 200px;
+  font-size: 15px;
+  text-align: center;
+
+}
+.food-form > div {
+  display: flex; /* Use flexbox for the container */
+  align-items: center; /* Align items vertically */
+}
+.food-form div {
+  margin-bottom: 10px;
+}
+
+/* .food-form input[type='text'],
+.food-form input[type='email'],
+.food-form input[type='password'],
+.food-form input[type='number'],
+.food-form select, */
+.food-form input[type='date'],
+.food-form input[type='time'],
+.date-input {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.food-form input[type='date']{
+  width: 80% !important;
+}
+
+.food-form input,
+.food-form select,
+.food-form button {
+  margin-right: 5px; /* Add some spacing between elements */
+  margin-bottom: 5px; /* Add some spacing between rows */
+}
+.handle-fetch-btn {
+  height: 38px;
+  border: none;
+  margin-bottom: 10px !important;
+  /* margin-top: 10px; */
+  border-radius: 0 !important;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding-left: 22px !important;
+}
+/* .food-form input[type='number'], */
+.handle-fetch-btn {
+  /* Adjust width and height as needed */
+  padding: 8px 10px; /* Adjust padding as needed */
+}
+.food-form input[type='text'] {
+  width: 80px;
+  /* height: 30px; */
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.food-form-quant{
+  width: 70px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.food-form-unit {
+  width: 60px;
+  height: 39px;
+  margin-left: 0px;
+  margin-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.food-form-name {
+  width: 60px;
+  height: 39px;
+  margin-left: 0px;
+  margin-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.food-form input[type='text'] {
+  
+  width:  150px;
+}
+.handle-fetch-btn {
+  /* max-width: 10px; */
+  /* max-height: 10px; */
+  width: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 10px;
+}
+.food-form button {
+  padding: 10px;
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.food-form button:hover {
+  background-color: #0056b3;
+}

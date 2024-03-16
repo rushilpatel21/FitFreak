@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
 // import axios from 'axios'; 
 
-function WorkoutLog() {
+function WaterLog() {
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
   const [workoutDate, setWorkoutDate] = useState(new Date().toISOString().slice(0, 10));
@@ -181,4 +181,4 @@ function WorkoutLog() {
     );
   }
 
-export default WorkoutLog;
+export default WaterLog;

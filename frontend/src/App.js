@@ -3,23 +3,29 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 
 //CSS
+import './styles/Header.css';
 import './styles/SignIn.css';
 import './styles/SignUp.css';
 import './styles/SearchMusic.css';
 import './styles/RecommendedMusic.css'
 import './styles/App.css'; 
 import './styles/UserDetails.css';
+import './styles/WorkoutLog.css'
+import './styles/WaterLog.css'
+import './styles/FoodLog.css'
 
 //Components 
 import Signup from './components/Signup.js'
 import Signin from './components/Signin.js'
 import Header from './components/Header.js'
-import Content from './components/Content.js'
+// import Content from './components/Content.js'
 import Home from './components/Home.js'
 import About from './components/About.js'
 import WorkoutLog from './components/WorkoutLog.js'
+import FoodLog from './components/FoodLog.js'
+import WaterLog from './components/WaterLog.js'
 import CaloriesBurnt from './components/CaloriesBurnt.js'
-import WorkoutMinutes from './components/WorkoutMinutes.js'
+// import WorkoutMinutes from './components/WorkoutMinutes.js'
 import WaterIntake from './components/WaterIntake.js'
 import SearchMusic from './components/SearchMusic.js'
 import RecommendedMusic from './components/RecommendedMusic.js'
@@ -80,14 +86,16 @@ function App() {
       <div>
         {/* <MenuBar /> */}
         <Header signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />
-        <Content />
+        {/* <Content /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/workoutLog" element={<WorkoutLog signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
+          <Route path="/foodLog" element={<FoodLog signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
+          <Route path="/waterLog" element={<WaterLog signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           <Route path="/workoutHistory" element={<WorkoutHistory signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           <Route path="/caloriesBurnt" element={<CaloriesBurnt signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
-          <Route path="/workoutMinutes" element={<WorkoutMinutes signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
+          {/* <Route path="/workoutMinutes" element={<WorkoutMinutes signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} /> */}
           <Route path="/waterIntake" element={<WaterIntake signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           {/* <Route path="/music" element={<Music />} /> */}
           <Route path="/diet" element={<Diet signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />

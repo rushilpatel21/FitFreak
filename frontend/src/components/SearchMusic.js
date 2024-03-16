@@ -39,7 +39,7 @@ function SearchMusic() {
           onKeyDown={handleKeyDown}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button onClick={searchMusic}>Search</button>
+        <button className='music-search-btn' onClick={searchMusic}>Search</button>
       </div>
   
       <div id="results">

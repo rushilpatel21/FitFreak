@@ -33,18 +33,20 @@ function Header({ updateSignUpText, signUpText, loggedIn, setLoggedIn,signInText
                                                 <li><Link to="/">Home</Link></li>
                                                 <li><Link to="/about">About</Link></li>
                                                 {/* <li><Link to="/workoutLog">Workout Log</Link></li> */}
-                                                <li><Link>Workout</Link>
+                                                <li><Link>Log</Link>
                                                     <ul className="submenu">
-                                                        <li><Link to="/workoutLog">Workout Log</Link></li>
-                                                        <li><Link to="/workoutHistory">Workout History</Link></li>
+                                                        <li><Link to="/workoutLog">Log Workout</Link></li>
+                                                        <li><Link to="/foodLog">Log Food</Link></li>
+                                                        <li><Link to="/waterLog">Log Water</Link></li>
                                                         {/* <li><Link to="/waterIntake">Water Intake</Link></li> */}
                                                     </ul>
                                                 </li>
                                                 <li><Link>Progress</Link>
                                                     <ul className="submenu">
                                                         <li><Link to="/caloriesBurnt">Calories Burnt</Link></li>
-                                                        <li><Link to="/workoutMinutes">Workout Minutes</Link></li>
+                                                        {/* <li><Link to="/workoutMinutes">Workout Minutes</Link></li> */}
                                                         <li><Link to="/waterIntake">Water Intake</Link></li>
+                                                        <li><Link to="/workoutHistory">Workout History</Link></li>
                                                     </ul>
                                                 </li>
                                                 <li><Link>Music</Link>

@@ -1,0 +1,47 @@
+.workout-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+.workout-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: red;
+}
+
+
+.workout-form div {
+  margin-bottom: 10px;
+}
+
+.workout-form input[type='text'],
+.workout-form input[type='email'],
+.workout-form input[type='password'],
+.workout-form input[type='number'],
+.workout-form select,
+.workout-form input[type='date'],
+.workout-form input[type='time'] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.workout-form button {
+  padding: 10px;
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.workout-form button:hover {
+  background-color: #0056b3;
+}
