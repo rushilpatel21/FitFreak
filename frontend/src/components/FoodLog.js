@@ -17,7 +17,7 @@ function FoodLog() {
   const [foodSugar, setFoodSugar] = useState();
   const [foodProtein, setFoodProtein] = useState();
   const [foodCarbohydrates, setFoodCarbohydrates] = useState();
-  const [foodFinalData,setFoodFinalData] = useState();
+  // const [foodFinalData,setFoodFinalData] = useState();
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");

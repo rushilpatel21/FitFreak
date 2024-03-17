@@ -22,7 +22,7 @@ function WorkoutLog() {
   }, []);
 
   useEffect(() => {
-    if (workoutData) {
+    if (workoutData && workoutData.length !== 0) {
       console.log("Workout data updated:", workoutData);
       setWorkoutType('');
       setWorkoutName('');

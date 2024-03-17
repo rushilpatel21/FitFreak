@@ -19,7 +19,7 @@ function WaterLog() {
   }, []);
 
   useEffect(() => {
-    if (waterData) {
+    if (waterData && waterData.length !== 0) {
       console.log("Workout data updated:", waterData);
       setWaterUnit('');
       setWaterQuantity('');
