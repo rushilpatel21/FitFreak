@@ -10,7 +10,7 @@ const MongoClient = mongodb.MongoClient
 const port = process.env.PORT || 8000;
 console.log(port);
 MongoClient.connect(process.env.RESTREVIEWS_DB_URI, {
-    // poolSize: 1,
+    // poolSize: 1, 
     // wtimeoutMS: 2500,
     // useNewUrlParser: true // Corrected option name
 })
