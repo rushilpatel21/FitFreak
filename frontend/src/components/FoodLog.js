@@ -78,7 +78,7 @@ function FoodLog() {
         {!showNotification && (
           <>
             <div className='food-container'>
-              <h2 className='food-title'>Log Food </h2>
+              <h2 className='food-title'>Log Food Intake</h2>
               <form onSubmit={handleSubmit} className='food-form'>
                 <div>
                   <label className='date-food-log' htmlFor="foodDate">
@@ -227,7 +227,7 @@ function FoodLog() {
             <div className='food-log-right'>
           
               <div className='today-food-log-container'>
-                <h2 className='today-food-title'>Today's Logged Food</h2>
+                <h2 className='today-food-title'>Today's Food Intake</h2>
               </div>
           
             </div>

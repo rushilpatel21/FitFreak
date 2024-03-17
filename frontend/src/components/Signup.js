@@ -155,6 +155,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               type="number"
               id="weight"
               value={weight}
+              min='1'
               onChange={(e) => {
                 setWeight(e.target.value)
                 calculateBmi();
@@ -172,9 +173,9 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               required
             >
               <option value="">Select Lifestyle</option>
-              <option value="sedentary">Sedentary</option>
-              <option value="moderate">Moderate</option>
-              <option value="active">Active</option>
+              <option value="Sedentary">Sedentary</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Active">Active</option>
             </select>
           </div>
           <div>
@@ -186,9 +187,10 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               required
             >
               <option value="">Select Goal</option>
-              <option value="weightLoss">Weight Loss</option>
-              <option value="bulking">Bulking</option>
-              {/* <option value="active">Active</option> */}
+              <option value="Weight Loss">Weight Loss</option>
+              <option value="Bulking">Bulking</option>
+              <option value="Weight Gain">Weight Gain</option>
+              
             </select>
           </div>
           <div>
@@ -196,6 +198,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
             <input
               type="number"
               id="height"
+              min='1'
               value={height}
               onChange={(e) => {
                 setHeight(e.target.value)
@@ -235,6 +238,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
             <input
               type="text"
               id="age"
+              min='18'
               value={age}
               onChange={(e) => setAge(e.target.value)}
               readOnly
@@ -251,9 +255,9 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               required
             >
               <option value="">Select Sex</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <button type="submit">Sign Up</button>

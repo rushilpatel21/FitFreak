@@ -32,22 +32,25 @@ function WorkoutLog() {
   };
 
     return (
-      <div>
+      <>
       {showNotification && (
         <Notification
           message="Please log in to view this page."
           onClose={closeNotification}
         />
       )}
+      <div className='workout-log-container'>
       {!showNotification && (
+        <>
         <div className='workout-container'>
         <h2 className='workout-title'>Add New Workout</h2>
         <form onSubmit={handleSubmit} className='workout-form'>
           <div>
-            <label htmlFor="workoutDate">
+            <label className='workout-label' htmlFor="workoutDate">
               Workout Date:
             </label>
             <input
+              className="data-input"
               type="date"
               id="workoutDate"
               value={workoutDate}
@@ -56,10 +59,11 @@ function WorkoutLog() {
             />
           </div>
           <div>
-            <label htmlFor="workoutType">
+            <label className='workout-label' htmlFor="workoutType">
               Workout Type:
             </label>
             <select
+              className="data-input"
               id="workoutType"
               value={workoutType}
               onChange={(e) => {
@@ -76,11 +80,12 @@ function WorkoutLog() {
             </select>
           </div>
           <div>
-            <label htmlFor="workoutName">
+            <label className='workout-label' htmlFor="workoutName">
               Workout Name:
             </label>
             <select
               // type="text"
+              className="data-input"
               id="workoutName"
               value={workoutName}
               onChange={(e) => setWorkoutName(e.target.value)}
@@ -135,34 +140,39 @@ function WorkoutLog() {
             </select>
           </div>
           <div>
-            <label htmlFor="workoutMinutes">
+            <label className='workout-label' htmlFor="workoutMinutes">
               Minutes:
             </label>
             <input
+              className="data-input"
               type="number"
               id="workoutMinutes"
+              min='1'
               value={workoutMinutes}
               onChange={(e) => setWorkoutMinutes(e.target.value)}
               required
             />
           </div>
           <div>
-            <label htmlFor="caloriesBurnt">
+            <label className='workout-label' htmlFor="caloriesBurnt">
               Calories Burnt:
             </label>
             <input
+              className="data-input"
               type="number"
               id="caloriesBurnt"
+              min='1'
               value={caloriesBurnt}
               onChange={(e) => setCaloriesBurnt(e.target.value)}
               required
             />
           </div>
           <div>
-            <label htmlFor="startTime">
+            <label className='workout-label' htmlFor="startTime">
               Start Time:
             </label>
             <input
+              className="data-input"
               type="time"
               id="startTime"
               value={startTime}
@@ -173,11 +183,19 @@ function WorkoutLog() {
           <button type="submit">Add Workout</button>
         </form>
       </div>
-      
+      <div className='food-log-right'>
+          
+        <div className='today-workout-log-container'>
+          <h2 className='today-workout-title'>Today's Workout</h2>
+        </div>
+          
+      </div>
+      </>
       )
 
       }
-    </div>
+      </div>
+    </>
     );
   }
 

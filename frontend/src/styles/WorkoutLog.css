@@ -1,9 +1,33 @@
+.today-workout-log-container {
+  max-width: auto;
+  margin: 0 100px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  grid-column: 1;
+}
+
+.today-workout-title{
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: red;
+}
+
+.workout-log-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin: 0 auto;
+  padding-left: 190px;
+}
+
 .workout-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 440px ;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  grid-column: 1;
   }
   
 .workout-title {
@@ -13,11 +37,21 @@
   color: red;
 }
 
+.data-input {
+  width: 80% !important ;
+  padding: 8px !important ;
+  border: 1px solid #ccc !important ;
+  border-radius: 4px !important ;
+}
 
 .workout-form div {
   margin-bottom: 10px;
 }
-
+.workout-label {
+  width: 200px !important ;
+  font-size: 15px !important ;
+  text-align: center !important ;
+}
 .workout-form input[type='text'],
 .workout-form input[type='email'],
 .workout-form input[type='password'],
@@ -30,7 +64,13 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
+.workout-form > div {
+  display: flex; 
+  align-items: center; 
+}
+.workout-form div {
+  margin-bottom: 15px;
+}
 .workout-form button {
   padding: 10px;
   width: 100%;
