@@ -8,15 +8,16 @@ function FoodLog() {
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
   const [foodDate, setFoodDate] = useState(new Date().toISOString().slice(0, 10));
-  const [foodUnit, setFoodUnit] = useState('');
+  const [foodUnit, setFoodUnit] = useState(' ');
   const [foodQuantity, setFoodQuantity] = useState('');
   const [foodName, setFoodName] = useState('');
   const [foodData, setFoodData] = useState([]); // Here we accept the api's response data for our query results
-  const [foodCalories, setFoodCalories] = useState('');
-  const [foodFat, setFoodFat] = useState('');
-  const [foodSugar, setSugar] = useState('');
-  const [foodProtein, setProtein] = useState('');
-  const [foodCarbohydrates, setCarbohydrates] = useState('');
+  const [foodCalories, setFoodCalories] = useState();
+  const [foodFat, setFoodFat] = useState();
+  const [foodSugar, setFoodSugar] = useState();
+  const [foodProtein, setFoodProtein] = useState();
+  const [foodCarbohydrates, setFoodCarbohydrates] = useState();
+  const [foodFinalData,setFoodFinalData] = useState();
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
@@ -26,16 +27,32 @@ function FoodLog() {
   }, []);
 
   useEffect(() => {
-    console.log(foodData);
-  }, [foodData]);
+    if(foodData[0]){
+      console.log(foodData[0]);
+      // console.table(foodData);
+      setFoodCalories(foodData[0].calories);
+      setFoodFat(foodData[0].fat_total_g);
+      setFoodSugar(foodData[0].sugar_g);
+      setFoodProtein(foodData[0].protein_g);
+      setFoodCarbohydrates(foodData[0].carbohydrates_total_g);
+    }
+    
+    
+  }, [foodData, setFoodCarbohydrates,setFoodProtein,setFoodSugar,setFoodFat,setFoodCalories  ]);
 
-  const fetchFoodData = (query) => {
+  const fetchFoodData = async (query) => {
+    console.log('inside api call');
     axios.get('https://api.api-ninjas.com/v1/nutrition', {
       params: { query },
       headers: { 'X-Api-Key': apiKey }
     })
       .then(response => {
         setFoodData(response.data);
+        // setFoodCalories(response.data.calories);
+        // setFoodFat(response.data.fat_total_g);
+        // setFoodSugar(response.data.sugar_g);
+        // setFoodProtein(response.data.protein_g);
+        // setFoodCarbohydrates(response.data.carbohydrates_total_g);
       })
       .catch(error => {
         console.error('Error:', error.response.data);
@@ -52,11 +69,18 @@ function FoodLog() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const foodQuery = foodQuantity + " " + foodUnit + " " + foodName;
-    fetchFoodData(foodQuery);
-    // setFoodQuantity('');
-    // setFoodUnit('');
-    // setFoodName('');
+    // const foodQuery = foodQuantity + " " + foodUnit + " " + foodName;
+    // fetchFoodData(foodQuery);
+    setFoodQuantity('');
+    setFoodUnit('');
+    setFoodName('');
+    setFoodCalories('');
+    setFoodFat('');
+    setFoodSugar('');
+    setFoodProtein('');
+    setFoodCarbohydrates('');
+    console.log(foodData[0]);
+    // console.log(foodFinalData);
   }
 
   const closeNotification = () => {
@@ -134,7 +158,7 @@ function FoodLog() {
                     }}
                     required
                   />
-                  <button className='handle-fetch-btn' onClick={handleFetchFoodData}>Auto Fill</button>
+                  <button type='button' className='handle-fetch-btn' onClick={handleFetchFoodData}>Auto Fill</button>
                 </div>
                 <div>
                   <label className='date-food-log' htmlFor="foodDate">
@@ -144,13 +168,14 @@ function FoodLog() {
                     className="date-input"
                     type="number"
                     id="foodCalories"
-                    value={foodCalories}
+                    value={foodCalories || ''}
                     placeholder='Food Calories'
                     min="1"
+                    step="0.01"
                     onChange={(e) => {
                       setFoodCalories(e.target.value);
                     }}
-                    // required
+                    required
                   />
                 </div>
                 <div>
@@ -161,13 +186,14 @@ function FoodLog() {
                     className="date-input"
                     type="number"
                     id="foodFat"
-                    value={foodFat}
+                    value={foodFat || ''}
                     placeholder='Food Fat (g)'
                     min="1"
+                    step="0.01"
                     onChange={(e) => {
                       setFoodFat(e.target.value);
                     }}
-                    // required
+                    required
                   />
                 </div>
                 <div>
@@ -178,13 +204,14 @@ function FoodLog() {
                     className="date-input"
                     type="number"
                     id="foodSugar"
-                    value={foodSugar}
+                    value={foodSugar || ''}
                     placeholder='Food Sugar (g)'
                     min="1"
+                    step="0.01"
                     onChange={(e) => {
-                      setSugar(e.target.value);
+                      setFoodSugar(e.target.value);
                     }}
-                    // required
+                    required
                   />
                 </div>
                 <div>
@@ -195,13 +222,14 @@ function FoodLog() {
                     className="date-input"
                     type="number"
                     id="foodProtein"
-                    value={foodProtein}
+                    value={foodProtein || ''}
                     placeholder='Food Protein (g)'
                     min="1"
+                    step="0.01"
                     onChange={(e) => {
-                      setProtein(e.target.value);
+                      setFoodProtein(e.target.value);
                     }}
-                    // required
+                    required
                   />
                 </div>
                 <div>
@@ -212,13 +240,14 @@ function FoodLog() {
                     className="date-input"
                     type="number"
                     id="foodCarbohydrates"
-                    value={foodCarbohydrates}
+                    value={foodCarbohydrates || ''}
                     placeholder='Food Carbohydrates (g)'
                     min="1"
+                    step="0.01"
                     onChange={(e) => {
-                      setCarbohydrates(e.target.value);
+                      setFoodCarbohydrates(e.target.value);
                     }}
-                    // required
+                    required
                   />
                 </div>
                 <button type="submit">Add Food Intake</button>

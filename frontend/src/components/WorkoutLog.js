@@ -12,20 +12,45 @@ function WorkoutLog() {
   const [workoutMinutes, setWorkoutMinutes] = useState('');
   const [caloriesBurnt, setCaloriesBurnt] = useState('');
   const [startTime, setStartTime] = useState('');
-  
+  const [workoutData,setWorkoutData] = useState([]);
+
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
     if (userState === 'false') {
       setShowNotification(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (workoutData) {
+      console.log("Workout data updated:", workoutData);
+      setWorkoutType('');
+      setWorkoutName('');
+      setWorkoutMinutes('');
+      setCaloriesBurnt('');
+      setStartTime('');
+      setWorkoutData('');
+    }
+  }, [workoutData]);
+
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    
-
-
-
+    if(workoutDate && workoutType && workoutName && workoutMinutes &&caloriesBurnt && startTime ){
+      const workoutObj = {
+        workoutDate,
+        workoutType,
+        workoutName,
+        workoutMinutes,
+        caloriesBurnt,
+        startTime
+      }
+      setWorkoutData(workoutObj);
+      // setWorkoutData(prevWorkoutData => [...prevWorkoutData, workoutObj]);
+      // console.log(workoutObj);
+      // console.log(workoutData); 
+    }
   }
+
   const closeNotification = () => {
     setShowNotification(false);
     navigate('/');

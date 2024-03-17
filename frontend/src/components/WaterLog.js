@@ -9,16 +9,33 @@ function WaterLog() {
   const [waterDate, setWaterDate] = useState(new Date().toISOString().slice(0, 10));
   const [waterUnit, setWaterUnit] = useState('');
   const [waterQuantity, setWaterQuantity] = useState('');
-  
+  const [waterData,setWaterData] = useState([]);
+
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
     if (userState === 'false') {
       setShowNotification(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (waterData) {
+      console.log("Workout data updated:", waterData);
+      setWaterUnit('');
+      setWaterQuantity('');
+    }
+  }, [waterData]);
+
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    
+    if(waterDate && waterQuantity && waterUnit){
+      const waterObj = {
+        waterDate,
+        waterQuantity,
+        waterUnit
+      }
+      setWaterData(waterObj);
+    }
 
 
 
