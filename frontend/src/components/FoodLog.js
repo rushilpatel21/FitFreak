@@ -36,8 +36,6 @@ function FoodLog() {
       setFoodProtein(foodData[0].protein_g);
       setFoodCarbohydrates(foodData[0].carbohydrates_total_g);
     }
-    
-    
   }, [foodData, setFoodCarbohydrates,setFoodProtein,setFoodSugar,setFoodFat,setFoodCalories  ]);
 
   const fetchFoodData = async (query) => {
@@ -53,6 +51,9 @@ function FoodLog() {
         // setFoodSugar(response.data.sugar_g);
         // setFoodProtein(response.data.protein_g);
         // setFoodCarbohydrates(response.data.carbohydrates_total_g);
+        if(!response.data[0]){
+          alert('Sorry, We dont have the food name in our database. Please Fill the details manually');
+        }
       })
       .catch(error => {
         console.error('Error:', error.response.data);
