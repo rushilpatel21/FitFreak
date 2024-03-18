@@ -1,18 +1,24 @@
-/* Style for WorkoutHistory component */
 .workout-history-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #000000; 
+    color: #fff; 
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
   .workout-history-title {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 24px;
+    color: #ff4d4d; 
   }
   
   .toggle-button {
-    background-color: #4caf50;
-    color: white;
+    background-color: #3399ff; 
+    color: #fff; 
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -21,18 +27,18 @@
     font-size: 16px;
     margin-bottom: 20px;
     cursor: pointer;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
   }
   
   .toggle-button:hover {
-    background-color: #45a049;
+    background-color: #2672c1; 
   }
   
-  /* Animation for the chart */
-  @keyframes appear {
+  @keyframes slideIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(-20px);
     }
     to {
       opacity: 1;
@@ -41,6 +47,6 @@
   }
   
   .chart-container {
-    animation: appear 0.5s ease-in-out;
+    animation: slideIn 0.5s ease-in-out;
   }
   
