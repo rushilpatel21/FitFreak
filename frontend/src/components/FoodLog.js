@@ -17,7 +17,7 @@ function FoodLog() {
   const [foodSugar, setFoodSugar] = useState();
   const [foodProtein, setFoodProtein] = useState();
   const [foodCarbohydrates, setFoodCarbohydrates] = useState();
-  // const [foodFinalData,setFoodFinalData] = useState();
+  const [foodFinalData,setFoodFinalData] = useState([]);
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
@@ -37,7 +37,12 @@ function FoodLog() {
       setFoodCarbohydrates(foodData[0].carbohydrates_total_g);
     }
   }, [foodData, setFoodCarbohydrates,setFoodProtein,setFoodSugar,setFoodFat,setFoodCalories  ]);
-
+  useEffect(() => {
+    if(foodFinalData){
+      console.log("Final food data");
+      console.log(foodFinalData[0]);
+    }
+  },[foodFinalData])
   const fetchFoodData = async (query) => {
     console.log('inside api call');
     axios.get('https://api.api-ninjas.com/v1/nutrition', {
@@ -72,15 +77,63 @@ function FoodLog() {
     e.preventDefault();
     // const foodQuery = foodQuantity + " " + foodUnit + " " + foodName;
     // fetchFoodData(foodQuery);
-    setFoodQuantity('');
-    setFoodUnit('');
-    setFoodName('');
-    setFoodCalories('');
-    setFoodFat('');
-    setFoodSugar('');
-    setFoodProtein('');
-    setFoodCarbohydrates('');
-    console.log(foodData[0]);
+    if(!foodData[0] || foodName !== foodData[0].name){
+      let foodGrams = 0;
+      if(foodUnit === 'g'){
+        foodGrams = foodQuantity;
+      }else if(foodUnit === 'kg'){
+        foodGrams = Math.round(foodQuantity * 1000);
+      }else if(foodUnit === 'lb'){
+        foodGrams = Math.round((foodQuantity*2.20462).toFixed(2));
+      }else if(foodUnit === ' '){
+        foodGrams = 250*foodQuantity;
+      }
+      console.log("No Food");
+      const foodObj = [
+        {
+          "name": foodName,
+          "calories": foodCalories,
+          "serving_size_g": foodGrams,
+          "fat_total_g": foodFat,
+          "fat_saturated_g": 0,
+          "protein_g": foodProtein,
+          "sodium_mg": 0,
+          "potassium_mg": 0,
+          "cholesterol_mg": 0,
+          "carbohydrates_total_g": foodCarbohydrates,
+          "fiber_g": 0,
+          "sugar_g": foodSugar 
+        }
+      ]
+      console.log("Inside Manual Food Entry");
+      console.log(foodObj[0]);
+      setFoodFinalData(foodObj);
+
+      setFoodQuantity('');
+      setFoodUnit(' ');
+      setFoodName('');
+      setFoodCalories('');
+      setFoodFat('');
+      setFoodSugar('');
+      setFoodProtein('');
+      setFoodCarbohydrates('');
+        
+    }else{
+      setFoodQuantity('');
+      setFoodUnit(' ');
+      setFoodName('');
+      setFoodCalories('');
+      setFoodFat('');
+      setFoodSugar('');
+      setFoodProtein('');
+      setFoodCarbohydrates('');
+      setFoodFinalData(foodData);
+      
+    }
+
+    clearValues();
+    console.log("Final: ");
+    // console.log(foodData[0])
     // console.log(foodFinalData);
   }
 
@@ -88,7 +141,17 @@ function FoodLog() {
     setShowNotification(false);
     navigate('/');
   };
-
+  const clearValues  = ()=>{
+    setFoodQuantity('');
+    setFoodUnit(' ');
+    setFoodName('');
+    setFoodCalories('');
+    setFoodFat('');
+    setFoodSugar('');
+    setFoodProtein('');
+    setFoodCarbohydrates('');
+    setFoodData([]);
+  }
   return (
     <>
       <div>
@@ -171,7 +234,7 @@ function FoodLog() {
                     id="foodCalories"
                     value={foodCalories || ''}
                     placeholder='Food Calories'
-                    min="1"
+                    min="0"
                     step="0.01"
                     onChange={(e) => {
                       setFoodCalories(e.target.value);
@@ -189,7 +252,7 @@ function FoodLog() {
                     id="foodFat"
                     value={foodFat || ''}
                     placeholder='Food Fat (g)'
-                    min="1"
+                    min="0"
                     step="0.01"
                     onChange={(e) => {
                       setFoodFat(e.target.value);
@@ -207,7 +270,7 @@ function FoodLog() {
                     id="foodSugar"
                     value={foodSugar || ''}
                     placeholder='Food Sugar (g)'
-                    min="1"
+                    min="0"
                     step="0.01"
                     onChange={(e) => {
                       setFoodSugar(e.target.value);
@@ -225,7 +288,7 @@ function FoodLog() {
                     id="foodProtein"
                     value={foodProtein || ''}
                     placeholder='Food Protein (g)'
-                    min="1"
+                    min="0"
                     step="0.01"
                     onChange={(e) => {
                       setFoodProtein(e.target.value);
@@ -243,7 +306,7 @@ function FoodLog() {
                     id="foodCarbohydrates"
                     value={foodCarbohydrates || ''}
                     placeholder='Food Carbohydrates (g)'
-                    min="1"
+                    min="0"
                     step="0.01"
                     onChange={(e) => {
                       setFoodCarbohydrates(e.target.value);

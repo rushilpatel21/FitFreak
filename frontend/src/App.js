@@ -3,16 +3,17 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 
 //CSS
-import './styles/Header.css';
-import './styles/SignIn.css';
-import './styles/SignUp.css';
-import './styles/SearchMusic.css';
+import './styles/Header.css'
+import './styles/SignIn.css'
+import './styles/SignUp.css'
+import './styles/SearchMusic.css'
 import './styles/RecommendedMusic.css'
-import './styles/App.css'; 
-import './styles/UserDetails.css';
+import './styles/App.css'
+import './styles/UserDetails.css'
 import './styles/WorkoutLog.css'
 import './styles/WaterLog.css'
 import './styles/FoodLog.css'
+import './styles/WorkoutHistory.css'
 
 //Components 
 import Signup from './components/Signup.js'
