@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
-import { Bar, Pie, Doughnut } from 'react-chartjs-2';
+import { Bar, Doughnut } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
-// import Pie from 'pie.js/auto';
 
 function WorkoutHistory() {
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
-  const [workoutData, setWorkoutData] = useState({});
-  const [displayMode, setDisplayMode] = useState('Days');
+  const [workoutDayData, setWorkoutDayData] = useState({}); // This is for 7 days
+  const [workoutMonthData, setWorkoutMonthData] = useState({}); // This is for 6 months
+  const [displayMode, setDisplayMode] = useState('Days'); // This is for display mode
+  const [dataForWorkoutTotal,setDataForWorkoutTotal] = useState({}); // This is for workout data (total)
+  const [dataForWorkoutType,setDataForWorkoutType] = useState({}); // This is for workout data (type)
+  const [workoutTypeDayData,setWorkoutTypeDayData] = useState({});
+  const [workoutTypeMonthData,setWorkoutTypeMonthData] = useState({});
+  const [displayModeType, setDisplayModeType] = useState('Days');
 
   useEffect(() => {
     const userState = localStorage.getItem('isLoggedIn');
@@ -18,8 +23,8 @@ function WorkoutHistory() {
     }
   }, []);
 
-  useEffect(() => {
-    // Mock workout data for demonstration
+  useEffect(() => { //This is for bar graph as it will have total workout
+    
     const MockWorkoutDataForDays = {
       labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
       datasets: [
@@ -60,15 +65,61 @@ function WorkoutHistory() {
         },
       ],
     };
+    setWorkoutDayData(MockWorkoutDataForDays);
+    setWorkoutMonthData(MockWorkoutDataForMonths);
+    console.log(workoutDayData);
+  }, []);
+
+
+  useEffect(() => { //This is for doughnut graph as it will have types of workout
     
-    
-    if(displayMode === 'Days'){
-      setWorkoutData(MockWorkoutDataForDays);
-    }else {
-      setWorkoutData(MockWorkoutDataForMonths);
-    }
-    console.log(workoutData);
-  }, [displayMode]);
+    const MockWorkoutDataForDays = { // One type would for for today, different types of workout
+      labels: ['Cardio', 'Strength Training', 'Flexibility Training', 'Balance & Stability'],
+      datasets: [
+        {
+          label: 'Workout Minutes',
+          data: [30, 45, 60, 40],
+          backgroundColor: [
+            'rgb(83,124,56)',
+            'rgb(123,165,145)',
+            'rgb(204, 34, 43)',
+            'rgb(241, 91, 76)'
+          ],
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+        },
+      ],
+    };
+    const MockWorkoutDataForMonths = { // this for the past 7 days, different types of workout
+      labels: ['Cardio', 'Strength Training', 'Flexibility Training', 'Balance & Stability'],
+      datasets: [
+        {
+          label: 'Workout Minutes',
+          data: [450, 300, 500, 460], 
+          backgroundColor: [
+            'rgb(83,124,56)',
+            'rgb(123,165,145)',
+            'rgb(204, 34, 43)',
+            'rgb(241, 91, 76)'
+          ],
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+        },
+      ],
+    };
+
+    setWorkoutTypeDayData(MockWorkoutDataForDays);
+    setWorkoutTypeMonthData(MockWorkoutDataForMonths);
+    console.log(workoutDayData);
+  }, []);
+
+
+
+
+  useEffect(() => {
+    setDataForWorkoutTotal(displayMode === 'Days' ? workoutDayData : workoutMonthData);
+    setDataForWorkoutType(displayModeType === 'Days' ? workoutTypeDayData : workoutTypeMonthData);
+  }, [displayMode, displayModeType, workoutDayData, workoutMonthData, workoutTypeDayData, workoutTypeMonthData]);
 
   const closeNotification = () => {
     setShowNotification(false);
@@ -78,8 +129,26 @@ function WorkoutHistory() {
   const toggleDaysMonths = () => {
     
     setDisplayMode(prevMode => (prevMode === 'Days' ? 'Months' : 'Days'));
+    if(displayMode === 'Days'){
+      setDataForWorkoutTotal(workoutDayData);
+      // setDataForWorkoutType(workoutTypeDayData);
+    }else {
+      setDataForWorkoutTotal(workoutMonthData);
+      // setDataForWorkoutType(workoutTypeMonthData);
+    }
+
   };
 
+  const toggleDaysMonthsType = () => {
+    setDisplayModeType(prevMode => (prevMode==='Days' ? 'Months' : 'Days'));
+    if(displayModeType === 'Days'){
+      // setDataForWorkoutTotal(workoutDayData);
+      setDataForWorkoutType(workoutTypeDayData);
+    }else {
+      // setDataForWorkoutTotal(workoutMonthData);
+      setDataForWorkoutType(workoutTypeMonthData);
+    }
+  }
   return (
     <>
       {showNotification && (
@@ -89,14 +158,14 @@ function WorkoutHistory() {
         />
       )}
       {!showNotification && (
-        <>
-          <div className="workout-history-container">
-            <button className="toggle-button" onClick={toggleDaysMonths}>{displayMode}</button>
+        <div className='workout-container'>
+          <div className="workout-history-container-1"> {/* This is for total workout for last 7 days and for last 6 months */}
+            <button className="toggle-button-workout" onClick={toggleDaysMonths}>{displayMode}</button>
             <h2 className="workout-history-title">{displayMode === 'Days' ? 'Workout Minutes by Days' : 'Workout Minutes by Months'}</h2>
-            {workoutData && Object.keys(workoutData).length > 0 && (
+            {dataForWorkoutTotal && Object.keys(dataForWorkoutTotal).length > 0 && (
               <div className="chart-container">
                 <Bar
-                  data={workoutData}
+                  data={dataForWorkoutTotal}
                   options={{
                     scales: {
                       x: {
@@ -108,25 +177,18 @@ function WorkoutHistory() {
               </div>
             )}
           </div>
-          <div className="workout-history-container">
-            <button className="toggle-button" onClick={toggleDaysMonths}>{displayMode}</button>
-            <h2 className="workout-history-title">{displayMode === 'Days' ? 'Workout Minutes by Days' : 'Workout Minutes by Months'}</h2>
-            {workoutData && Object.keys(workoutData).length > 0 && (
-              <div className="chart-container">
+          <div className="workout-history-container-2"> {/* This is for Types of workout. 1) Today's and 2) This week's, can add more later */}
+            <button className="toggle-button-workout" onClick={toggleDaysMonthsType}>{displayModeType}</button>
+            <h2 className="workout-history-title">{displayModeType === 'Days' ? 'Today\'s Workout Distribution' : 'Month\'s Workout Distribution'}</h2>
+            {dataForWorkoutType && Object.keys(dataForWorkoutType).length > 0 && (
+              <div className="chart-container-1">
                 <Doughnut
-                  data={workoutData}
-                  // options={{
-                  //   scales: {
-                  //     x: {
-                  //       type: 'category',
-                  //     },
-                  //   },
-                  // }}
+                  data={dataForWorkoutType}
                 />
               </div>
             )}
           </div>
-        </>
+        </div>
       )}
     </>
   );

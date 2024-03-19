@@ -101,7 +101,7 @@ function WorkoutLog() {
               <option value="Cardio">Cardio</option>
               <option value="StrengthTraining">Strength Training</option>
               <option value="FlexibilityTraining">Flexibility Training</option>
-              <option value="BalanceAndStability">Balance and Stability</option>
+              <option value="BalanceAndStability">Balance & Stability</option>
             </select>
           </div>
           <div>
