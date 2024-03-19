@@ -158,7 +158,7 @@ function WorkoutHistory() {
         />
       )}
       {!showNotification && (
-        <div className='workout-container'>
+        <div className='workout-container workout-container-history'>
           <div className="workout-history-container-1"> {/* This is for total workout for last 7 days and for last 6 months */}
             <button className="toggle-button-workout" onClick={toggleDaysMonths}>{displayMode}</button>
             <h2 className="workout-history-title">{displayMode === 'Days' ? 'Workout Minutes by Days' : 'Workout Minutes by Months'}</h2>
