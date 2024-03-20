@@ -14,7 +14,8 @@ import './styles/WorkoutLog.css'
 import './styles/WaterLog.css'
 import './styles/FoodLog.css'
 import './styles/WorkoutHistory.css'
-
+import './styles/WaterIntake.css'
+import './styles/CaloriesBurnt.css'
 //Components 
 import Signup from './components/Signup.js'
 import Signin from './components/Signin.js'

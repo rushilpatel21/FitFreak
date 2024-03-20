@@ -39,10 +39,6 @@ function WorkoutMinutes(){
           <button onClick={toggleDaysMonths}>Toggle Days/Months</button>
           <Bar data={workoutData} />
         </div>
-        
-
-
-
       )
 
       }

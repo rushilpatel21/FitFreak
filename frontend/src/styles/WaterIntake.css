@@ -1,0 +1,64 @@
+.chart-container-water {
+    animation: slideIn 0.5s ease-in-out;
+    flex: 1;
+    width: 900px;
+    height: 500px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 300px;
+    margin-top: 50px;
+}
+
+.water-history-title {
+    margin-left: 550px;
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ff4d4d;
+    display: inline-block !important;
+}
+.toggle-button-water{
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    height: 50px;
+    width: 100px;
+}
+.toggle-button-water:hover {
+    background-color: #8f0000;
+}
+
+.water-history-container-1 {
+    flex: 1;
+    width: 100%;
+    /* max-width: 800px; */
+    max-height: 700px;
+    height: 700px;
+    margin-right: 20px; 
+    padding: 20px;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline;
+    flex-direction: column;
+}
+
+.water-container-history {
+    width: 1500px;
+    display: flex;
+    align-items: center;
+    height: 800px;
+    overflow: hidden;
+}

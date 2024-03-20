@@ -7,8 +7,10 @@ import Chart from 'chart.js/auto';
 function WaterIntake(){
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
-  const [workoutData, setWorkoutData] = useState({});
+  const [waterDataMonth, setWaterDataMonth] = useState({});
+  const [waterDataDay, setWaterDataDay] = useState({});
   const [displayMode, setDisplayMode] = useState('Days');
+  const [waterData, setWaterData] = useState(); 
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
@@ -18,39 +20,50 @@ function WaterIntake(){
   }, []);
 
   useEffect(() => {
-    // Mock workout data for demonstration
-    const MockWorkoutDataForDays = {
+    
+    const MockWaterDataForDays = {
       labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
       datasets: [
         {
-          label: 'Workout Minutes',
-          data: [30, 45, 60, 40, 50, 20, 80], // Mock workout minutes for each day
-          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          label: 'Water Minutes',
+          data: [30, 45, 60, 40, 50, 20, 80], 
+          backgroundColor: [
+            'rgb(83,124,56)',
+            'rgb(123,165,145)',
+            'rgb(204, 34, 43)',
+            'rgb(241, 91, 76)',
+            'rgb(250, 164, 27)',
+            'rgb(255,212,91)',
+            'rgb(255,229,180)'
+          ],
           borderColor: 'rgba(54, 162, 235, 1)',
           borderWidth: 1,
         },
       ],
     };
-    const MockWorkoutDataForMonths = {
+    const MockWaterDataForMonths = {
       labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
       datasets: [
         {
-          label: 'Workout Minutes',
+          label: 'Water Minutes',
           data: [45, 30, 90, 20, 70,110], 
-          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          backgroundColor: [
+            'rgb(83,124,56)',
+            'rgb(123,165,145)',
+            'rgb(204, 34, 43)',
+            'rgb(241, 91, 76)',
+            'rgb(250, 164, 27)',
+            'rgb(255,212,91)'
+          ],
           borderColor: 'rgba(54, 162, 235, 1)',
           borderWidth: 1,
         },
       ],
     };
     
-    
-    if(displayMode === 'Days'){
-      setWorkoutData(MockWorkoutDataForDays);
-    }else {
-      setWorkoutData(MockWorkoutDataForMonths);
-    }
-    console.log(workoutData);
+      setWaterDataDay(MockWaterDataForDays);
+      setWaterDataMonth(MockWaterDataForMonths);
+    // console.log(waterData);
   }, [displayMode]);
 
   const closeNotification = () => {
@@ -58,13 +71,21 @@ function WaterIntake(){
     navigate('/');
   };
 
+  useEffect(() => {
+    setWaterData(displayMode === 'Days' ? waterDataDay : waterDataMonth);
+  }, [displayMode, waterData, waterDataDay, waterDataMonth]);
+
   const toggleDaysMonths = () => {
-    
     setDisplayMode(prevMode => (prevMode === 'Days' ? 'Months' : 'Days'));
+    if(displayMode==='Days'){
+      setWaterData(waterDataDay);
+    }else {
+      setWaterData(waterDataMonth);
+    }
   };
 
     return (
-      <div>
+      <>
       {showNotification && (
         <Notification
           message="Please log in to view this page."
@@ -72,28 +93,30 @@ function WaterIntake(){
         />
       )}
       {!showNotification && (
-        <div className="workout-history-container">
-          <button className="toggle-button" onClick={toggleDaysMonths}>{displayMode}</button>
-          <h2 className="workout-history-title">{displayMode === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
-          {workoutData && Object.keys(workoutData).length > 0 && (
-            <div className="chart-container">
-              <Bar
-                data={workoutData}
-                options={{
-                  scales: {
-                    x: {
-                      type: 'category',
+        <div className='water-container water-container-history'>
+          <div className="water-history-container-1"> {/* This is for total water for last 7 days and for last 6 months */}
+            <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>
+            <h2 className="water-history-title">{displayMode === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
+            {waterData && Object.keys(waterData).length > 0 && (
+              <div className="chart-container-water">
+                <Bar
+                  data={waterData}
+                  options={{
+                    scales: {
+                      x: {
+                        type: 'category',
+                      },
                     },
-                  },
-                }}
-              />
-            </div>
-          )}
+                  }}
+                />
+              </div>
+            )}
+          </div>
         </div>
       )
 
       }
-    </div>
+    </>
     );
   }
 
