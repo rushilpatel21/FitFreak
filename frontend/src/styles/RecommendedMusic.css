@@ -4,6 +4,12 @@
     padding: 20px;
     text-align: center;
   }
+
+.spotify-embed {
+  border-radius: 12px;
+  height : 800px;
+  /* background-color: black; */
+}
   
   .recommended-music-buttons {
     display: grid;
