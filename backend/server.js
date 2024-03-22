@@ -1,17 +1,9 @@
-import express from "express"
-import cors from "cors"
-// import workouts from "./api/workouts.route.js"
-import restaurants from './api/restaurants.route.js'
-
+const express = require("express")
 const app = express()
 
-app.use(cors())
-app.use(express.json()) // Allows us to parse
-
-// app.use("/api/v1/workouts" , workouts)
-// app.use("*",(req,res) => res.status(404).json({error : "not found"}))
-
-app.use("/api/v1/restaurants" , restaurants)
-app.use("*",(req,res) => res.status(404).json({error : "not found"}))
-
-export default app
+app.get("/api", (req, res) => {
+    res. json({ "users": ["userOne", "userTwo", "userThree"] })
+    
+})
+    
+app. listen(5000, () => { console. log("Server started on port 5000") })
