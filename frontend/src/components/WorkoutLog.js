@@ -99,9 +99,9 @@ function WorkoutLog() {
             >
               <option value="">Select Workout Type</option>
               <option value="Cardio">Cardio</option>
-              <option value="StrengthTraining">Strength Training</option>
-              <option value="FlexibilityTraining">Flexibility Training</option>
-              <option value="BalanceAndStability">Balance & Stability</option>
+              <option value="Strength Training">Strength Training</option>
+              <option value="Flexibility Training">Flexibility Training</option>
+              <option value="Balance And Stability">Balance & Stability</option>
             </select>
           </div>
           <div>
@@ -129,7 +129,7 @@ function WorkoutLog() {
                 <option value="Rowing">Rowing</option>         
                 </>       
               )}
-              {workoutType === 'StrengthTraining' && (
+              {workoutType === 'Strength Training' && (
                 <>
                 <option value="">Select Strength Training Exercise Below:</option>
                 <option value="Barbell Squats">Barbell Squats</option>
@@ -140,7 +140,7 @@ function WorkoutLog() {
                 <option value="Push-Ups">Push-Ups</option>
                 </>
               )}
-              {workoutType === 'FlexibilityTraining' && (
+              {workoutType === 'Flexibility Training' && (
                 <>
                 <option value="">Select Flexibility Training Exercise Below:</option>
                 <option value="Static Stretching">Static Stretching</option>
@@ -151,7 +151,7 @@ function WorkoutLog() {
                 </>
                 
               )}
-              {workoutType === 'BalanceAndStability' && (
+              {workoutType === 'Balance And Stability' && (
                 <>
                 <option value="">Select Balance & Stability Exercise Below:</option>
                 <option value="Single-Leg Balance">Single-Leg Balance</option>

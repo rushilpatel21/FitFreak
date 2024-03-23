@@ -1,0 +1,62 @@
+[
+    {
+        "userName": "JohnSmith",
+        "waterDate": "23-03-2024",
+        "waterQuantity": 500,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "JohnSmith",
+        "waterDate": "23-03-2024",
+        "waterQuantity": 300,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "JohnSmith",
+        "waterDate": "23-03-2024",
+        "waterQuantity": 400,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "JohnSmith",
+        "waterDate": "24-03-2024",
+        "waterQuantity": 600,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "JohnSmith",
+        "waterDate": "25-03-2024",
+        "waterQuantity": 350,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "JohnSmith",
+        "waterDate": "26-03-2024",
+        "waterQuantity": 450,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "waterDate": "23-03-2024",
+        "waterQuantity": 550,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "waterDate": "23-03-2024",
+        "waterQuantity": 400,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "waterDate": "24-03-2024",
+        "waterQuantity": 700,
+        "waterUnit": "ml"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "waterDate": "25-03-2024",
+        "waterQuantity": 300,
+        "waterUnit": "ml"
+    }
+]

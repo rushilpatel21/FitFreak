@@ -1,0 +1,92 @@
+[
+    {
+        "userName": "JohnSmith",
+        "workoutDate": "23-03-2024",
+        "workoutType": "Cardio",
+        "workoutName": "Running",
+        "workoutMinutes": 45,
+        "caloriesBurnt": 350,
+        "startTime": "08:30"
+    },
+    {
+        "userName": "JohnSmith",
+        "workoutDate": "23-03-2024",
+        "workoutType": "Strength Training",
+        "workoutName": "Deadlifts",
+        "workoutMinutes": 60,
+        "caloriesBurnt": 400,
+        "startTime": "11:15"
+    },
+    {
+        "userName": "JohnSmith",
+        "workoutDate": "24-03-2024",
+        "workoutType": "Flexibility Training",
+        "workoutName": "Yoga Poses",
+        "workoutMinutes": 30,
+        "caloriesBurnt": 150,
+        "startTime": "18:00"
+    },
+    {
+        "userName": "JohnSmith",
+        "workoutDate": "25-03-2024",
+        "workoutType": "Balance And Stability",
+        "workoutName": "Stability Ball Exercises",
+        "workoutMinutes": 40,
+        "caloriesBurnt": 250,
+        "startTime": "16:45"
+    },
+    {
+        "userName": "JohnSmith",
+        "workoutDate": "26-03-2024",
+        "workoutType": "Cardio",
+        "workoutName": "Cycling",
+        "workoutMinutes": 60,
+        "caloriesBurnt": 420,
+        "startTime": "07:00"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "workoutDate": "23-03-2024",
+        "workoutType": "Cardio",
+        "workoutName": "Swimming",
+        "workoutMinutes": 60,
+        "caloriesBurnt": 500,
+        "startTime": "09:30"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "workoutDate": "24-03-2024",
+        "workoutType": "Strength Training",
+        "workoutName": "Bench Press",
+        "workoutMinutes": 45,
+        "caloriesBurnt": 300,
+        "startTime": "14:20"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "workoutDate": "25-03-2024",
+        "workoutType": "Flexibility Training",
+        "workoutName": "Tai Chi",
+        "workoutMinutes": 30,
+        "caloriesBurnt": 200,
+        "startTime": "17:00"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "workoutDate": "26-03-2024",
+        "workoutType": "Balance And Stability",
+        "workoutName": "Balance Board Exercises",
+        "workoutMinutes": 40,
+        "caloriesBurnt": 280,
+        "startTime": "19:15"
+    },
+    {
+        "userName": "EmmaJohnson",
+        "workoutDate": "26-03-2024",
+        "workoutType": "Cardio",
+        "workoutName": "Elliptical Training",
+        "workoutMinutes": 45,
+        "caloriesBurnt": 380,
+        "startTime": "08:45"
+    }
+]

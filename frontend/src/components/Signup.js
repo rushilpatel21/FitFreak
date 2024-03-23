@@ -40,6 +40,8 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         sex: sex,
       };
       console.log('User data:', userData); //Saving data
+      console.log(userData.age);
+      console.log(typeof(userData.age));
       updateUserDetails(userData);
       // console.table(userData);
       //comment the below part 
