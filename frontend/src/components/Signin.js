@@ -20,10 +20,30 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
           console.log("Username che:", response.data.users[0]);
           setUserData(response.data.users[0]);
           // localStorage.setItem('userDetail',JSON.stringify(response.data[0]));
-          return "1";
+          // return "1";
+          if(password !== response.data.users[0].password){
+            alert("Wrong Password!");
+            setPassword('');
+            return;
+          }else{
+            await updateSignUpText(username);
+            setLoggedIn(true);
+            updateSignInText('Log Out');
+            updateSignInRoute('/logOut');
+            updateSignUpRoute('#');
+            setUsername('');
+            setPassword('');
+            console.log("Inside submit form" + JSON.stringify(response.data.users[0]));
+            localStorage.setItem('userDetail',JSON.stringify(response.data.users[0]));
+            localStorage.setItem('isLoggedIn',true);
+            navigate('/');
+          }
         } else {
           console.log("Username does not exist or other server error:", response.status);
-          return "2";
+          alert("UserName doesnt exsist, please sign up or re-check username");
+          setUsername('');
+          // return;
+          return;
         }
       } catch (error) {
         if (error.response) {
@@ -50,31 +70,31 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         password: password,
       };
       console.log('User data:', userData1); //Saving data
-      const isExit = await checkUserName();
-      if(isExit === "2"){
-        alert("UserName doesnt exsist, please sign up or re-check username");
-        setUsername('');
-        return;
-      }
+      await checkUserName();
+      // if(isExit === "2"){
+      //   alert("UserName doesnt exsist, please sign up or re-check username");
+      //   setUsername('');
+      //   return;
+      // }
       // console.log("Before user data: " + userData);
-      const pwd = userData.password;
-      console.log(pwd);
-      if(password !== pwd){
-        alert("Wrong Password!");
-        setPassword('');
-        return;
-      }
-      updateSignUpText(username);
-      setLoggedIn(true);
-      updateSignInText('Log Out');
-      updateSignInRoute('/logOut');
-      updateSignUpRoute('#');
-      setUsername('');
-      setPassword('');
-      console.log("Inside submit form" + JSON.stringify(userData));
-      localStorage.setItem('userDetail',JSON.stringify(userData));
-      localStorage.setItem('isLoggedIn',true);
-      navigate('/');
+      // const pwd = userData.password;
+      // console.log(pwd);
+      // if(password !== pwd){
+      //   alert("Wrong Password!");
+      //   setPassword('');
+      //   return;
+      // }
+      // updateSignUpText(username);
+      // setLoggedIn(true);
+      // updateSignInText('Log Out');
+      // updateSignInRoute('/logOut');
+      // updateSignUpRoute('#');
+      // setUsername('');
+      // setPassword('');
+      // console.log("Inside submit form" + JSON.stringify(userData));
+      // localStorage.setItem('userDetail',JSON.stringify(userData));
+      // localStorage.setItem('isLoggedIn',true);
+      // navigate('/');
     };
   
     return (
