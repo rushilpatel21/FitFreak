@@ -1,5 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
+require('dotenv').config();
+
 const userRoutes = require('./routes/userRoutes.js');
 const foodLogRoutes = require('./routes/foodLogRoutes.js');
 const workoutLogRoutes = require('./routes/workoutLogRoutes.js');
@@ -9,9 +12,10 @@ const workoutLogUserRoutes = require('./routes/workoutLogUserRoutes.js');
 const foodLogUserRoutes = require('./routes/foodLogUserRoutes.js')
 const userUserRoutes = require('./routes/userUserRoutes.js');
 
-require('dotenv').config();
 
 const app = express();
+
+app.use(cors());
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
