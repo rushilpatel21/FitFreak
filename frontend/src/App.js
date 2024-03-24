@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 
 //CSS
@@ -72,6 +72,11 @@ function App() {
   useEffect(() => {
     if(localStorage.getItem("isLoggedIn") === 'true'){
       console.log('user has already logged in');
+      if(!localStorage.getItem('userDetail')){
+        localStorage.setItem("isLoggedIn" , "false");
+        alert("Critical Error: Error with localstorage");
+        return;
+      }
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
       let username = storedUser.username;
       updateSignUpText(username);

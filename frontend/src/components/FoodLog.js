@@ -41,7 +41,7 @@ function FoodLog() {
       setFoodProtein(foodData[0].protein_g);
       setFoodCarbohydrates(foodData[0].carbohydrates_total_g);
     }
-  }, [foodData, setFoodCarbohydrates,setFoodProtein,setFoodSugar,setFoodFat,setFoodCalories  ]);
+  }, [foodData, setFoodCarbohydrates,setFoodProtein,setFoodSugar,setFoodFat,setFoodCalories]);
   useEffect(() => {
     if(foodFinalData){
       console.log("Final food data");

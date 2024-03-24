@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+// import { get } from 'mongoose';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 // import './SignUp.css';
@@ -19,11 +21,30 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     const [age, setAge] = useState('');
     const [sex, setSex] = useState('');
     const navigate = useNavigate();
-    
-    //Add a check for duplicate username.
+    const [typingTimer, setTypingTimer] = useState(null);
+
+    const handleInputChange = async () => {
+      // const value = e;
+      // setUsername(value);
+      clearTimeout(typingTimer);
+      setTypingTimer(setTimeout(() => {
+        checkUserName();
+        // handleInputChange();
+      }, 3000));
+    };
+    useEffect(() => {
+      return () => {
+        clearTimeout(typingTimer);
+      };
+    }, [typingTimer]);
 
     const handleSignUp = async (e) => {
       e.preventDefault();
+      // if(checkUserName()==='true'){
+      //   alert("Username already exists. Please try another one.");
+      //   setUsername('');
+      //   return;
+      // }
       const userData = {
         username: username,
         email: email,
@@ -42,6 +63,26 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       console.log('User data:', userData); //Saving data
       console.log(userData.age);
       console.log(typeof(userData.age));
+      try{
+        const response = await fetch('/api/userGet', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        });
+        if (response.ok) {
+          console.log('Data submitted successfully');
+        } else {
+          console.error('Failed to submit data');
+          alert("Username is already taken.");
+          setUsername('');
+          return;
+        }
+      } catch (error) {
+        console.error('Error submitting data:', error);
+        return;
+      }
       updateUserDetails(userData);
       // console.table(userData);
       //comment the below part 
@@ -129,7 +170,32 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       setBmi(parseFloat(bmiValue.toFixed(2))); // Round BMI value to two decimal places
     };
     
-  
+    //To check duplicate username
+    const checkUserName = async () => {
+      try {
+        const uri = '/api/users/' + username;
+        console.log('Request URI:', uri);
+        const response = await axios.get(uri);
+        
+        if (response.status === 200) {
+          console.log("Username exists:", response.data);
+          return true;
+        } else {
+          console.log("Username does not exist or other server error:", response.status);
+          return false;
+        }
+      } catch (error) {
+        if (error.response) {
+          console.error('Server responded with error status:', error.response.status);
+          console.error('Error response data:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received from the server:', error.request);
+        } else {
+          console.error('Error setting up the request:', error.message);
+        }
+      }
+    };
+   
     return (
       <div className="sign-up-container">
         <h2 className="sign-up-title">Sign Up</h2>
@@ -140,7 +206,10 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               type="text"
               id="username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setUsername(e.target.value)
+                handleInputChange();
+              }}
               placeholder='Enter username'
               required
             />
@@ -162,7 +231,10 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               type="password"
               id="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value)
+                // handleInputChange();
+              }}
               placeholder='Enter password'
               required
             />
@@ -177,6 +249,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               onChange={(e) => {
                 setWeight(e.target.value)
                 calculateBmi();
+                // handleInputChange();
               }}
               placeholder='Enter weight in kg'
               required
