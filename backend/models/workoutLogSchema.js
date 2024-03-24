@@ -8,7 +8,7 @@ const workoutLogSchema = new mongoose.Schema({
     workoutDate: {
         type: String,
         required: true,
-        match: /^[0-9]{2}-[0-9]{2}-[0-9]{4}$/
+        match: /^\d{4}-\d{2}-\d{2}$/
     },
     workoutType: {
         type: String,

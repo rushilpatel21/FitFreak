@@ -18,11 +18,16 @@ function FoodLog() {
   const [foodProtein, setFoodProtein] = useState();
   const [foodCarbohydrates, setFoodCarbohydrates] = useState();
   const [foodFinalData,setFoodFinalData] = useState([]);
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
     if (userState === 'false') {
       setShowNotification(true);
+    }else{
+      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      setUserName(storedUser.username);
+      
     }
   }, []);
 
@@ -77,8 +82,14 @@ function FoodLog() {
     e.preventDefault();
     // const foodQuery = foodQuantity + " " + foodUnit + " " + foodName;
     // fetchFoodData(foodQuery);
-    if(!foodData[0] || foodName !== foodData[0].name){
+    if(!foodData[0] || foodName.toLowerCase() !== foodData[0].name.toLowerCase()){
       let foodGrams = 0;
+      if(!foodData[0]){
+        console.log("No food data");
+      }else if(foodName !== foodData[0].name){
+        console.log("2nd \nfood name " + foodName);
+        console.log("food data[0]" + foodData[0].name );
+      }
       if(foodUnit === 'g'){
         foodGrams = foodQuantity;
       }else if(foodUnit === 'kg'){
@@ -88,8 +99,27 @@ function FoodLog() {
       }else if(foodUnit === ' '){
         foodGrams = 250*foodQuantity;
       }
-      console.log("No Food");
-      const foodObj = [
+      // console.log("No Food"); 
+      
+      // I have removed the [ ] from the foodObj.
+      const foodObj = 
+        {
+          userName,
+          "name": foodName,
+          "calories": foodCalories,
+          "serving_size_g": foodGrams,
+          "fat_total_g": foodFat,
+          "fat_saturated_g": 0,
+          "protein_g": foodProtein,
+          "sodium_mg": 0,
+          "potassium_mg": 0,
+          "cholesterol_mg": 0,
+          "carbohydrates_total_g": foodCarbohydrates,
+          "fiber_g": 0,
+          "sugar_g": foodSugar,
+          "date": foodDate
+        }
+      const foodObj2 = [
         {
           "name": foodName,
           "calories": foodCalories,
@@ -102,12 +132,13 @@ function FoodLog() {
           "cholesterol_mg": 0,
           "carbohydrates_total_g": foodCarbohydrates,
           "fiber_g": 0,
-          "sugar_g": foodSugar 
+          "sugar_g": foodSugar
+          
         }
       ]
       console.log("Inside Manual Food Entry");
-      console.log(foodObj[0]);
-      setFoodFinalData(foodObj);
+      console.log(foodObj2[0]);
+      setFoodFinalData(foodObj2);
 
       setFoodQuantity('');
       setFoodUnit(' ');
@@ -117,7 +148,25 @@ function FoodLog() {
       setFoodSugar('');
       setFoodProtein('');
       setFoodCarbohydrates('');
-        
+      console.log("Final from if for backend : ");
+      // const foodObj = foodData[0];
+      console.log(foodObj);
+      try{
+        const response = await fetch('/api/foodLogGet', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(foodObj)
+        });
+        if (response.ok) {
+          console.log('Data submitted successfully');
+        } else {
+          console.error('Failed to submit data');
+        }
+      } catch (error) {
+        console.error('Error submitting data:', error);
+      }
     }else{
       setFoodQuantity('');
       setFoodUnit(' ');
@@ -128,13 +177,45 @@ function FoodLog() {
       setFoodProtein('');
       setFoodCarbohydrates('');
       setFoodFinalData(foodData);
-      
+      console.log("Final from else for backend : ");
+      // const foodObj = foodData[0];
+      const foodObj = {
+          userName,
+          "name": foodData[0].name,
+          "calories": foodData[0].calories,
+          "serving_size_g": foodData[0].serving_size_g,
+          "fat_total_g": foodData[0].fat_total_g,
+          "fat_saturated_g": foodData[0].fat_saturated_g,
+          "protein_g": foodData[0].protein_g,
+          "sodium_mg": foodData[0].sodium_mg,
+          "potassium_mg": foodData[0].potassium_mg,
+          "cholesterol_mg": foodData[0].cholesterol_mg,
+          "carbohydrates_total_g": foodData[0].carbohydrates_total_g,
+          "fiber_g": foodData[0].fiber_g,
+          "sugar_g": foodData[0].sugar_g,
+          "date": foodDate
+      }
+      console.log(foodObj);
+      try{
+        const response = await fetch('/api/foodLogGet', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(foodObj)
+        });
+        if (response.ok) {
+          console.log('Data submitted successfully');
+        } else {
+          console.error('Failed to submit data');
+        }
+      } catch (error) {
+        console.error('Error submitting data:', error);
+      }
     }
-
+    console.log(foodData[0]);
     clearValues();
-    console.log("Final: ");
-    // console.log(foodData[0])
-    // console.log(foodFinalData);
+    
   }
 
   const closeNotification = () => {

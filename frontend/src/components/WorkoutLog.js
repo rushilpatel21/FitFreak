@@ -13,13 +13,22 @@ function WorkoutLog() {
   const [caloriesBurnt, setCaloriesBurnt] = useState('');
   const [startTime, setStartTime] = useState('');
   const [workoutData,setWorkoutData] = useState([]);
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
     if (userState === 'false') {
       setShowNotification(true);
+    }else{
+      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      setUserName(storedUser.username);
+      
     }
   }, []);
+
+  useEffect(() => {
+    console.log(userName);
+  }, [userName]);
 
   useEffect(() => {
     if (workoutData && workoutData.length !== 0) {
@@ -37,6 +46,7 @@ function WorkoutLog() {
     e.preventDefault(); 
     if(workoutDate && workoutType && workoutName && workoutMinutes &&caloriesBurnt && startTime ){
       const workoutObj = {
+        userName,
         workoutDate,
         workoutType,
         workoutName,
@@ -45,6 +55,23 @@ function WorkoutLog() {
         startTime
       }
       setWorkoutData(workoutObj);
+
+      try{
+        const response = await fetch('/api/workoutLogGet', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(workoutObj)
+        });
+        if (response.ok) {
+          console.log('Data submitted successfully');
+        } else {
+          console.error('Failed to submit data');
+        }
+      } catch (error) {
+        console.error('Error submitting data:', error);
+      }
       // setWorkoutData(prevWorkoutData => [...prevWorkoutData, workoutObj]);
       // console.log(workoutObj);
       // console.log(workoutData); 

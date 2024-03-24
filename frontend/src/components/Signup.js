@@ -20,9 +20,9 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     const [sex, setSex] = useState('');
     const navigate = useNavigate();
     
-    
+    //Add a check for duplicate username.
 
-    const handleSignUp = (e) => {
+    const handleSignUp = async (e) => {
       e.preventDefault();
       const userData = {
         username: username,
@@ -67,6 +67,22 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
 
       console.log(storedUser);
+      try{
+        const response = await fetch('/api/userGet', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        });
+        if (response.ok) {
+          console.log('Data submitted successfully');
+        } else {
+          console.error('Failed to submit data');
+        }
+      } catch (error) {
+        console.error('Error submitting data:', error);
+      }
       navigate('/');
 
       // console.log(signInText);

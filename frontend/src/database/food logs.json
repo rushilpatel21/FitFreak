@@ -13,7 +13,7 @@
       "carbohydrates_total_g": 0,
       "fiber_g": 0,
       "sugar_g": 0,
-      "date": "23-03-2024"
+      "date": "2024-03-23"
     },
     {
       "userName": "JohnSmith",
@@ -29,7 +29,7 @@
       "carbohydrates_total_g": 0,
       "fiber_g": 0,
       "sugar_g": 0,
-      "date": "22-03-2024"
+      "date": "2024-03-22"
     },
     {
       "userName": "JohnSmith",
@@ -45,7 +45,7 @@
       "carbohydrates_total_g": 6.6,
       "fiber_g": 2.6,
       "sugar_g": 1.7,
-      "date": "23-03-2024"
+      "date": "2024-03-22"
     },
     {
       "userName": "JohnSmith",
@@ -61,7 +61,7 @@
       "carbohydrates_total_g": 3.6,
       "fiber_g": 0,
       "sugar_g": 3.6,
-      "date": "23-03-2024"
+      "date": "2024-03-23"
     },
     {
       "userName": "JohnSmith",
@@ -77,7 +77,7 @@
       "carbohydrates_total_g": 14,
       "fiber_g": 2.4,
       "sugar_g": 10,
-      "date": "22-03-2024"
+      "date": "2024-03-22"
     },
     {
       "userName": "JohnSmith",
@@ -93,7 +93,7 @@
       "carbohydrates_total_g": 45,
       "fiber_g": 6.4,
       "sugar_g": 3.6,
-      "date": "20-03-2024"
+      "date": "2024-03-20"
     },
     {
       "userName": "JohnSmith",
@@ -109,7 +109,7 @@
       "carbohydrates_total_g": 23,
       "fiber_g": 2.6,
       "sugar_g": 12,
-      "date": "21-03-2024"
+      "date": "2024-03-21"
     },
     {
       "userName": "JohnSmith",
@@ -125,7 +125,7 @@
       "carbohydrates_total_g": 21.6,
       "fiber_g": 12.5,
       "sugar_g": 4.2,
-      "date": "22-03-2024"
+      "date": "2024-03-22"
     },
     {
       "userName": "JohnSmith",
@@ -141,7 +141,7 @@
       "carbohydrates_total_g": 12,
       "fiber_g": 1.7,
       "sugar_g": 0.4,
-      "date": "22-03-2024"
+      "date": "2024-03-22"
     },
     {
       "userName": "JohnSmith",
@@ -157,7 +157,7 @@
       "carbohydrates_total_g": 3.6,
       "fiber_g": 2.2,
       "sugar_g": 0.4,
-      "date": "21-03-2024"
+      "date": "2024-03-21"
     },
     {
       "userName": "JohnSmith",
@@ -173,7 +173,7 @@
       "carbohydrates_total_g": 3.4,
       "fiber_g": 0,
       "sugar_g": 3.4,
-      "date": "20-03-2024"
+      "date": "2024-03-20"
     },
     {
       "userName": "JohnSmith",
@@ -189,7 +189,7 @@
       "carbohydrates_total_g": 23.5,
       "fiber_g": 1.6,
       "sugar_g": 0.4,
-      "date": "22-03-2024"
+      "date": "2024-03-22"
     },
     {
       "userName": "JohnSmith",
@@ -205,7 +205,7 @@
       "carbohydrates_total_g": 6.6,
       "fiber_g": 2.6,
       "sugar_g": 1.7,
-      "date": "21-03-2024"
+      "date": "2024-03-21"
     },
     {
       "userName": "EmmaJohnson",
@@ -221,7 +221,7 @@
       "carbohydrates_total_g": 0,
       "fiber_g": 0,
       "sugar_g": 0,
-      "date": "23-03-2024"
+      "date": "2024-03-23"
     },
     {
       "userName": "EmmaJohnson",
@@ -237,7 +237,7 @@
       "carbohydrates_total_g": 21.3,
       "fiber_g": 2.8,
       "sugar_g": 0.9,
-      "date": "23-03-2024"
+      "date": "2024-03-22"
     },
     {
       "userName": "EmmaJohnson",
@@ -253,6 +253,6 @@
       "carbohydrates_total_g": 8.5,
       "fiber_g": 6.7,
       "sugar_g": 0.7,
-      "date": "23-03-2024"
+      "date": "2024-03-22"
     }
   ]
