@@ -21,3 +21,4 @@ const waterLogSchema = new mongoose.Schema({
     }
 });
 module.exports = mongoose.model("water logs", waterLogSchema);
+ 

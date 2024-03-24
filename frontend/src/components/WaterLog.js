@@ -10,13 +10,22 @@ function WaterLog() {
   const [waterUnit, setWaterUnit] = useState('');
   const [waterQuantity, setWaterQuantity] = useState('');
   const [waterData,setWaterData] = useState([]);
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
     if (userState === 'false') {
       setShowNotification(true);
+    }else{
+      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      setUserName(storedUser.username);
+      
     }
   }, []);
+
+  useEffect(() => {
+    console.log(userName);
+  }, [userName]);
 
   useEffect(() => {
     if (waterData && waterData.length !== 0) {
@@ -28,13 +37,33 @@ function WaterLog() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    if(waterDate && waterQuantity && waterUnit){
+    if(waterDate && waterQuantity && waterUnit && userName){
       const waterObj = {
+        userName,
         waterDate,
         waterQuantity,
         waterUnit
       }
+      console.log(waterObj);
       setWaterData(waterObj);
+      try{
+        const response = await fetch('/api/waterLogGet', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(waterObj)
+        });
+        if (response.ok) {
+          console.log('Data submitted successfully');
+        } else {
+          console.error('Failed to submit data');
+        }
+      } catch (error) {
+        console.error('Error submitting data:', error);
+      }
+    }else{
+      alert('error');
     }
 
 
