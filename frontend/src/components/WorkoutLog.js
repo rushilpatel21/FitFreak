@@ -1,9 +1,9 @@
-import React, { useEffect,useState  } from 'react';
+import React, { useEffect,useState, useCallback  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
-// import axios from 'axios'; 
+import axios from 'axios'; 
 
-function WorkoutLog() {
+function WorkoutLog({ userDetails }) {
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
   const [workoutDate, setWorkoutDate] = useState(new Date().toISOString().slice(0, 10));
@@ -14,6 +14,14 @@ function WorkoutLog() {
   const [startTime, setStartTime] = useState('');
   const [workoutData,setWorkoutData] = useState([]);
   const [userName, setUserName] = useState('');
+  const [apiData,setApiData] = useState([]);
+  const [todayWorkoutData, setTodayWorkoutData] = useState([]); // Here i store todays data.
+  
+
+  // useEffect(() => {
+  //   console.log(userDetails);
+  // }, [userDetails])
+
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
@@ -26,9 +34,10 @@ function WorkoutLog() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(userName);
-  }, [userName]);
+  
+  // useEffect(() => {
+  //   console.log(userName);
+  // }, [userName]);
 
   useEffect(() => {
     if (workoutData && workoutData.length !== 0) {
@@ -41,6 +50,49 @@ function WorkoutLog() {
       setWorkoutData('');
     }
   }, [workoutData]);
+
+  // const getWorkoutData = useCallback( async () => {
+  //   try {
+  //     const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+  //     const userId = storedUser.username;
+  //     if(userId === ''){
+  //       return;
+  //     }
+  //     console.log(userId);
+  //     const uri = '/api/workoutLog/' + userId;
+  //     console.log('Request URI:', uri);
+  //     const response = await axios.get(uri);
+
+
+  //     if (response.status === 200) {
+  //       console.log(response.data.workoutLog);
+  //       setApiData(response.data.workoutLogs);
+  //       console.log(response.data.workoutLogs);
+  //     } else {
+  //       throw new Error("Failed to fetch workout data");
+  //     }
+  //   } catch (error) {
+  //     if (error.response) {
+  //       console.error('Server responded with error status:', error.response.status);
+  //       console.error('Error response data:', error.response.data);
+  //     } else if (error.request) {
+  //       console.error('No response received from the server:', error.request);
+  //     } else {
+  //       console.error('Error setting up the request:', error.message);
+  //     }
+  //   }
+  // },[]);
+
+  
+
+
+  useEffect(() => {
+    // Filter today's workout data
+    console.log("apiData:", typeof (apiData));
+    const today = new Date().toISOString().slice(0, 10);
+    const todayData = apiData.filter((item) => item.workoutDate === today);
+    setTodayWorkoutData(todayData);
+  }, [apiData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
@@ -72,9 +124,7 @@ function WorkoutLog() {
       } catch (error) {
         console.error('Error submitting data:', error);
       }
-      // setWorkoutData(prevWorkoutData => [...prevWorkoutData, workoutObj]);
-      // console.log(workoutObj);
-      // console.log(workoutData); 
+      
     }
   }
 
@@ -82,6 +132,57 @@ function WorkoutLog() {
     setShowNotification(false);
     navigate('/');
   };
+  useEffect (() => {
+    console.log( "Api Data Final: " );
+    console.log(apiData);
+  },[apiData]);
+
+  useEffect(() => {
+    // const fetchData = async () => {
+    //   await getWorkoutData();
+    // };
+    // if(userName){
+    //   getWorkoutData();
+    // }
+    // fetchData();
+    // getWorkoutData();
+    const fetchData = async () => {
+      try {
+        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+        const userId = storedUser.username;
+        if(userId === ''){
+          return;
+        }
+        console.log(userId);
+        const uri = '/api/workoutLog/' + userId;
+        console.log('Request URI:', uri);
+        const response = await axios.get(uri);
+  
+  
+        if (response.status === 200) {
+          console.log(typeof(response.data.workoutlog));
+          // const parsedData = JSON.parse(response.data.workoutlog);
+          setApiData(response.data.workoutlog);
+          console.log(response.data.workoutlog);
+        } else {
+          throw new Error("Failed to fetch workout data");
+        }
+      } catch (error) {
+        if (error.response) {
+          console.error('Server responded with error status:', error.response.status);
+          console.error('Error response data:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received from the server:', error.request);
+        } else {
+          console.error('Error setting up the request:', error.message);
+        }
+      }
+  
+    }
+    fetchData();
+    
+
+  }, [handleSubmit]); //[userName, getWorkoutData]
 
     return (
       <>
@@ -236,12 +337,40 @@ function WorkoutLog() {
         </form>
       </div>
       <div className='food-log-right'>
-          
-        <div className='today-workout-log-container'>
-          <h2 className='today-workout-title'>Today's Workout</h2>
+      <div className='today-workout-log-container'>
+        <h2 className='today-workout-title'>Today's Workout</h2>
+        <div className="today-workout-content">
+          {todayWorkoutData.length === 0 ? (
+            <p className='workout-sub-title'>No workout data available for today.</p>
+          ) : (
+            <table className='workout-table'>
+              <thead>
+                <tr>
+                  <th className='workout-th'>Date</th>
+                  <th className='workout-th'>Type</th>
+                  <th className='workout-th'>Name</th>
+                  <th className='workout-th'>Minutes</th>
+                  <th className='workout-th'>Calories Burnt</th>
+                  <th className='workout-th'>Start Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {todayWorkoutData.map((workout, index) => (
+                  <tr key={index}>
+                    <td className='workout-td'>{workout.workoutDate}</td>
+                    <td className='workout-td'>{workout.workoutType}</td>
+                    <td className='workout-td'>{workout.workoutName}</td>
+                    <td className='workout-td'>{workout.workoutMinutes}</td>
+                    <td className='workout-td'>{workout.caloriesBurnt}</td>
+                    <td className='workout-td'>{workout.startTime}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
-          
       </div>
+    </div>
       </>
       )
 

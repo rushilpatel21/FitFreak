@@ -19,7 +19,6 @@ function WaterLog() {
     }else{
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
       setUserName(storedUser.username);
-      
     }
   }, []);
 

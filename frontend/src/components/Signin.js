@@ -19,8 +19,6 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         if (response.status === 200) {
           console.log("Username che:", response.data.users[0]);
           setUserData(response.data.users[0]);
-          // localStorage.setItem('userDetail',JSON.stringify(response.data[0]));
-          // return "1";
           if(password !== response.data.users[0].password){
             alert("Wrong Password!");
             setPassword('');

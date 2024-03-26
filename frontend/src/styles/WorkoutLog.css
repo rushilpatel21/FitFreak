@@ -85,3 +85,28 @@
 .workout-form button:hover {
   background-color: #0056b3;
 }
+
+.workout-sub-title {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: red;
+}
+
+.workout-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.workout-th , .workout-td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: 16px; /* Increase font size */
+  line-height: 1.5; /* Increase line height */
+}
+
+.workout-th {
+  background-color: #f2f2f2;
+}
