@@ -2,6 +2,7 @@ import React, { useEffect,useState, useCallback  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
 import axios from 'axios'; 
+import Chart from 'chart.js/auto';
 
 function WorkoutLog({ userDetails }) {
   const navigate = useNavigate();
