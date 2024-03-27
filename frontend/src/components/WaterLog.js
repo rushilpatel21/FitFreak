@@ -1,7 +1,7 @@
-import React, { useEffect,useState  } from 'react';
+import React, { useEffect,useState, useCallback  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
-// import axios from 'axios'; 
+import axios from 'axios'; 
 
 function WaterLog() {
   const navigate = useNavigate();
@@ -11,6 +11,8 @@ function WaterLog() {
   const [waterQuantity, setWaterQuantity] = useState('');
   const [waterData,setWaterData] = useState([]);
   const [userName, setUserName] = useState('');
+  const [apiData,setApiData] = useState([]);
+  const [todayWaterData, setTodayWaterData] = useState([]); // Here i store todays data.
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
@@ -28,13 +30,13 @@ function WaterLog() {
 
   useEffect(() => {
     if (waterData && waterData.length !== 0) {
-      console.log("Workout data updated:", waterData);
+      console.log("Water data updated:", waterData);
       setWaterUnit('');
       setWaterQuantity('');
     }
   }, [waterData]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback (async (e) => {
     e.preventDefault(); 
     if(waterDate && waterQuantity && waterUnit && userName){
       const waterObj = {
@@ -67,11 +69,66 @@ function WaterLog() {
 
 
 
-  }
+  },[userName,waterQuantity,waterDate, waterUnit])
   const closeNotification = () => {
     setShowNotification(false);
     navigate('/');
   };
+
+  useEffect (() => {
+    console.log( "Api Data Final: " );
+    console.log(apiData);
+  },[apiData]);
+
+  useEffect(() => {
+    
+    const fetchData = async () => {
+      try {
+        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+        const userId = storedUser.username;
+        if(userId === ''){
+          return;
+        }
+        console.log(userId);
+        const uri = '/api/waterlog/' + userId;
+        console.log('Request URI:', uri);
+        const response = await axios.get(uri);
+  
+  
+        if (response.status === 200) {
+          console.log(typeof(response.data.waterLogs));
+          setApiData(response.data.waterLogs);
+          console.log("Set API Data");
+          console.log(response.data.waterLogs);
+        } else {
+          throw new Error("Failed to fetch water data");
+        }
+      } catch (error) {
+        if (error.response) {
+          console.error('Server responded with error status:', error.response.status);
+          console.error('Error response data:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received from the server:', error.request);
+        } else {
+          console.error('Error setting up the request:', error.message);
+        }
+      }
+  
+    }
+    fetchData();
+    
+
+  }, [handleSubmit]);
+
+  useEffect(() => {
+    console.log("apiData:", typeof (apiData));
+    const today = new Date().toISOString().slice(0, 10);
+    console.log(today);
+    const todayData = apiData.filter((item) => item.waterDate === today);
+
+    setTodayWaterData(todayData);
+  }, [apiData]);
+
 
     return (
       <>
@@ -133,9 +190,33 @@ function WaterLog() {
             </div>
             <div className='water-log-right'>
           
-              <div className='today-water-log-container'>
-                <h2 className='today-water-title'>Today's Water Intake</h2>
-              </div>
+            <div className='today-workout-log-container'>
+        <h2 className='today-workout-title'>Today's Water Intake</h2>
+        <div className="today-workout-content">
+          {todayWaterData.length === 0 ? (
+            <p className='workout-sub-title'>No Water data available for today.</p>
+          ) : (
+            <table className='workout-table'>
+              <thead>
+                <tr>
+                  <th className='workout-th'>Date</th>
+                  <th className='workout-th'>Quantity</th>
+                  <th className='workout-th'>Unit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {todayWaterData.map((water, index) => (
+                  <tr key={index}>
+                    <td className='workout-td'>{water.waterDate}</td>
+                    <td className='workout-td'>{water.waterQuantity}</td>
+                    <td className='workout-td'>{water.waterUnit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+      </div>
           
             </div>
           </>

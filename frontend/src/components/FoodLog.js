@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
 import axios from 'axios';
@@ -19,6 +19,8 @@ function FoodLog() {
   const [foodCarbohydrates, setFoodCarbohydrates] = useState();
   const [foodFinalData,setFoodFinalData] = useState([]);
   const [userName, setUserName] = useState('');
+  const [apiData,setApiData] = useState([]);
+  const [todayFoodData, setTodayFoodData] = useState([]); // Here i store todays data.
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
@@ -78,7 +80,9 @@ function FoodLog() {
     }
     
   }
-  const handleSubmit = async (e) => {
+  
+
+  const handleSubmit = useCallback (async (e) => {
     e.preventDefault();
     // const foodQuery = foodQuantity + " " + foodUnit + " " + foodName;
     // fetchFoodData(foodQuery);
@@ -216,7 +220,7 @@ function FoodLog() {
     console.log(foodData[0]);
     clearValues();
     
-  }
+  },[userName, foodCalories , foodCarbohydrates, foodFat, foodData, foodDate, foodName, foodProtein, foodQuantity, foodSugar, foodUnit ])
 
   const closeNotification = () => {
     setShowNotification(false);
@@ -233,6 +237,62 @@ function FoodLog() {
     setFoodCarbohydrates('');
     setFoodData([]);
   }
+
+  useEffect (() => {
+    console.log( "Api Data Final: " );
+    console.log(apiData);
+  },[apiData]);
+
+  useEffect(() => {
+    
+    const fetchData = async () => {
+      try {
+        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+        const userId = storedUser.username;
+        if(userId === ''){
+          return;
+        }
+        console.log(userId);
+        const uri = '/api/foodlog/' + userId;
+        console.log('Request URI:', uri);
+        const response = await axios.get(uri);
+  
+  
+        if (response.status === 200) {
+          console.log(typeof(response.data.foodLogs));
+          // const parsedData = JSON.parse(response.data.foodLogs);
+          setApiData(response.data.foodLogs);
+          console.log("Set API Data");
+          console.log(response.data.foodLogs);
+        } else {
+          throw new Error("Failed to fetch food data");
+        }
+      } catch (error) {
+        if (error.response) {
+          console.error('Server responded with error status:', error.response.status);
+          console.error('Error response data:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received from the server:', error.request);
+        } else {
+          console.error('Error setting up the request:', error.message);
+        }
+      }
+  
+    }
+    fetchData();
+    
+
+  }, [handleSubmit]);
+
+  useEffect(() => {
+    console.log("apiData:", typeof (apiData));
+    const today = new Date().toISOString().slice(0, 10);
+    console.log(today);
+    const todayData = apiData.filter((item) => item.date === today);
+
+    setTodayFoodData(todayData);
+  }, [apiData]);
+
   return (
     <>
       <div>
@@ -399,12 +459,44 @@ function FoodLog() {
               </form>
             </div>
             <div className='food-log-right'>
-          
-              <div className='today-food-log-container'>
-                <h2 className='today-food-title'>Today's Food Intake</h2>
-              </div>
-          
-            </div>
+      <div className='today-workout-log-container'>
+        <h2 className='today-workout-title'>Today's Food Intake</h2>
+        <div className="today-workout-content">
+          {todayFoodData.length === 0 ? (
+            <p className='workout-sub-title'>No Food data available for today.</p>
+          ) : (
+            <table className='workout-table'>
+              <thead>
+                <tr>
+                  <th className='workout-th'>Date</th>
+                  <th className='workout-th'>Name</th>
+                  <th className='workout-th'>Calories</th>
+                  <th className='workout-th'>Quantity (gm)</th>
+                  <th className='workout-th'>Fat</th>
+                  <th className='workout-th'>Protein</th>
+                  <th className='workout-th'>Carbohydrates</th>
+                  <th className='workout-th'>Sugar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {todayFoodData.map((food, index) => (
+                  <tr key={index}>
+                    <td className='workout-td'>{food.date}</td>
+                    <td className='workout-td'>{food.name}</td>
+                    <td className='workout-td'>{food.calories}</td>
+                    <td className='workout-td'>{food.serving_size_g}</td>
+                    <td className='workout-td'>{food.fat_total_g}</td>
+                    <td className='workout-td'>{food.protein_g}</td>
+                    <td className='workout-td'>{food.carbohydrates_total_g}</td>
+                    <td className='workout-td'>{food.sugar_g}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+      </div>
+    </div>
           </>
         )}
       </div>

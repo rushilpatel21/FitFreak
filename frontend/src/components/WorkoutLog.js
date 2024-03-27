@@ -94,7 +94,7 @@ function WorkoutLog({ userDetails }) {
     setTodayWorkoutData(todayData);
   }, [apiData]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback (async (e) => {
     e.preventDefault(); 
     if(workoutDate && workoutType && workoutName && workoutMinutes &&caloriesBurnt && startTime ){
       const workoutObj = {
@@ -126,7 +126,7 @@ function WorkoutLog({ userDetails }) {
       }
       
     }
-  }
+  }, [workoutDate, workoutType, workoutName, workoutMinutes, caloriesBurnt, startTime, userName])
 
   const closeNotification = () => {
     setShowNotification(false);
