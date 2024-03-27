@@ -57,6 +57,10 @@ function WaterLog() {
         });
         if (response.ok) {
           console.log('Data submitted successfully');
+          const today = new Date().toISOString.slice(0,10);
+          if(waterDate === today){
+            setTodayWaterData([...todayWaterData,waterObj]);
+          }
         } else {
           console.error('Failed to submit data');
         }
@@ -69,7 +73,7 @@ function WaterLog() {
 
 
 
-  },[userName,waterQuantity,waterDate, waterUnit])
+  },[userName,waterQuantity,waterDate, waterUnit, todayWaterData])
   const closeNotification = () => {
     setShowNotification(false);
     navigate('/');
@@ -118,7 +122,7 @@ function WaterLog() {
     fetchData();
     
 
-  }, [handleSubmit]);
+  }, [handleSubmit,todayWaterData]);
 
   useEffect(() => {
     console.log("apiData:", typeof (apiData));

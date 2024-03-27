@@ -118,6 +118,10 @@ function WorkoutLog({ userDetails }) {
         });
         if (response.ok) {
           console.log('Data submitted successfully');
+          const today = new Date().toISOString().slice(0, 10);
+          if (workoutDate === today) {
+            setTodayWorkoutData([...todayWorkoutData, workoutObj]); 
+          }
         } else {
           console.error('Failed to submit data');
         }
@@ -126,17 +130,21 @@ function WorkoutLog({ userDetails }) {
       }
       
     }
-  }, [workoutDate, workoutType, workoutName, workoutMinutes, caloriesBurnt, startTime, userName])
+    
+  }, [workoutDate, workoutType, workoutName, workoutMinutes, caloriesBurnt, startTime, userName, todayWorkoutData])
 
   const closeNotification = () => {
     setShowNotification(false);
     navigate('/');
   };
+
+
   useEffect (() => {
     console.log( "Api Data Final: " );
     console.log(apiData);
   },[apiData]);
 
+  
   useEffect(() => {
     // const fetchData = async () => {
     //   await getWorkoutData();
@@ -182,7 +190,7 @@ function WorkoutLog({ userDetails }) {
     fetchData();
     
 
-  }, [handleSubmit]); //[userName, getWorkoutData]
+  }, [handleSubmit, todayWorkoutData]); //[userName, getWorkoutData]
 
     return (
       <>

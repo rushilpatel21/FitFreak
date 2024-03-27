@@ -210,6 +210,10 @@ function FoodLog() {
         });
         if (response.ok) {
           console.log('Data submitted successfully');
+          const today = new Date().toISOString().slice(0,10);
+          if(foodDate === today){
+            setTodayFoodData([...todayFoodData,foodObj]);
+          } 
         } else {
           console.error('Failed to submit data');
         }
@@ -220,7 +224,7 @@ function FoodLog() {
     console.log(foodData[0]);
     clearValues();
     
-  },[userName, foodCalories , foodCarbohydrates, foodFat, foodData, foodDate, foodName, foodProtein, foodQuantity, foodSugar, foodUnit ])
+  },[userName, foodCalories , foodCarbohydrates, foodFat, foodData, foodDate, foodName, foodProtein, foodQuantity, foodSugar, foodUnit, todayFoodData ])
 
   const closeNotification = () => {
     setShowNotification(false);
@@ -282,7 +286,7 @@ function FoodLog() {
     fetchData();
     
 
-  }, [handleSubmit]);
+  }, [handleSubmit, todayFoodData]);
 
   useEffect(() => {
     console.log("apiData:", typeof (apiData));
