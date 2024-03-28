@@ -46,18 +46,18 @@ function CaloriesBurnt() {
           const workoutMinutesByDay = {};
           pastSevenDaysData.forEach(data => {
             const workoutDate = data.workoutDate;
-            const workoutMinutes = parseInt(data.workoutMinutes);
+            const caloriesBurnt = parseInt(data.caloriesBurnt);
             if (workoutMinutesByDay[workoutDate]) {
-              workoutMinutesByDay[workoutDate] += workoutMinutes;
+              workoutMinutesByDay[workoutDate] += caloriesBurnt;
             } else {
-              workoutMinutesByDay[workoutDate] = workoutMinutes;
+              workoutMinutesByDay[workoutDate] = caloriesBurnt;
             }
           });
           
           setWaterDataDay({
             labels: Object.keys(workoutMinutesByDay).map(date => new Date(date).getDate() + ' ' + new Date(date).toLocaleString('default', { month: 'long' }) + ' ' + new Date(date).getFullYear()),
             datasets: [{
-              label: 'Workout Minutes',
+              label: 'Calories Burned',
               data: Object.values(workoutMinutesByDay),
               backgroundColor: [
                 'rgb(83,124,56)',
@@ -82,7 +82,7 @@ function CaloriesBurnt() {
           const workoutMinutesByMonth = {};
           pastSixMonthsData.forEach(data => {
             const workoutMonth = new Date(data.workoutDate).toLocaleString('default', { month: 'long' }) + ' ' + new Date(data.workoutDate).getFullYear();
-            const workoutMinutes = parseInt(data.workoutMinutes);
+            const workoutMinutes = parseInt(data.caloriesBurnt);
             if (workoutMinutesByMonth[workoutMonth]) {
               workoutMinutesByMonth[workoutMonth] += workoutMinutes;
             } else {
@@ -92,7 +92,7 @@ function CaloriesBurnt() {
           setWaterDataMonth({
             labels: Object.keys(workoutMinutesByMonth),
             datasets: [{
-              label: 'Workout Minutes',
+              label: 'Calories Burned',
               data: Object.values(workoutMinutesByMonth),
               backgroundColor: [
                 'rgb(83,124,56)',
