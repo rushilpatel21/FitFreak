@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
 import { Bar } from 'react-chartjs-2';
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto';
 import axios from 'axios';
 
 function WaterIntake(){
