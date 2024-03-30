@@ -2,7 +2,8 @@ import React, { useEffect,useState, useCallback  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
 import axios from 'axios'; 
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto';
+import Swal from 'sweetalert2'
 
 function WorkoutLog({ userDetails }) {
   const navigate = useNavigate();
@@ -193,13 +194,36 @@ function WorkoutLog({ userDetails }) {
 
   }, [handleSubmit, todayWorkoutData]); //[userName, getWorkoutData]
 
+  const usingSwal = () => {
+    Swal.fire({
+      icon: "error",
+      title: "User Not Logged In",
+      text: "Please sign in to view log",
+      // footer: '<a href="#">Why do I have this issue?</a>'
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        navigate('/');
+        // setShowNotification(false);
+      } else {
+        navigate('/');
+        // setShowNotification(false);
+      }
+    });
+    // navigate('/');
+    setShowNotification(false);
+    
+  }
+
     return (
       <>
       {showNotification && (
-        <Notification
-          message="Please log in to view this page."
-          onClose={closeNotification}
-        />
+        // <Notification
+        //   message="Please log in to view this page."
+        //   onClose={closeNotification}
+        // />
+        // <div className='notification'></div>
+        usingSwal()
       )}
       <div className='workout-log-container'>
       {!showNotification && (
