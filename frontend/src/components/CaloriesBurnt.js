@@ -37,7 +37,6 @@ function CaloriesBurnt() {
         if (response.status === 200) {
           const fetchedWorkoutData = response.data.workoutlog;
 
-          // Calculate workout minutes for the past 7 days
           const today = new Date();
           const pastSevenDaysData = fetchedWorkoutData.filter(data => {
             const workoutDate = new Date(data.workoutDate);
@@ -73,7 +72,6 @@ function CaloriesBurnt() {
             }],
           });
 
-          // Calculate workout minutes for the past 6 months
           const pastSixMonthsData = fetchedWorkoutData.filter(data => {
             const workoutDate = new Date(data.workoutDate);
             const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());

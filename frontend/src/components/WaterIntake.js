@@ -39,7 +39,6 @@ function WaterIntake(){
         if (response.status === 200) {
           const fetchedWaterData = response.data.waterLogs;
     
-          // Convert water quantities to milliliters
           const waterDataInML = fetchedWaterData.map(data => {
             let quantityInML;
             switch (data.waterUnit) {
@@ -57,7 +56,6 @@ function WaterIntake(){
             return { ...data, waterQuantity: quantityInML };
           }).sort((a, b) => new Date(a.waterDate) - new Date(b.waterDate));
     
-          // Calculate water intake for the past 7 days
           const today = new Date();
           const pastSevenDaysData = waterDataInML.filter(data => {
             const waterDate = new Date(data.waterDate);
@@ -93,7 +91,6 @@ function WaterIntake(){
             }],
           });
     
-          // Calculate water intake for the past 6 months
           const pastSixMonthsData = waterDataInML.filter(data => {
             const waterDate = new Date(data.waterDate);
             const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());
