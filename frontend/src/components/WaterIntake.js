@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Notification from './Notification.js';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import axios from 'axios';
 
 function WaterIntake(){
   const navigate = useNavigate();
@@ -11,60 +12,129 @@ function WaterIntake(){
   const [waterDataDay, setWaterDataDay] = useState({});
   const [displayMode, setDisplayMode] = useState('Days');
   const [waterData, setWaterData] = useState(); 
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
     if (userState === 'false') {
       setShowNotification(true);
+    } else {
+      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      setUserName(storedUser.username);
     }
   }, []);
 
   useEffect(() => {
     
-    const MockWaterDataForDays = {
-      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
-      datasets: [
-        {
-          label: 'Water Minutes',
-          data: [30, 45, 60, 40, 50, 20, 80], 
-          backgroundColor: [
-            'rgb(83,124,56)',
-            'rgb(123,165,145)',
-            'rgb(204, 34, 43)',
-            'rgb(241, 91, 76)',
-            'rgb(250, 164, 27)',
-            'rgb(255,212,91)',
-            'rgb(255,229,180)'
-          ],
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1,
-        },
-      ],
-    };
-    const MockWaterDataForMonths = {
-      labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
-      datasets: [
-        {
-          label: 'Water Minutes',
-          data: [45, 30, 90, 20, 70,110], 
-          backgroundColor: [
-            'rgb(83,124,56)',
-            'rgb(123,165,145)',
-            'rgb(204, 34, 43)',
-            'rgb(241, 91, 76)',
-            'rgb(250, 164, 27)',
-            'rgb(255,212,91)'
-          ],
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1,
-        },
-      ],
-    };
+    const fetchData = async () => {
+      try {
+        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+        const userId = storedUser.username;
+        if (!userId) {
+          return;
+        }
     
-      setWaterDataDay(MockWaterDataForDays);
-      setWaterDataMonth(MockWaterDataForMonths);
+        const response = await axios.get(`/api/waterlog/${userId}`);
+    
+        if (response.status === 200) {
+          const fetchedWaterData = response.data.waterLogs;
+    
+          // Convert water quantities to milliliters
+          const waterDataInML = fetchedWaterData.map(data => {
+            let quantityInML;
+            switch (data.waterUnit) {
+              case 'Glass':
+                quantityInML = data.waterQuantity * 350; // Assuming 1 glass = 350 ml
+                break;
+              case 'l':
+                quantityInML = data.waterQuantity * 1000; // 1 liter = 1000 ml
+                break;
+              case 'ml':
+              default:
+                quantityInML = data.waterQuantity; // If already in ml, keep it as it is
+                break;
+            }
+            return { ...data, waterQuantity: quantityInML };
+          }).sort((a, b) => new Date(a.waterDate) - new Date(b.waterDate));
+    
+          // Calculate water intake for the past 7 days
+          const today = new Date();
+          const pastSevenDaysData = waterDataInML.filter(data => {
+            const waterDate = new Date(data.waterDate);
+            return waterDate > new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+          });
+          const waterIntakeByDay = {};
+          pastSevenDaysData.forEach(data => {
+            const waterDate = data.waterDate;
+            const waterQuantity = parseInt(data.waterQuantity);
+            if (waterIntakeByDay[waterDate]) {
+              waterIntakeByDay[waterDate] += waterQuantity;
+            } else {
+              waterIntakeByDay[waterDate] = waterQuantity;
+            }
+          });
+          
+          setWaterDataDay({
+            labels: Object.keys(waterIntakeByDay).map(date => new Date(date).getDate() + ' ' + new Date(date).toLocaleString('default', { month: 'long' }) + ' ' + new Date(date).getFullYear()),
+            datasets: [{
+              label: 'Water Intake (ml)',
+              data: Object.values(waterIntakeByDay),
+              backgroundColor: [
+                'rgb(83,124,56)',
+                'rgb(123,165,145)',
+                'rgb(204, 34, 43)',
+                'rgb(241, 91, 76)',
+                'rgb(250, 164, 27)',
+                'rgb(255,212,91)',
+                'rgb(255,229,180)'
+              ],
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1,
+            }],
+          });
+    
+          // Calculate water intake for the past 6 months
+          const pastSixMonthsData = waterDataInML.filter(data => {
+            const waterDate = new Date(data.waterDate);
+            const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());
+            return waterDate > sixMonthsAgo;
+          });
+          const waterIntakeByMonth = {};
+          pastSixMonthsData.forEach(data => {
+            const waterMonth = new Date(data.waterDate).toLocaleString('default', { month: 'long' }) + ' ' + new Date(data.waterDate).getFullYear();
+            const waterQuantity = parseInt(data.waterQuantity);
+            if (waterIntakeByMonth[waterMonth]) {
+              waterIntakeByMonth[waterMonth] += waterQuantity;
+            } else {
+              waterIntakeByMonth[waterMonth] = waterQuantity;
+            }
+          });
+          setWaterDataMonth({
+            labels: Object.keys(waterIntakeByMonth),
+            datasets: [{
+              label: 'Water Intake (ml)',
+              data: Object.values(waterIntakeByMonth),
+              backgroundColor: [
+                'rgb(83,124,56)',
+                'rgb(123,165,145)',
+                'rgb(204, 34, 43)',
+                'rgb(241, 91, 76)',
+                'rgb(250, 164, 27)',
+                'rgb(255,212,91)'
+              ],
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 1,
+            }],
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching water data:", error);
+      }
+    };
+        
+      fetchData()
     // console.log(waterData);
-  }, [displayMode]);
+  }, []);
 
   const closeNotification = () => {
     setShowNotification(false);
@@ -73,15 +143,10 @@ function WaterIntake(){
 
   useEffect(() => {
     setWaterData(displayMode === 'Days' ? waterDataDay : waterDataMonth);
-  }, [displayMode, waterData, waterDataDay, waterDataMonth]);
+  }, [displayMode, waterDataDay, waterDataMonth]);
 
   const toggleDaysMonths = () => {
     setDisplayMode(prevMode => (prevMode === 'Days' ? 'Months' : 'Days'));
-    if(displayMode==='Days'){
-      setWaterData(waterDataDay);
-    }else {
-      setWaterData(waterDataMonth);
-    }
   };
 
     return (

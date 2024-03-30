@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94137256-659b-4fb5-b58a-6d80826c916b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/WaterIntake.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/WaterIntake.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/WorkoutMinutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/WorkoutMinutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/WorkoutHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/WorkoutHistory.css" afterDir="false" />
-    </list>
+    <list default="true" id="94137256-659b-4fb5-b58a-6d80826c916b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
