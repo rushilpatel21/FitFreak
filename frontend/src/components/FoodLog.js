@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 // import Notification from './Notification.js';
 import axios from 'axios';
 import Swal from 'sweetalert2'
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 function FoodLog() {
-  const apiKey = 'Tk0v+INWYmZJFQpv59/b/A==vLu7ncZY9kxHT7FH';  //Api Key from api-ninjas.com 
+  const apiKey = process.env.REACT_APP_API_KEY_NINJA;  //Api Key from api-ninjas.com 
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
   const [foodDate, setFoodDate] = useState(new Date().toISOString().slice(0, 10));
@@ -25,6 +27,7 @@ function FoodLog() {
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
+    // console.log(apiKey);
     if (userState === 'false') {
       setShowNotification(true);
     }else{
