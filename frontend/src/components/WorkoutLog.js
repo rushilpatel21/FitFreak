@@ -37,9 +37,7 @@ function WorkoutLog({ userDetails }) {
   }, []);
 
   
-  // useEffect(() => {
-  //   console.log(userName);
-  // }, [userName]);
+  
 
   useEffect(() => {
     if (workoutData && workoutData.length !== 0) {
@@ -111,6 +109,9 @@ function WorkoutLog({ userDetails }) {
       setWorkoutData(workoutObj);
 
       try{
+        if(!userName){
+          return;
+        }
         const response = await fetch('/api/workoutLogGet', {
           method: 'POST',
           headers: {
@@ -148,16 +149,12 @@ function WorkoutLog({ userDetails }) {
 
   
   useEffect(() => {
-    // const fetchData = async () => {
-    //   await getWorkoutData();
-    // };
-    // if(userName){
-    //   getWorkoutData();
-    // }
-    // fetchData();
-    // getWorkoutData();
-    const fetchData = async () => {
+    
+    const fetchData = async () => { //not an issue
       try {
+        if(localStorage.getItem('isLoggedIn') === 'false'){
+          return;
+        }
         const storedUser = JSON.parse(localStorage.getItem('userDetail'));
         const userId = storedUser.username;
         if(userId === ''){
@@ -192,7 +189,7 @@ function WorkoutLog({ userDetails }) {
     fetchData();
     
 
-  }, [handleSubmit, todayWorkoutData]); //[userName, getWorkoutData]
+  }, [handleSubmit, todayWorkoutData]);
 
   const usingSwal = () => {
     Swal.fire({
