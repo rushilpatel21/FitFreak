@@ -1,6 +1,6 @@
 import React, { useEffect,useState, useCallback  } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Notification from './Notification.js';
+// import Notification from './Notification.js';
 import axios from 'axios'; 
 // import Chart from 'chart.js/auto';
 import Swal from 'sweetalert2'
@@ -135,10 +135,10 @@ function WorkoutLog({ userDetails }) {
     
   }, [workoutDate, workoutType, workoutName, workoutMinutes, caloriesBurnt, startTime, userName, todayWorkoutData])
 
-  const closeNotification = () => {
-    setShowNotification(false);
-    navigate('/');
-  };
+  // const closeNotification = () => {
+  //   setShowNotification(false);
+  //   navigate('/');
+  // };
 
 
   useEffect (() => {
@@ -199,11 +199,16 @@ function WorkoutLog({ userDetails }) {
       icon: "error",
       title: "User Not Logged In",
       text: "Please sign in to view log",
+      showCancelButton: true, // Add this to show the cancel button
+      confirmButtonColor: '#dc3545', // Change the confirm button color to red
+      cancelButtonColor: '#6c757d', // Optionally, change the cancel button color
+      confirmButtonText: 'Sign In', // Optionally, change the confirm button text
+      cancelButtonText: 'Close', // Optionally, change the cancel button text
       // footer: '<a href="#">Why do I have this issue?</a>'
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        navigate('/');
+        navigate('/signin');
         // setShowNotification(false);
       } else {
         navigate('/');

@@ -1,9 +1,10 @@
 import React, { useEffect,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Notification from './Notification.js';
+// import Notification from './Notification.js';
 import { Bar } from 'react-chartjs-2';
 // import Chart from 'chart.js/auto';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 function WaterIntake(){
   const navigate = useNavigate();
@@ -133,10 +134,10 @@ function WaterIntake(){
     // console.log(waterData);
   }, []);
 
-  const closeNotification = () => {
-    setShowNotification(false);
-    navigate('/');
-  };
+  // const closeNotification = () => {
+  //   setShowNotification(false);
+  //   navigate('/');
+  // };
 
   useEffect(() => {
     setWaterData(displayMode === 'Days' ? waterDataDay : waterDataMonth);
@@ -146,13 +147,40 @@ function WaterIntake(){
     setDisplayMode(prevMode => (prevMode === 'Days' ? 'Months' : 'Days'));
   };
 
+  const usingSwal = () => {
+    Swal.fire({
+      icon: "error",
+      title: "User Not Logged In",
+      text: "Please sign in to view log",
+      showCancelButton: true, // Add this to show the cancel button
+      confirmButtonColor: '#dc3545', // Change the confirm button color to red
+      cancelButtonColor: '#6c757d', // Optionally, change the cancel button color
+      confirmButtonText: 'Sign In', // Optionally, change the confirm button text
+      cancelButtonText: 'Close', // Optionally, change the cancel button text
+      // footer: '<a href="#">Why do I have this issue?</a>'
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        navigate('/signin');
+        // setShowNotification(false);
+      } else {
+        navigate('/');
+        // setShowNotification(false);
+      }
+    });
+    // navigate('/');
+    setShowNotification(false);
+    
+  }
+
     return (
       <>
       {showNotification && (
-        <Notification
-          message="Please log in to view this page."
-          onClose={closeNotification}
-        />
+        // <Notification
+        //   message="Please log in to view this page."
+        //   onClose={closeNotification}
+        // />
+        usingSwal()
       )}
       {!showNotification && (
         <div className='water-container water-container-history'>

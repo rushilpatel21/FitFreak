@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Notification from './Notification.js';
+// import Notification from './Notification.js';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 function FoodLog() {
   const apiKey = 'Tk0v+INWYmZJFQpv59/b/A==vLu7ncZY9kxHT7FH';  //Api Key from api-ninjas.com 
@@ -226,10 +227,11 @@ function FoodLog() {
     
   },[userName, foodCalories , foodCarbohydrates, foodFat, foodData, foodDate, foodName, foodProtein, foodQuantity, foodSugar, foodUnit, todayFoodData ])
 
-  const closeNotification = () => {
-    setShowNotification(false);
-    navigate('/');
-  };
+  // const closeNotification = () => {
+  //   setShowNotification(false);
+  //   navigate('/');
+  // };
+  
   const clearValues  = ()=>{
     setFoodQuantity('');
     setFoodUnit(' ');
@@ -297,14 +299,42 @@ function FoodLog() {
     setTodayFoodData(todayData);
   }, [apiData]);
 
+  const usingSwal = () => {
+    Swal.fire({
+      icon: "error",
+      title: "User Not Logged In",
+      text: "Please sign in to view log",
+      showCancelButton: true, // Add this to show the cancel button
+      confirmButtonColor: '#dc3545', // Change the confirm button color to red
+      cancelButtonColor: '#6c757d', // Optionally, change the cancel button color
+      confirmButtonText: 'Sign In', // Optionally, change the confirm button text
+      cancelButtonText: 'Close', // Optionally, change the cancel button text
+      // footer: '<a href="#">Why do I have this issue?</a>'
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        navigate('/signin');
+        // setShowNotification(false);
+      } else {
+        navigate('/');
+        // setShowNotification(false);
+      }
+    });
+    // navigate('/');
+    setShowNotification(false);
+    
+  }
+
+
   return (
     <>
       <div>
         {showNotification && (
-          <Notification
-            message="Please log in to view this page."
-            onClose={closeNotification}
-          />
+          // <Notification
+          //   message="Please log in to view this page."
+          //   onClose={closeNotification}
+          // />
+          usingSwal()
         )}
       </div>
       <div className='food-log-container'>
