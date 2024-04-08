@@ -82,16 +82,13 @@ function App() {
       updateSignInText('Log Out');
       updateSignInRoute('/logOut');
       updateSignUpRoute('#');
-      // navigate('/');
     }
   }, []);
 
   return (
     <Router>
       <div>
-        {/* <MenuBar /> */}
         <Header signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />
-        {/* <Content /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -100,17 +97,13 @@ function App() {
           <Route path="/waterLog" element={<WaterLog signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           <Route path="/workoutHistory" element={<WorkoutHistory signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           <Route path="/caloriesBurnt" element={<CaloriesBurnt signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
-          {/* <Route path="/workoutMinutes" element={<WorkoutMinutes signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} /> */}
           <Route path="/waterIntake" element={<WaterIntake signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
-          {/* <Route path="/music" element={<Music />} /> */}
           <Route path="/diet" element={<Diet signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
           <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/profile-details" element={<ProfileDetails signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} /> */}
           <Route path="/searchMusic" element={<SearchMusic />} />
           <Route path="/recommendedMusic" element={<RecommendedMusic />} />
           <Route path="/signup" element={<Signup signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} updateUserDetails={updateUserDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} />
           <Route path="/signin" element={<Signin signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} updateUserDetails={updateUserDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} />
-          {/* <Route path="/userDetails" element={<UserDetails userDetails={userDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} /> */}
           <Route path="/logOut" element={<LogOut signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} updateUserDetails={updateUserDetails} toggleUserDetailsModal={toggleUserDetailsModal} showUserDetails={showUserDetails} />} />
           
         </Routes>
