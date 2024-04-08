@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import ReactDOM from 'react-dom';
 
 //CSS
 import './styles/Header.css'
@@ -16,24 +15,22 @@ import './styles/FoodLog.css'
 import './styles/WorkoutHistory.css'
 import './styles/WaterIntake.css'
 import './styles/CaloriesBurnt.css'
+
 //Components 
 import Signup from './components/Signup.js'
 import Signin from './components/Signin.js'
 import Header from './components/Header.js'
-// import Content from './components/Content.js'
 import Home from './components/Home.js'
 import About from './components/About.js'
 import WorkoutLog from './components/WorkoutLog.js'
 import FoodLog from './components/FoodLog.js'
 import WaterLog from './components/WaterLog.js'
 import CaloriesBurnt from './components/CaloriesBurnt.js'
-// import WorkoutMinutes from './components/WorkoutMinutes.js'
 import WaterIntake from './components/WaterIntake.js'
 import SearchMusic from './components/SearchMusic.js'
 import RecommendedMusic from './components/RecommendedMusic.js'
 import Diet from './components/Diet.js' //For diet: two options 1) Veg 2)Non Veg and depending upon the option (ie. Bulking or Weight loss) we give them diet plan.
 import Contact from './components/Contact.js'
-// import ProfileDetails from './components/ProfileDetails.js'
 import UserDetails from './components/UserDetails.js'
 import LogOut from './components/LogOut.js'
 import WorkoutHistory from './components/WorkoutHistory.js'
