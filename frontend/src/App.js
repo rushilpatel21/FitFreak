@@ -15,6 +15,9 @@ import './styles/FoodLog.css'
 import './styles/WorkoutHistory.css'
 import './styles/WaterIntake.css'
 import './styles/CaloriesBurnt.css'
+import './styles/Home.css'
+import './styles/About.css'
+import './styles/Contact.css'
 
 //Components 
 import Signup from './components/Signup.js'

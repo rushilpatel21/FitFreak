@@ -1,0 +1,259 @@
+.about { 
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: flex-start; 
+    justify-content: center; 
+    text-align: center; 
+  }
+  
+  .photo { 
+    width: 50%; 
+    max-width: 50px;  
+    margin-bottom: 50px; 
+    margin-right:100px;
+    margin-left:50px;
+    margin-top: 5px;
+    height: 5px;  }
+  
+  
+  
+ 
+  
+  .section { 
+    width: 100%; 
+    padding: 20px; 
+    box-sizing: border-box; 
+  }
+  
+  .section1 { 
+    background-image: url('../assets/fa3.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    color: white; 
+    text-align: center; 
+    height: 450px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .section1 h1 { 
+    font-family: Baskerville; 
+    font-size: 50px; 
+    font-weight: bold; 
+    color: #ccc; 
+  }
+  
+ 
+  .section2 .content h1 {
+    align-items: center;
+    align-content: center;
+    text-align: center ;
+    
+    margin-top: 15px;
+    font-family: Trattatello, fantasy;
+    color: white; 
+    font-size: 3em; 
+  }
+  
+  .section4 {
+    display: flex;
+    
+    margin-left: 1070px;
+    margin-top: 1px;
+   
+    
+   
+    
+    
+  }
+  .section4 .name {
+    font-size: 4em;
+    color:red;
+  }
+  
+  .section5  {
+    flex: 1;
+     
+    margin-left: 800px;
+    margin-top: -5px;
+    
+
+  }
+  .section5 .toto  {
+    font-size: 2em;
+    color:white;
+  }
+  .section6 {
+    margin-left: 800px;
+    margin-top: -15px;
+    
+  }
+  .section6 .ghub{
+    color:red;
+  }
+
+  .section8 .salonin {
+    margin-right:800px;
+    margin-top:65px;
+    
+   
+  }
+  
+  .section8 .Salonina {
+    font-size: 4em;
+    color:red;
+
+    
+  }
+
+  .section9 .salonintro{
+    margin-right:820px;
+    margin-left: 50px;
+  }
+  .section9 .sintro {
+    font-size: 2em;
+    color:white;
+
+  }
+  .section7 .photo1
+  {
+    width: 50%; 
+    max-width: 50px;  
+    height:5px;
+    margin-left: 850px;
+    margin-top: 100px;
+    margin-right: 50px;
+
+  }
+  .section10 .lk{
+    margin-left:20px;
+    margin-right: 800px;
+    color:red
+  }
+  .section10 .lk4{
+    margin-left:20px;
+    margin-right: 782px;
+  }
+.section11 .Foundermsg
+{
+  margin-top:120px;
+  
+  color:red;
+ 
+  
+
+}
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+}
+
+.envelope:hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+.arrow {
+  
+    display: inline-block;
+    width: 12x;
+    height: 12px;
+    border-left: 6px solid transparent; 
+    border-right: 6px solid transparent; 
+    cursor: pointer;
+    color: white; 
+    opacity: 0.7; 
+  
+  
+}
+
+.down {
+   border-top: 5px solid #f1ebeb; 
+  opacity: 0.5; /* Set opacity to make it transparent */
+  color: #fefefe;
+  size: 15px;
+}
+
+.up {
+  border-bottom: 5px solid #f3eaea; 
+  opacity: 0.5; 
+  color: #fefefe;
+  size: 5px;
+}
+.question {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.question h3 {
+  font-size: 18px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  font-family: Arial, sans-serif;
+  color: #fefefe;
+  margin-right: 30px;
+}
+
+.question p {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Arial, sans-serif;
+  color: #fefefe;
+}
+.qa
+{
+  color:#fefefe
+}
+.question span.arrow {
+  margin-left: 7px;
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  border-color: red;
+  border-width: 20px;
+}

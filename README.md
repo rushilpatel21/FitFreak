@@ -20,6 +20,5 @@ Unleash your fitness potential with FitFreaks! This user-friendly application ca
     - **Frontend Contributions**: 
         1. Home
         2. About
-        3. Diet
-        4. Contact
+        3. Contact
 
