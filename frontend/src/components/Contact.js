@@ -3,6 +3,9 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 
 function Contact() {
+  const template_id = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
+  const service_id = process.env.REACT_APP_EMAIL_SERVICE_ID;
+  const user_id = process.env.REACT_APP_EMAIL_USER_ID;
   const form = useRef();
   const [formData, setFormData] = useState({
     user_name: '',
@@ -31,9 +34,9 @@ function Contact() {
     e.preventDefault();
   
     const data = {
-      service_id: 'service_e9783fc',
-      template_id: 'template_3rvtlrb',
-      user_id: 'VbMSICuUu4za4xc_g',
+      service_id: service_id,
+      template_id: template_id,
+      user_id: user_id,
       template_params: {
         to_name: 'FitFreaks',
         from_name: form.current.user_name.value,
