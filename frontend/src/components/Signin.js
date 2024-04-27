@@ -17,7 +17,7 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         const response = await axios.get(uri);
         
         if (response.status === 200) {
-          console.log("Username che:", response.data.users[0]);
+          console.log("Username exists:", response.data.users[0]);
           setUserData(response.data.users[0]);
           if(password !== response.data.users[0].password){
             alert("Wrong Password!");
