@@ -1,20 +1,38 @@
-
 # FitFreaks
 
 Unleash your fitness potential with FitFreaks! This user-friendly application caters to individuals seeking a robust workout tracking and progress monitoring tool. Whether you're a seasoned gym-goer or just starting your fitness journey, FitFreaks helps you stay on top of your workouts, visualize your progress, and maintain motivation. Log various exercises, view workout history, and leverage features designed to keep you engaged on your path to achieving your fitness goals.
 
-## Images
+## Screenshots
 
-- ![Image1](images/HomePage.png) Home Page
-- ![Image2](images/UserDetails.png) User Details
-- ![Image3](images/WorkoutLog.png) Workout Log
-- ![Image4](images/FoodLog.png) Food Log
-- ![Image5](images/WaterLog.png) Water Log
-- ![Image6](images/CaloriesBurnt.png) Calories Burnt
-- ![Image7](images/WaterIntake.png) Water Intake
-- ![Image8](images/WorkoutHistory.png) Workout History
-- ![Image9](images/Contact.png) Contact
-- ![Image10](images/ContactReply.png) Contact's Reply
+### Home Page
+![Home Page](images/HomePage.png)
+
+### User Details
+![User Details](images/UserDetails.png)
+
+### Workout Log
+![Workout Log](images/WorkoutLog.png)
+
+### Food Log
+![Food Log](images/FoodLog.png)
+
+### Water Log
+![Water Log](images/WaterLog.png)
+
+### Calories Burnt
+![Calories Burnt](images/CaloriesBurnt.png)
+
+### Water Intake
+![Water Intake](images/WaterIntake.png)
+
+### Workout History
+![Workout History](images/WorkoutHistory.png)
+
+### Contact
+![Contact](images/Contact.png)
+
+### Contact's Reply Mail
+![Contact's Reply](images/ContactReply.png)
 
 ## Authors
 
