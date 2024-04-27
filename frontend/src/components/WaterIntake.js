@@ -94,7 +94,8 @@ function WaterIntake(){
     
           const pastSixMonthsData = waterDataInML.filter(data => {
             const waterDate = new Date(data.waterDate);
-            const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());
+            const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 5, today.getDate());
+            console.log("Huhlalala : " + (sixMonthsAgo));
             return waterDate > sixMonthsAgo;
           });
           const waterIntakeByMonth = {};
