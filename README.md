@@ -5,16 +5,16 @@ Unleash your fitness potential with FitFreaks! This user-friendly application ca
 
 ## Images
 
-- ![Image1](images\HomePage.png) Home Page
-- ![Image2](images\UserDetails.png) User Details
-- ![Image3](images\WorkoutLog.png) Workout Log
-- ![Image4](images\FoodLog.png) Food Log
-- ![Image5](images\WaterLog.png) Water Log
-- ![Image6](images\CaloriesBurnt.png) Calories Burnt
-- ![Image7](images\WaterIntake.png) Water Intake
-- ![Image8](images\WorkoutHistory.png) Workout History
-- ![Image9](images\Contact.png) Contact
-- ![Image10](images\ContactReply.png) Contact's Reply
+- ![Image1](images/HomePage.png) Home Page
+- ![Image2](images/UserDetails.png) User Details
+- ![Image3](images/WorkoutLog.png) Workout Log
+- ![Image4](images/FoodLog.png) Food Log
+- ![Image5](images/WaterLog.png) Water Log
+- ![Image6](images/CaloriesBurnt.png) Calories Burnt
+- ![Image7](images/WaterIntake.png) Water Intake
+- ![Image8](images/WorkoutHistory.png) Workout History
+- ![Image9](images/Contact.png) Contact
+- ![Image10](images/ContactReply.png) Contact's Reply
 
 ## Authors
 
