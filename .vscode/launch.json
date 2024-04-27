@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/rushi/AppData/Local/Temp/8a856f0e-1244-458e-954b-90c4242b747f_22BCE308-ac.zip.47f/CodeForces/17A",
+      "program": "c:/Users/rushi/AppData/Local/Temp/8a856f0e-1244-458e-954b-90c4242b747f_22BCE308-ac.zip.47f/CodeForces/17A/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
