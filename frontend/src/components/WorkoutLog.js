@@ -25,6 +25,8 @@ function WorkoutLog({ userDetails }) {
   // }, [userDetails])
 
 
+  // TODO : FIX the error we get when we open this page or basically any other page that uses this useEffect due to accessing localstorage 1st time, swap the if else.
+  
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
     if (userState === 'false') {
