@@ -38,7 +38,7 @@ function Contact() {
       template_id: template_id,
       user_id: user_id,
       template_params: {
-        to_name: 'FitFreaks',
+        to_name: 'FitFreak',
         from_name: form.current.user_name.value,
         message: form.current.message.value,
         reply_to: form.current.user_email.value
