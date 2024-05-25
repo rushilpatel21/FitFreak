@@ -1,0 +1,843 @@
+[{
+  "_id": {
+    "$oid": "66001cc7f032a7feeba9613c"
+  },
+  "userName": "JohnSmith",
+  "name": "Grilled Chicken Breast",
+  "calories": 231,
+  "serving_size_g": 100,
+  "fat_total_g": 5,
+  "fat_saturated_g": 1.5,
+  "protein_g": 43,
+  "sodium_mg": 94,
+  "potassium_mg": 382,
+  "cholesterol_mg": 128,
+  "carbohydrates_total_g": 0,
+  "fiber_g": 0,
+  "sugar_g": 0,
+  "date": "2024-03-23"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba9614c"
+  },
+  "userName": "JohnSmith",
+  "name": "Grilled Chicken Breast",
+  "calories": 231,
+  "serving_size_g": 100,
+  "fat_total_g": 5,
+  "fat_saturated_g": 1.5,
+  "protein_g": 43,
+  "sodium_mg": 94,
+  "potassium_mg": 382,
+  "cholesterol_mg": 128,
+  "carbohydrates_total_g": 0,
+  "fiber_g": 0,
+  "sugar_g": 0,
+  "date": "2024-03-23"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba9614d"
+  },
+  "userName": "JohnSmith",
+  "name": "Grilled Salmon",
+  "calories": 206,
+  "serving_size_g": 100,
+  "fat_total_g": 10,
+  "fat_saturated_g": 1.4,
+  "protein_g": 25,
+  "sodium_mg": 44,
+  "potassium_mg": 628,
+  "cholesterol_mg": 62,
+  "carbohydrates_total_g": 0,
+  "fiber_g": 0,
+  "sugar_g": 0,
+  "date": "2024-03-22"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba9614e"
+  },
+  "userName": "JohnSmith",
+  "name": "Steamed Broccoli",
+  "calories": 35,
+  "serving_size_g": 100,
+  "fat_total_g": 0.4,
+  "fat_saturated_g": 0.1,
+  "protein_g": 2.8,
+  "sodium_mg": 33,
+  "potassium_mg": 316,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 6.6,
+  "fiber_g": 2.6,
+  "sugar_g": 1.7,
+  "date": "2024-03-22"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba9614f"
+  },
+  "userName": "JohnSmith",
+  "name": "Greek Yogurt",
+  "calories": 59,
+  "serving_size_g": 100,
+  "fat_total_g": 0.4,
+  "fat_saturated_g": 0.3,
+  "protein_g": 10,
+  "sodium_mg": 36,
+  "potassium_mg": 141,
+  "cholesterol_mg": 10,
+  "carbohydrates_total_g": 3.6,
+  "fiber_g": 0,
+  "sugar_g": 3.6,
+  "date": "2024-03-23"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96150"
+  },
+  "userName": "JohnSmith",
+  "name": "Apple",
+  "calories": 52,
+  "serving_size_g": 100,
+  "fat_total_g": 0.2,
+  "fat_saturated_g": 0,
+  "protein_g": 0.3,
+  "sodium_mg": 1,
+  "potassium_mg": 107,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 14,
+  "fiber_g": 2.4,
+  "sugar_g": 10,
+  "date": "2024-03-22"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96151"
+  },
+  "userName": "JohnSmith",
+  "name": "Whole Wheat Bread",
+  "calories": 247,
+  "serving_size_g": 100,
+  "fat_total_g": 2.5,
+  "fat_saturated_g": 0.4,
+  "protein_g": 12,
+  "sodium_mg": 429,
+  "potassium_mg": 197,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 45,
+  "fiber_g": 6.4,
+  "sugar_g": 3.6,
+  "date": "2024-03-20"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96152"
+  },
+  "userName": "JohnSmith",
+  "name": "Banana",
+  "calories": 89,
+  "serving_size_g": 100,
+  "fat_total_g": 0.3,
+  "fat_saturated_g": 0.1,
+  "protein_g": 1.1,
+  "sodium_mg": 1,
+  "potassium_mg": 358,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 23,
+  "fiber_g": 2.6,
+  "sugar_g": 12,
+  "date": "2024-03-21"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96153"
+  },
+  "userName": "JohnSmith",
+  "name": "Almonds",
+  "calories": 576,
+  "serving_size_g": 100,
+  "fat_total_g": 49.9,
+  "fat_saturated_g": 3.7,
+  "protein_g": 21.2,
+  "sodium_mg": 1,
+  "potassium_mg": 705,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 21.6,
+  "fiber_g": 12.5,
+  "sugar_g": 4.2,
+  "date": "2024-03-22"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96154"
+  },
+  "userName": "JohnSmith",
+  "name": "Oatmeal",
+  "calories": 68,
+  "serving_size_g": 100,
+  "fat_total_g": 1.4,
+  "fat_saturated_g": 0.3,
+  "protein_g": 2.4,
+  "sodium_mg": 2,
+  "potassium_mg": 61,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 12,
+  "fiber_g": 1.7,
+  "sugar_g": 0.4,
+  "date": "2024-03-22"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96155"
+  },
+  "userName": "JohnSmith",
+  "name": "Spinach",
+  "calories": 23,
+  "serving_size_g": 100,
+  "fat_total_g": 0.4,
+  "fat_saturated_g": 0.1,
+  "protein_g": 2.9,
+  "sodium_mg": 79,
+  "potassium_mg": 558,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 3.6,
+  "fiber_g": 2.2,
+  "sugar_g": 0.4,
+  "date": "2024-03-21"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96156"
+  },
+  "userName": "JohnSmith",
+  "name": "Cottage Cheese",
+  "calories": 98,
+  "serving_size_g": 100,
+  "fat_total_g": 4.3,
+  "fat_saturated_g": 2.8,
+  "protein_g": 11,
+  "sodium_mg": 364,
+  "potassium_mg": 104,
+  "cholesterol_mg": 15,
+  "carbohydrates_total_g": 3.4,
+  "fiber_g": 0,
+  "sugar_g": 3.4,
+  "date": "2024-03-20"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96157"
+  },
+  "userName": "JohnSmith",
+  "name": "Brown Rice",
+  "calories": 112,
+  "serving_size_g": 100,
+  "fat_total_g": 1.1,
+  "fat_saturated_g": 0.3,
+  "protein_g": 2.6,
+  "sodium_mg": 5,
+  "potassium_mg": 43,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 23.5,
+  "fiber_g": 1.6,
+  "sugar_g": 0.4,
+  "date": "2024-03-22"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96158"
+  },
+  "userName": "JohnSmith",
+  "name": "Broccoli",
+  "calories": 34,
+  "serving_size_g": 100,
+  "fat_total_g": 0.4,
+  "fat_saturated_g": 0.1,
+  "protein_g": 2.8,
+  "sodium_mg": 33,
+  "potassium_mg": 316,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 6.6,
+  "fiber_g": 2.6,
+  "sugar_g": 1.7,
+  "date": "2024-03-21"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba96159"
+  },
+  "userName": "EmmaJohnson",
+  "name": "Salmon Fillet",
+  "calories": 206,
+  "serving_size_g": 100,
+  "fat_total_g": 10,
+  "fat_saturated_g": 1.4,
+  "protein_g": 25,
+  "sodium_mg": 44,
+  "potassium_mg": 628,
+  "cholesterol_mg": 62,
+  "carbohydrates_total_g": 0,
+  "fiber_g": 0,
+  "sugar_g": 0,
+  "date": "2024-03-23"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba9615a"
+  },
+  "userName": "EmmaJohnson",
+  "name": "Quinoa",
+  "calories": 120,
+  "serving_size_g": 100,
+  "fat_total_g": 1.9,
+  "fat_saturated_g": 0.2,
+  "protein_g": 4.4,
+  "sodium_mg": 7,
+  "potassium_mg": 172,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 21.3,
+  "fiber_g": 2.8,
+  "sugar_g": 0.9,
+  "date": "2024-03-22"
+},
+{
+  "_id": {
+    "$oid": "66001d22f032a7feeba9615b"
+  },
+  "userName": "EmmaJohnson",
+  "name": "Avocado",
+  "calories": 160,
+  "serving_size_g": 100,
+  "fat_total_g": 14.7,
+  "fat_saturated_g": 2.1,
+  "protein_g": 2,
+  "sodium_mg": 7,
+  "potassium_mg": 485,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 8.5,
+  "fiber_g": 6.7,
+  "sugar_g": 0.7,
+  "date": "2024-03-22"
+},
+{
+  "_id": {
+    "$oid": "6600280594714f593e29d9c6"
+  },
+  "userName": "rushilpatel21_",
+  "name": "pizza",
+  "calories": 562.6,
+  "serving_size_g": 214,
+  "fat_total_g": 20.9,
+  "fat_saturated_g": 9.6,
+  "protein_g": 24.3,
+  "sodium_mg": 1256,
+  "potassium_mg": 465,
+  "cholesterol_mg": 36,
+  "carbohydrates_total_g": 70.4,
+  "fiber_g": 4.9,
+  "sugar_g": 7.6,
+  "date": "2024-03-24",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600285994714f593e29d9c9"
+  },
+  "userName": "rushilpatel21_",
+  "name": "Chesse",
+  "calories": 120,
+  "serving_size_g": 500,
+  "fat_total_g": 20,
+  "fat_saturated_g": 0,
+  "protein_g": 30,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 105,
+  "fiber_g": 0,
+  "sugar_g": 0,
+  "date": "2024-03-24",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600287594714f593e29d9cb"
+  },
+  "userName": "rushilpatel21_",
+  "name": "pizza",
+  "calories": 843.9,
+  "serving_size_g": 321,
+  "fat_total_g": 31.3,
+  "fat_saturated_g": 14.5,
+  "protein_g": 36.5,
+  "sodium_mg": 1885,
+  "potassium_mg": 698,
+  "cholesterol_mg": 54,
+  "carbohydrates_total_g": 105.5,
+  "fiber_g": 7.4,
+  "sugar_g": 11.4,
+  "date": "2024-03-24",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600289a94714f593e29d9cd"
+  },
+  "userName": "rushilpatel21_",
+  "name": "Chess Cake",
+  "calories": 400,
+  "serving_size_g": 250,
+  "fat_total_g": 40,
+  "fat_saturated_g": 0,
+  "protein_g": 10,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 230,
+  "fiber_g": 0,
+  "sugar_g": 80,
+  "date": "2024-03-24",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600fbc213490257fe4ee212"
+  },
+  "userName": "RutvaPatel",
+  "name": "pizza",
+  "calories": 281.3,
+  "serving_size_g": 107,
+  "fat_total_g": 10.4,
+  "fat_saturated_g": 4.8,
+  "protein_g": 12.2,
+  "sodium_mg": 628,
+  "potassium_mg": 232,
+  "cholesterol_mg": 18,
+  "carbohydrates_total_g": 35.2,
+  "fiber_g": 2.5,
+  "sugar_g": 3.8,
+  "date": "2024-03-25",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600fbe913490257fe4ee214"
+  },
+  "userName": "RutvaPatel",
+  "name": "Chesse Slice",
+  "calories": 100,
+  "serving_size_g": 250,
+  "fat_total_g": 20,
+  "fat_saturated_g": 0,
+  "protein_g": 5,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 120,
+  "fiber_g": 0,
+  "sugar_g": 0,
+  "date": "2024-03-25",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660271fcee9c6343481dfed3"
+  },
+  "userName": "saloniDesai16",
+  "name": "Chesse Pizza",
+  "calories": 220.8,
+  "serving_size_g": 500,
+  "fat_total_g": 19,
+  "fat_saturated_g": 0,
+  "protein_g": 12.9,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 1.7,
+  "fiber_g": 0,
+  "sugar_g": 0.3,
+  "date": "2024-03-26",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603b729210c105ee2e4ad35"
+  },
+  "userName": "RushilPatel",
+  "name": "pizza",
+  "calories": 281.3,
+  "serving_size_g": 107,
+  "fat_total_g": 10.4,
+  "fat_saturated_g": 4.8,
+  "protein_g": 12.2,
+  "sodium_mg": 628,
+  "potassium_mg": 232,
+  "cholesterol_mg": 18,
+  "carbohydrates_total_g": 35.2,
+  "fiber_g": 2.5,
+  "sugar_g": 3.8,
+  "date": "2024-03-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603b98d210c105ee2e4ad79"
+  },
+  "userName": "RushilPatel",
+  "name": "Rajma Chawal",
+  "calories": 492.6,
+  "serving_size_g": 500,
+  "fat_total_g": 12.8,
+  "fat_saturated_g": 0,
+  "protein_g": 26.6,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 75.6,
+  "fiber_g": 0,
+  "sugar_g": 15.6,
+  "date": "2024-03-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603bb9f210c105ee2e4adb9"
+  },
+  "userName": "RushilPatel",
+  "name": "donuts",
+  "calories": 504.2,
+  "serving_size_g": 120,
+  "fat_total_g": 27.6,
+  "fat_saturated_g": 11.3,
+  "protein_g": 7.3,
+  "sodium_mg": 375,
+  "potassium_mg": 139,
+  "cholesterol_mg": 36,
+  "carbohydrates_total_g": 58.6,
+  "fiber_g": 2.5,
+  "sugar_g": 27,
+  "date": "2024-03-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603c094cddedf51dfce6e82"
+  },
+  "userName": "RushilPatel",
+  "name": "potato",
+  "calories": 927.4,
+  "serving_size_g": 1000,
+  "fat_total_g": 1.3,
+  "fat_saturated_g": 0.3,
+  "protein_g": 25.2,
+  "sodium_mg": 100,
+  "potassium_mg": 707,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 210.1,
+  "fiber_g": 22,
+  "sugar_g": 11.8,
+  "date": "2024-03-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6604121cabe07c4c8df4c800"
+  },
+  "userName": "RushilPatel",
+  "name": "Mango Yoghurt",
+  "calories": 101.6,
+  "serving_size_g": 250,
+  "fat_total_g": 0.6,
+  "fat_saturated_g": 0,
+  "protein_g": 1.3,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 24.4,
+  "fiber_g": 0,
+  "sugar_g": 22.4,
+  "date": "2024-03-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6604184fabe07c4c8df4db89"
+  },
+  "userName": "RushilPatel",
+  "name": "pizza",
+  "calories": 562.6,
+  "serving_size_g": 214,
+  "fat_total_g": 20.9,
+  "fat_saturated_g": 9.6,
+  "protein_g": 24.3,
+  "sodium_mg": 1256,
+  "potassium_mg": 465,
+  "cholesterol_mg": 36,
+  "carbohydrates_total_g": 70.4,
+  "fiber_g": 4.9,
+  "sugar_g": 7.6,
+  "date": "2024-03-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6605143d55387e5ab00f88fb"
+  },
+  "userName": "RushilPatel",
+  "name": "pizza",
+  "calories": 281.3,
+  "serving_size_g": 107,
+  "fat_total_g": 10.4,
+  "fat_saturated_g": 4.8,
+  "protein_g": 12.2,
+  "sodium_mg": 628,
+  "potassium_mg": 232,
+  "cholesterol_mg": 18,
+  "carbohydrates_total_g": 35.2,
+  "fiber_g": 2.5,
+  "sugar_g": 3.8,
+  "date": "2024-03-28",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a95739265d9c1eb1e4562"
+  },
+  "userName": "RushilPatel",
+  "name": "pizza",
+  "calories": 562.6,
+  "serving_size_g": 214,
+  "fat_total_g": 20.9,
+  "fat_saturated_g": 9.6,
+  "protein_g": 24.3,
+  "sodium_mg": 1256,
+  "potassium_mg": 465,
+  "cholesterol_mg": 36,
+  "carbohydrates_total_g": 70.4,
+  "fiber_g": 4.9,
+  "sugar_g": 7.6,
+  "date": "2024-04-01",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a95819265d9c1eb1e45b4"
+  },
+  "userName": "RushilPatel",
+  "name": "chesse",
+  "calories": 331.2,
+  "serving_size_g": 84,
+  "fat_total_g": 28.5,
+  "fat_saturated_g": 15.8,
+  "protein_g": 19.4,
+  "sodium_mg": 551,
+  "potassium_mg": 386,
+  "cholesterol_mg": 82,
+  "carbohydrates_total_g": 2.6,
+  "fiber_g": 0,
+  "sugar_g": 0.4,
+  "date": "2024-04-01",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a959e9265d9c1eb1e4662"
+  },
+  "userName": "RushilPatel",
+  "name": "Panner Tikka",
+  "calories": 300,
+  "serving_size_g": 250,
+  "fat_total_g": 20,
+  "fat_saturated_g": 0,
+  "protein_g": 40,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 80,
+  "fiber_g": 0,
+  "sugar_g": 12,
+  "date": "2024-04-01",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660e1ee3e97c82530573e2dd"
+  },
+  "userName": "RushilPatel",
+  "name": "pizza",
+  "calories": 562.6,
+  "serving_size_g": 214,
+  "fat_total_g": 20.9,
+  "fat_saturated_g": 9.6,
+  "protein_g": 24.3,
+  "sodium_mg": 1256,
+  "potassium_mg": 465,
+  "cholesterol_mg": 36,
+  "carbohydrates_total_g": 70.4,
+  "fiber_g": 4.9,
+  "sugar_g": 7.6,
+  "date": "2024-04-04",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660e1ef5e97c82530573e352"
+  },
+  "userName": "RushilPatel",
+  "name": "donuts",
+  "calories": 1512.6,
+  "serving_size_g": 360,
+  "fat_total_g": 82.9,
+  "fat_saturated_g": 33.8,
+  "protein_g": 21.9,
+  "sodium_mg": 1125,
+  "potassium_mg": 419,
+  "cholesterol_mg": 108,
+  "carbohydrates_total_g": 175.7,
+  "fiber_g": 7.5,
+  "sugar_g": 81.1,
+  "date": "2024-04-04",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66123332ddb2c1435303dbd8"
+  },
+  "userName": "RushilPatel",
+  "name": "1 slice pizza",
+  "calories": 281.3,
+  "serving_size_g": 250,
+  "fat_total_g": 10.4,
+  "fat_saturated_g": 0,
+  "protein_g": 12.2,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 35.2,
+  "fiber_g": 0,
+  "sugar_g": 3.8,
+  "date": "2024-04-07",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e2771fe29adc6954868a"
+  },
+  "userName": "RushilPatel",
+  "name": "pizza",
+  "calories": 562.6,
+  "serving_size_g": 214,
+  "fat_total_g": 20.9,
+  "fat_saturated_g": 9.6,
+  "protein_g": 24.3,
+  "sodium_mg": 1256,
+  "potassium_mg": 465,
+  "cholesterol_mg": 36,
+  "carbohydrates_total_g": 70.4,
+  "fiber_g": 4.9,
+  "sugar_g": 7.6,
+  "date": "2024-04-18",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e2871fe29adc695486cf"
+  },
+  "userName": "RushilPatel",
+  "name": "pasta",
+  "calories": 193.4,
+  "serving_size_g": 124,
+  "fat_total_g": 1.1,
+  "fat_saturated_g": 0.2,
+  "protein_g": 7.1,
+  "sodium_mg": 1,
+  "potassium_mg": 72,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 38.9,
+  "fiber_g": 2.2,
+  "sugar_g": 0.7,
+  "date": "2024-04-18",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cebf78e68c675074bc3e1"
+  },
+  "userName": "RushilPatel",
+  "name": "pizza",
+  "calories": 281.3,
+  "serving_size_g": 107,
+  "fat_total_g": 10.4,
+  "fat_saturated_g": 4.8,
+  "protein_g": 12.2,
+  "sodium_mg": 628,
+  "potassium_mg": 232,
+  "cholesterol_mg": 18,
+  "carbohydrates_total_g": 35.2,
+  "fiber_g": 2.5,
+  "sugar_g": 3.8,
+  "date": "2024-04-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cec008e68c675074bc413"
+  },
+  "userName": "RushilPatel",
+  "name": "donuts",
+  "calories": 504.2,
+  "serving_size_g": 120,
+  "fat_total_g": 27.6,
+  "fat_saturated_g": 11.3,
+  "protein_g": 7.3,
+  "sodium_mg": 375,
+  "potassium_mg": 139,
+  "cholesterol_mg": 36,
+  "carbohydrates_total_g": 58.6,
+  "fiber_g": 2.5,
+  "sugar_g": 27,
+  "date": "2024-04-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cec9b8e68c675074bc732"
+  },
+  "userName": "RushilPatel",
+  "name": "Chesse Burger ",
+  "calories": 110.4,
+  "serving_size_g": 250,
+  "fat_total_g": 9.5,
+  "fat_saturated_g": 0,
+  "protein_g": 6.5,
+  "sodium_mg": 0,
+  "potassium_mg": 0,
+  "cholesterol_mg": 0,
+  "carbohydrates_total_g": 0.9,
+  "fiber_g": 0,
+  "sugar_g": 0.1,
+  "date": "2024-04-27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "663de24fd6d5aa250debefb0"
+  },
+  "userName": "RushilPatel",
+  "name": "pizza",
+  "calories": 562.6,
+  "serving_size_g": 214,
+  "fat_total_g": 20.9,
+  "fat_saturated_g": 9.6,
+  "protein_g": 24.3,
+  "sodium_mg": 1256,
+  "potassium_mg": 465,
+  "cholesterol_mg": 36,
+  "carbohydrates_total_g": 70.4,
+  "fiber_g": 4.9,
+  "sugar_g": 7.6,
+  "date": "2024-05-10",
+  "__v": 0
+}]

@@ -1,0 +1,380 @@
+[{
+  "_id": {
+    "$oid": "66001fb394714f593e29d9ba"
+  },
+  "userName": "rushilpatel21",
+  "waterDate": "2024-03-24",
+  "waterQuantity": 3,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66001fc594714f593e29d9bc"
+  },
+  "userName": "rushilpatel21_",
+  "waterDate": "2024-03-24",
+  "waterQuantity": 3,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66001fe694714f593e29d9be"
+  },
+  "userName": "rushilpatel21_",
+  "waterDate": "2024-03-24",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600200a94714f593e29d9c0"
+  },
+  "userName": "rushilpatel21_",
+  "waterDate": "2024-03-24",
+  "waterQuantity": 5,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600fbfe13490257fe4ee216"
+  },
+  "userName": "RutvaPatel",
+  "waterDate": "2024-03-25",
+  "waterQuantity": 400,
+  "waterUnit": "ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603bb6f210c105ee2e4ad9e"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-27",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603bb7a210c105ee2e4ada7"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-27",
+  "waterQuantity": 3,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603bbab210c105ee2e4adc4"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-27",
+  "waterQuantity": 200,
+  "waterUnit": "ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603bbd0210c105ee2e4adcf"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-27",
+  "waterQuantity": 2,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603bc11210c105ee2e4add7"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-27",
+  "waterQuantity": 2,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603bc1a210c105ee2e4addf"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-27",
+  "waterQuantity": 200,
+  "waterUnit": "ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66040ee0abe07c4c8df4c1f6"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-27",
+  "waterQuantity": 3,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660417b1abe07c4c8df4d795"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-27",
+  "waterQuantity": 2,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66082499591045a7efc0aaf5"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-30",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66082583591045a7efc0ab47"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-02-21",
+  "waterQuantity": 1,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660825b7591045a7efc0abe2"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-02-24",
+  "waterQuantity": 1,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660825d9591045a7efc0ac3f"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-24",
+  "waterQuantity": 1,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660825df591045a7efc0ac64"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-23",
+  "waterQuantity": 1,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66083946591045a7efc0acd4"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2023-12-30",
+  "waterQuantity": 1,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6608396c591045a7efc0ad59"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2023-10-30",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66083986591045a7efc0adb1"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2023-09-30",
+  "waterQuantity": 12,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6608399c591045a7efc0ae0a"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2023-08-30",
+  "waterQuantity": 10,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660839e3591045a7efc0ae84"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2023-10-14",
+  "waterQuantity": 8,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66083b40591045a7efc0aee0"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-03-30",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a757c9104854b8120931c"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-01",
+  "waterQuantity": 4,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a757f9104854b81209331"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-01",
+  "waterQuantity": 1,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660e1f8be97c82530573e41c"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-04",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66201c9cf07ec567825242b7"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-17",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e28f1fe29adc695486ff"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-18",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e2921fe29adc69548710"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-18",
+  "waterQuantity": 2,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cecc08e68c675074bc7f3"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-27",
+  "waterQuantity": 2,
+  "waterUnit": "Glass",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cecc78e68c675074bc81f"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-27",
+  "waterQuantity": 1,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ceccd8e68c675074bc856"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-27",
+  "waterQuantity": 350,
+  "waterUnit": "ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cedd08e68c675074bccb1"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2023-11-15",
+  "waterQuantity": 2000,
+  "waterUnit": "ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cee038e68c675074bcdbd"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-01-17",
+  "waterQuantity": 3400,
+  "waterUnit": "ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cee5e8e68c675074bcf8e"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-04-19",
+  "waterQuantity": 2,
+  "waterUnit": "l",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cef668e68c675074bd50f"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2023-11-28",
+  "waterQuantity": 4030,
+  "waterUnit": "ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "663b6a226e4a452bc941aba8"
+  },
+  "userName": "RushilPatel",
+  "waterDate": "2024-05-08",
+  "waterQuantity": 3,
+  "waterUnit": "Glass",
+  "__v": 0
+}]

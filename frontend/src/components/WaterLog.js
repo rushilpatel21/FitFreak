@@ -1,6 +1,5 @@
 import React, { useEffect,useState, useCallback  } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Notification from './Notification.js';
 import axios from 'axios'; 
 import Swal from 'sweetalert2'
 
@@ -17,7 +16,7 @@ function WaterLog() {
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
-    if (userState === 'false') {
+    if (userState===null || userState === 'false') {
       setShowNotification(true);
     }else{
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));

@@ -1,0 +1,676 @@
+[{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2af3"
+  },
+  "username": "JohnSmith",
+  "email": "john.smith@example.com",
+  "password": "password123",
+  "weight": 75,
+  "lifestyle": "Active",
+  "goal": "Weight Loss",
+  "height": 175,
+  "bmi": 24.49,
+  "birthday": "1985-03-15",
+  "age": 37,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2af4"
+  },
+  "username": "EmmaJohnson",
+  "email": "emma.johnson@example.com",
+  "password": "password456",
+  "weight": 62,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 163,
+  "bmi": 23.29,
+  "birthday": "1990-07-22",
+  "age": 31,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2af5"
+  },
+  "username": "MichaelBrown",
+  "email": "michael.brown@example.com",
+  "password": "password789",
+  "weight": 85,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Gain",
+  "height": 180,
+  "bmi": 26.23,
+  "birthday": "1982-11-10",
+  "age": 39,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2af6"
+  },
+  "username": "JenniferLee",
+  "email": "jennifer.lee@example.com",
+  "password": "passwordabc",
+  "weight": 55,
+  "lifestyle": "Active",
+  "goal": "Weight Loss",
+  "height": 160,
+  "bmi": 21.48,
+  "birthday": "1988-05-20",
+  "age": 33,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2af7"
+  },
+  "username": "DavidTaylor",
+  "email": "david.taylor@example.com",
+  "password": "passworddef",
+  "weight": 78,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 178,
+  "bmi": 24.63,
+  "birthday": "1987-09-05",
+  "age": 34,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2af8"
+  },
+  "username": "EmilyAnderson",
+  "email": "emily.anderson@example.com",
+  "password": "passwordxyz",
+  "weight": 60,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 165,
+  "bmi": 22.04,
+  "birthday": "1995-01-30",
+  "age": 27,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2af9"
+  },
+  "username": "ChristopherWang",
+  "email": "christopher.wang@example.com",
+  "password": "password1234",
+  "weight": 70,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 172,
+  "bmi": 23.66,
+  "birthday": "1984-08-12",
+  "age": 37,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2afa"
+  },
+  "username": "AmandaJones",
+  "email": "amanda.jones@example.com",
+  "password": "password5678",
+  "weight": 65,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 167,
+  "bmi": 23.31,
+  "birthday": "1992-03-25",
+  "age": 29,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2afb"
+  },
+  "username": "MatthewMartinez",
+  "email": "matthew.martinez@example.com",
+  "password": "passwordabcd",
+  "weight": 82,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 179,
+  "bmi": 25.57,
+  "birthday": "1980-12-08",
+  "age": 41,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2afc"
+  },
+  "username": "OliviaWilson",
+  "email": "olivia.wilson@example.com",
+  "password": "password7890",
+  "weight": 58,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 163,
+  "bmi": 21.83,
+  "birthday": "1989-06-18",
+  "age": 32,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2afd"
+  },
+  "username": "DanielRodriguez",
+  "email": "daniel.rodriguez@example.com",
+  "password": "passwordxyz1",
+  "weight": 75,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 175,
+  "bmi": 24.49,
+  "birthday": "1986-02-17",
+  "age": 36,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2afe"
+  },
+  "username": "SophiaTaylor",
+  "email": "sophia.taylor@example.com",
+  "password": "password2345",
+  "weight": 64,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 168,
+  "bmi": 22.68,
+  "birthday": "1994-04-10",
+  "age": 27,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2aff"
+  },
+  "username": "JamesThomas",
+  "email": "james.thomas@example.com",
+  "password": "password6789",
+  "weight": 80,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 180,
+  "bmi": 24.69,
+  "birthday": "1983-11-25",
+  "age": 38,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b00"
+  },
+  "username": "IsabellaHernandez",
+  "email": "isabella.hernandez@example.com",
+  "password": "passwordabcd1",
+  "weight": 55,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 160,
+  "bmi": 21.48,
+  "birthday": "1991-08-30",
+  "age": 30,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b01"
+  },
+  "username": "JoshuaYoung",
+  "email": "joshua.young@example.com",
+  "password": "passworddefg",
+  "weight": 78,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 178,
+  "bmi": 24.63,
+  "birthday": "1987-02-08",
+  "age": 35,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b02"
+  },
+  "username": "CharlotteGarcia",
+  "email": "charlotte.garcia@example.com",
+  "password": "passwordhijk",
+  "weight": 60,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 165,
+  "bmi": 22.04,
+  "birthday": "1995-07-12",
+  "age": 26,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b03"
+  },
+  "username": "AlexanderMartinez",
+  "email": "alexander.martinez@example.com",
+  "password": "passwordlmno",
+  "weight": 82,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 179,
+  "bmi": 25.57,
+  "birthday": "1980-05-20",
+  "age": 41,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b04"
+  },
+  "username": "MiaLopez",
+  "email": "mia.lopez@example.com",
+  "password": "passwordqrst",
+  "weight": 57,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 163,
+  "bmi": 21.48,
+  "birthday": "1993-10-15",
+  "age": 28,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b05"
+  },
+  "username": "WilliamHernandez",
+  "email": "william.hernandez@example.com",
+  "password": "passworduvwx",
+  "weight": 70,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 175,
+  "bmi": 22.86,
+  "birthday": "1986-12-30",
+  "age": 35,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b06"
+  },
+  "username": "AmeliaGonzalez",
+  "email": "amelia.gonzalez@example.com",
+  "password": "passwordyzab",
+  "weight": 63,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 166,
+  "bmi": 22.84,
+  "birthday": "1990-03-25",
+  "age": 31,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b07"
+  },
+  "username": "EthanPerez",
+  "email": "ethan.perez@example.com",
+  "password": "passwordcdef",
+  "weight": 75,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 178,
+  "bmi": 23.67,
+  "birthday": "1988-08-18",
+  "age": 33,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b08"
+  },
+  "username": "HarperSanchez",
+  "email": "harper.sanchez@example.com",
+  "password": "passwordghij",
+  "weight": 58,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 162,
+  "bmi": 22.13,
+  "birthday": "1996-04-20",
+  "age": 25,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b09"
+  },
+  "username": "LucasGomez",
+  "email": "lucas.gomez@example.com",
+  "password": "passwordklmn",
+  "weight": 80,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 180,
+  "bmi": 24.69,
+  "birthday": "1985-11-10",
+  "age": 36,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b0a"
+  },
+  "username": "EvelynDiaz",
+  "email": "evelyn.diaz@example.com",
+  "password": "passwordopqr",
+  "weight": 56,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 165,
+  "bmi": 20.57,
+  "birthday": "1992-02-08",
+  "age": 29,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b0b"
+  },
+  "username": "NoahTorres",
+  "email": "noah.torres@example.com",
+  "password": "passwordstuv",
+  "weight": 72,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 175,
+  "bmi": 23.51,
+  "birthday": "1987-06-25",
+  "age": 34,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b0c"
+  },
+  "username": "VictoriaRivera",
+  "email": "victoria.rivera@example.com",
+  "password": "passwordwxyz",
+  "weight": 64,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 168,
+  "bmi": 22.68,
+  "birthday": "1993-09-15",
+  "age": 28,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b0d"
+  },
+  "username": "LiamOrtiz",
+  "email": "liam.ortiz@example.com",
+  "password": "password12345",
+  "weight": 78,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 178,
+  "bmi": 24.63,
+  "birthday": "1988-12-20",
+  "age": 33,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b0e"
+  },
+  "username": "MadisonMorales",
+  "email": "madison.morales@example.com",
+  "password": "password67890",
+  "weight": 59,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 164,
+  "bmi": 21.93,
+  "birthday": "1995-11-30",
+  "age": 26,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b0f"
+  },
+  "username": "MasonRussell",
+  "email": "mason.russell@example.com",
+  "password": "password123456",
+  "weight": 82,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 180,
+  "bmi": 25.31,
+  "birthday": "1984-06-05",
+  "age": 37,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b10"
+  },
+  "username": "ChloeRamirez",
+  "email": "chloe.ramirez@example.com",
+  "password": "password234567",
+  "weight": 61,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 165,
+  "bmi": 22.41,
+  "birthday": "1992-09-18",
+  "age": 29,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b11"
+  },
+  "username": "LoganWatson",
+  "email": "logan.watson@example.com",
+  "password": "password345678",
+  "weight": 76,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 178,
+  "bmi": 23.96,
+  "birthday": "1986-12-10",
+  "age": 35,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b12"
+  },
+  "username": "GraceRossi",
+  "email": "grace.rossi@example.com",
+  "password": "password456789",
+  "weight": 58,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 168,
+  "bmi": 20.54,
+  "birthday": "1990-03-25",
+  "age": 31,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b13"
+  },
+  "username": "BenjaminColeman",
+  "email": "benjamin.coleman@example.com",
+  "password": "password567890",
+  "weight": 79,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 180,
+  "bmi": 24.38,
+  "birthday": "1983-08-15",
+  "age": 38,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b14"
+  },
+  "username": "AveryFerrari",
+  "email": "avery.ferrari@example.com",
+  "password": "password678901",
+  "weight": 60,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 162,
+  "bmi": 22.86,
+  "birthday": "1995-04-20",
+  "age": 26,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b15"
+  },
+  "username": "JacksonBianchi",
+  "email": "jackson.bianchi@example.com",
+  "password": "password789012",
+  "weight": 73,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 176,
+  "bmi": 23.55,
+  "birthday": "1987-11-30",
+  "age": 34,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b16"
+  },
+  "username": "LilyRomano",
+  "email": "lily.romano@example.com",
+  "password": "password890123",
+  "weight": 56,
+  "lifestyle": "Sedentary",
+  "goal": "Weight Loss",
+  "height": 164,
+  "bmi": 20.81,
+  "birthday": "1992-07-18",
+  "age": 29,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b17"
+  },
+  "username": "MichaelWhite",
+  "email": "michael.white@example.com",
+  "password": "password901234",
+  "weight": 77,
+  "lifestyle": "Active",
+  "goal": "Weight Gain",
+  "height": 177,
+  "bmi": 24.57,
+  "birthday": "1984-10-25",
+  "age": 37,
+  "sex": "Male"
+},
+{
+  "_id": {
+    "$oid": "65fe7f21cbba3ea4740a2b18"
+  },
+  "username": "SofiaRomero",
+  "email": "sofia.romero@example.com",
+  "password": "password012345",
+  "weight": 59,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 166,
+  "bmi": 21.41,
+  "birthday": "1991-03-12",
+  "age": 30,
+  "sex": "Female"
+},
+{
+  "_id": {
+    "$oid": "66000fcde9aa890838c9d22a"
+  },
+  "username": "RushilPatel",
+  "email": "rushilpatel210@gmail.com",
+  "password": "test123",
+  "weight": 84,
+  "lifestyle": "Active",
+  "goal": "Weight Loss",
+  "height": 178,
+  "bmi": 26.51,
+  "birthday": "2004-08-21",
+  "age": 19,
+  "sex": "Male",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600378448e39c6d317a9068"
+  },
+  "username": "saloniDesai16",
+  "email": "22bce309@nirmauni.ac.in",
+  "password": "test123",
+  "weight": 51,
+  "lifestyle": "Moderate",
+  "goal": "Weight Loss",
+  "height": 156,
+  "bmi": 20.55,
+  "birthday": "2004-04-16",
+  "age": 19,
+  "sex": "Female",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600815a404c5dbfeca3ffc7"
+  },
+  "username": "RutvaPatel",
+  "email": "rutvapatel@gmail.com",
+  "password": "test123",
+  "weight": 49,
+  "lifestyle": "Moderate",
+  "goal": "Bulking",
+  "height": 149,
+  "bmi": 21.78,
+  "birthday": "1998-11-17",
+  "age": 25,
+  "sex": "Female",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660e1f68e97c82530573e3da"
+  },
+  "username": "test123",
+  "email": "test123@gmail.com",
+  "password": "test123",
+  "weight": 50,
+  "lifestyle": "Active",
+  "goal": "Weight Loss",
+  "height": 150,
+  "bmi": 22.52,
+  "birthday": "2002-11-11",
+  "age": 21,
+  "sex": "Female",
+  "__v": 0
+}]

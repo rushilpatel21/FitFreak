@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Notification from './Notification.js';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 import Swal from 'sweetalert2'
@@ -16,7 +15,7 @@ function CaloriesBurnt() {
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
-    if (userState === 'false') {
+    if (userState===null || userState === 'false') {
       setShowNotification(true);
     } else {
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
@@ -131,7 +130,7 @@ function CaloriesBurnt() {
     Swal.fire({
       icon: "error",
       title: "User Not Logged In",
-      text: "Please sign in to view log",
+      text: "Please sign in to view progress",
       showCancelButton: true, // Add this to show the cancel button
       confirmButtonColor: '#dc3545', // Change the confirm button color to red
       cancelButtonColor: '#6c757d', // Optionally, change the cancel button color

@@ -1,0 +1,793 @@
+[{
+  "_id": {
+    "$oid": "6600214194714f593e29d9c3"
+  },
+  "userName": "rushilpatel21_",
+  "workoutDate": "2024-03-24",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 80,
+  "caloriesBurnt": 300,
+  "startTime": "18:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66008d488dfc79cfb60fd5b8"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-02-24",
+  "workoutType": "Strength Training",
+  "workoutName": "Deadlifts",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 200,
+  "startTime": "00:59",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600a5388dfc79cfb60fd5d6"
+  },
+  "userName": "RutvaPatel",
+  "workoutDate": "2024-03-24",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 400,
+  "startTime": "10:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6600fc1713490257fe4ee218"
+  },
+  "userName": "RutvaPatel",
+  "workoutDate": "2024-03-25",
+  "workoutType": "Balance And Stability",
+  "workoutName": "Balance Board Exercises",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 50,
+  "startTime": "07:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66026dd3ee9c6343481dfed0"
+  },
+  "userName": "RutvaPatel",
+  "workoutDate": "2024-03-26",
+  "workoutType": "Strength Training",
+  "workoutName": "Bench Press",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 100,
+  "startTime": "16:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660316365ecbcbd396ba9ffe"
+  },
+  "userName": "RutvaPatel",
+  "workoutDate": "2024-03-26",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 300,
+  "startTime": "13:20",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660316785ecbcbd396baa004"
+  },
+  "userName": "RutvaPatel",
+  "workoutDate": "2024-03-26",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Yoga Poses",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 50,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660318f85ecbcbd396baa0bc"
+  },
+  "userName": "RutvaPatel",
+  "workoutDate": "2024-03-26",
+  "workoutType": "Strength Training",
+  "workoutName": "Deadlifts",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 400,
+  "startTime": "16:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603190f5ecbcbd396baa14f"
+  },
+  "userName": "RutvaPatel",
+  "workoutDate": "2024-03-26",
+  "workoutType": "Strength Training",
+  "workoutName": "Push-Ups",
+  "workoutMinutes": 45,
+  "caloriesBurnt": 200,
+  "startTime": "04:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660319c85ecbcbd396baa7eb"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-26",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 350,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660319f25ecbcbd396baa9ea"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-26",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Tai Chi",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 100,
+  "startTime": "17:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66031b198054142076522c24"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-20",
+  "workoutType": "Strength Training",
+  "workoutName": "Bench Press",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 200,
+  "startTime": "10:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603afa9210c105ee2e49bdf"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Cardio",
+  "workoutName": "Cycling",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 240,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603b0c6210c105ee2e4a5be"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Strength Training",
+  "workoutName": "Deadlifts",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 70,
+  "startTime": "10:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603b16b210c105ee2e4a5cc"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Strength Training",
+  "workoutName": "Deadlifts",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 400,
+  "startTime": "11:11",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603b180210c105ee2e4a5d6"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Strength Training",
+  "workoutName": "Barbell Squats",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 67,
+  "startTime": "10:45",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6603c005cddedf51dfce6e5d"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Strength Training",
+  "workoutName": "Pull-Ups",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 400,
+  "startTime": "14:22",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66040f19abe07c4c8df4c207"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Cardio",
+  "workoutName": "Cycling",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 150,
+  "startTime": "11:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66040f39abe07c4c8df4c214"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 123,
+  "caloriesBurnt": 23,
+  "startTime": "14:22",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66040fc2abe07c4c8df4c430"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Cardio",
+  "workoutName": "Elliptical Training",
+  "workoutMinutes": 15,
+  "caloriesBurnt": 40,
+  "startTime": "16:22",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660410faabe07c4c8df4c624"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Yoga Poses",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 40,
+  "startTime": "11:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6604154aabe07c4c8df4c90d"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 300,
+  "startTime": "03:33",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66041866abe07c4c8df4dc26"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Strength Training",
+  "workoutName": "Barbell Squats",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 200,
+  "startTime": "11:40",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660428f6fb312af40fbc3ba7"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-25",
+  "workoutType": "Strength Training",
+  "workoutName": "Bench Press",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 200,
+  "startTime": "17:40",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660429d0fb312af40fbc3c63"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-21",
+  "workoutType": "Strength Training",
+  "workoutName": "Dumbbell Lunges",
+  "workoutMinutes": 50,
+  "caloriesBurnt": 190,
+  "startTime": "07:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66042a6e74bff25718bbdfe0"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-27",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 1,
+  "caloriesBurnt": 1,
+  "startTime": "12:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66042aad74bff25718bbe0e2"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-20",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 10,
+  "caloriesBurnt": 10,
+  "startTime": "14:22",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660513d455387e5ab00f882a"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-28",
+  "workoutType": "Strength Training",
+  "workoutName": "Deadlifts",
+  "workoutMinutes": 5,
+  "caloriesBurnt": 40,
+  "startTime": "07:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660515c055387e5ab00f8a47"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-28",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 400,
+  "startTime": "14:22",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66082211591045a7efc0aa9f"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-30",
+  "workoutType": "Cardio",
+  "workoutName": "Swimming",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 200,
+  "startTime": "01:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66085371f6389c0433caf7c7"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-30",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 105,
+  "caloriesBurnt": 800,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6608537df6389c0433caf81b"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-30",
+  "workoutType": "Cardio",
+  "workoutName": "JumpRope",
+  "workoutMinutes": 10,
+  "caloriesBurnt": 20,
+  "startTime": "04:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a72ce9104854b812090b6"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-01",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 200,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a73239104854b81209168"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-03-25",
+  "workoutType": "Cardio",
+  "workoutName": "Rowing",
+  "workoutMinutes": 50,
+  "caloriesBurnt": 230,
+  "startTime": "14:22",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a74939104854b81209202"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-01",
+  "workoutType": "Strength Training",
+  "workoutName": "Barbell Squats",
+  "workoutMinutes": 40,
+  "caloriesBurnt": 100,
+  "startTime": "17:50",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660a74bc9104854b8120929c"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-01",
+  "workoutType": "Balance And Stability",
+  "workoutName": "Stability Ball Exercises",
+  "workoutMinutes": 150,
+  "caloriesBurnt": 200,
+  "startTime": "05:55",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660e1e53e97c82530573e042"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-04",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 40,
+  "caloriesBurnt": 200,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660e1e84e97c82530573e130"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-04",
+  "workoutType": "Strength Training",
+  "workoutName": "Pull-Ups",
+  "workoutMinutes": 5,
+  "caloriesBurnt": 40,
+  "startTime": "08:20",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660e1eb8e97c82530573e21f"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-04",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Yoga Poses",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 30,
+  "startTime": "07:45",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661232ebddb2c1435303da1a"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-07",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 150,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661232fbddb2c1435303da7b"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-07",
+  "workoutType": "Cardio",
+  "workoutName": "Elliptical Training",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 50,
+  "startTime": "05:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661e20870c72c234927a9e07"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-16",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 200,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e2591fe29adc69548608"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-18",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 100,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e26b1fe29adc69548652"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-18",
+  "workoutType": "Strength Training",
+  "workoutName": "Pull-Ups",
+  "workoutMinutes": 10,
+  "caloriesBurnt": 50,
+  "startTime": "07:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e4521fe29adc695487a5"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-17",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 200,
+  "startTime": "08:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e4691fe29adc6954880a"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-17",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Static Stretching",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 100,
+  "startTime": "18:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6620e5651fe29adc69548a8d"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-18",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Pilates",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 60,
+  "startTime": "05:32",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ceb308e68c675074bbfe6"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-27",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 140,
+  "startTime": "06:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ceb448e68c675074bc04d"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-27",
+  "workoutType": "Strength Training",
+  "workoutName": "Pull-Ups",
+  "workoutMinutes": 5,
+  "caloriesBurnt": 20,
+  "startTime": "07:20",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ceb5a8e68c675074bc0ba"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-27",
+  "workoutType": "Strength Training",
+  "workoutName": "Barbell Squats",
+  "workoutMinutes": 15,
+  "caloriesBurnt": 50,
+  "startTime": "07:27",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ceb6b8e68c675074bc10f"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-27",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Yoga Poses",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 100,
+  "startTime": "18:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ceb8c8e68c675074bc1b3"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-27",
+  "workoutType": "Balance And Stability",
+  "workoutName": "Tai Chi Balance Exercises",
+  "workoutMinutes": 20,
+  "caloriesBurnt": 30,
+  "startTime": "17:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cebc08e68c675074bc2b3"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-27",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Pilates",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 90,
+  "startTime": "17:30",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662cecf28e68c675074bc913"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-26",
+  "workoutType": "Cardio",
+  "workoutName": "Running",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 200,
+  "startTime": "14:22",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ced0b8e68c675074bc98b"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-25",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 450,
+  "startTime": "17:48",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ced1a8e68c675074bc9dc"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-24",
+  "workoutType": "Strength Training",
+  "workoutName": "Deadlifts",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 500,
+  "startTime": "17:48",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ced328e68c675074bca56"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-23",
+  "workoutType": "Strength Training",
+  "workoutName": "Barbell Squats",
+  "workoutMinutes": 120,
+  "caloriesBurnt": 490,
+  "startTime": "09:59",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ced5f8e68c675074bcb2b"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-22",
+  "workoutType": "Strength Training",
+  "workoutName": "Deadlifts",
+  "workoutMinutes": 23,
+  "caloriesBurnt": 490,
+  "startTime": "14:02",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ced6e8e68c675074bcb78"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-21",
+  "workoutType": "Flexibility Training",
+  "workoutName": "Yoga Poses",
+  "workoutMinutes": 100,
+  "caloriesBurnt": 540,
+  "startTime": "11:58",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662ced848e68c675074bcbe5"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-04-23",
+  "workoutType": "Cardio",
+  "workoutName": "Walking",
+  "workoutMinutes": 30,
+  "caloriesBurnt": 200,
+  "startTime": "14:22",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "663b35984f5567642eaef12e"
+  },
+  "userName": "RushilPatel",
+  "workoutDate": "2024-05-08",
+  "workoutType": "Strength Training",
+  "workoutName": "Barbell Squats",
+  "workoutMinutes": 200,
+  "caloriesBurnt": 300,
+  "startTime": "13:49",
+  "__v": 0
+}]
