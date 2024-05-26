@@ -74,7 +74,7 @@ function About() {
       </section>
       <section className="section section3">
         <div className="photo">
-          <img src={require("../assets/rushil1.jpg")} alt="Rushil Patel" />
+          <img src={require("../assets/rushil2.jpg")} alt="Rushil Patel" />
         </div>
       </section>
       <section className="section section4">
