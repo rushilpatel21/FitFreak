@@ -157,7 +157,7 @@ function FoodLog() {
       // const foodObj = foodData[0];
       console.log(foodObj);
       try{
-        const response = await fetch('/api/foodLogGet', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/foodLogGet`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -202,7 +202,7 @@ function FoodLog() {
       }
       console.log(foodObj);
       try{
-        const response = await fetch('/api/foodLogGet', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/foodLogGet`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -259,7 +259,7 @@ function FoodLog() {
           return;
         }
         console.log(userId);
-        const uri = '/api/foodlog/' + userId;
+        const uri = `${process.env.REACT_APP_BACKEND_URL}/api/foodlog/` + userId;
         console.log('Request URI:', uri);
         const response = await axios.get(uri);
   

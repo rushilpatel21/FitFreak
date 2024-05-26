@@ -61,10 +61,10 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         sex: sex,
       };
       console.log('User data:', userData); //Saving data
-      console.log(userData.age);
-      console.log(typeof(userData.age));
+      // console.log(userData.age);
+      // console.log(typeof(userData.age));
       try{
-        const response = await fetch('/api/userGet', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/userGet`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -74,6 +74,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         if (response.ok) {
           console.log('Data submitted successfully');
         } else {
+          console.log(response);
           console.error('Failed to submit data');
           alert("Username is already taken.");
           setUsername('');
@@ -109,7 +110,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
 
       console.log(storedUser);
       try{
-        const response = await fetch('/api/userGet', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/userGet`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -173,7 +174,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     //To check duplicate username
     const checkUserName = async () => {
       try {
-        const uri = '/api/users/' + username;
+        const uri = `${process.env.REACT_APP_BACKEND_URL}/api/users/` + username;
         console.log('Request URI:', uri);
         const response = await axios.get(uri);
         

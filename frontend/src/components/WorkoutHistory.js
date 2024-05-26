@@ -48,7 +48,7 @@ function WorkoutHistory() {
           return;
         }
 
-        const response = await axios.get(`/api/workoutlog/${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/workoutlog/${userId}`);
 
         if (response.status === 200) {
           const fetchedWorkoutData = response.data.workoutlog;
@@ -180,7 +180,7 @@ function WorkoutHistory() {
           return;
         }
 
-        const response = await axios.get(`/api/workoutlog/${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/workoutlog/${userId}`);
 
         if (response.status === 200) {
           const fetchedWorkoutData = response.data.workoutlog;

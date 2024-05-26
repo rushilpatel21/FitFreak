@@ -48,7 +48,7 @@ function WaterLog() {
       console.log(waterObj);
       setWaterData(waterObj);
       try{
-        const response = await fetch('/api/waterLogGet', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/waterLogGet`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ function WaterLog() {
           return;
         }
         console.log(userId);
-        const uri = '/api/waterlog/' + userId;
+        const uri = `${process.env.REACT_APP_BACKEND_URL}/api/waterlog/` + userId;
         console.log('Request URI:', uri);
         const response = await axios.get(uri);
   

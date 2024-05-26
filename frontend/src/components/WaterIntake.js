@@ -44,7 +44,7 @@ function WaterIntake(){
           return;
         }
     
-        const response = await axios.get(`/api/waterlog/${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/waterlog/${userId}`);
     
         if (response.status === 200) {
           const fetchedWaterData = response.data.waterLogs;

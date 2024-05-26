@@ -112,7 +112,7 @@ function WorkoutLog({ userDetails }) {
         if(!userName){
           return;
         }
-        const response = await fetch('/api/workoutLogGet', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/workoutLogGet`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -161,7 +161,7 @@ function WorkoutLog({ userDetails }) {
           return;
         }
         console.log(userId);
-        const uri = '/api/workoutLog/' + userId;
+        const uri = `${process.env.REACT_APP_BACKEND_URL}/api/workoutLog/` + userId;
         console.log('Request URI:', uri);
         const response = await axios.get(uri);
   

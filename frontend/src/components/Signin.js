@@ -12,7 +12,7 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
 
     const checkUserName = async () => {
       try {
-        const uri = '/api/users/' + username;
+        const uri = `${process.env.REACT_APP_BACKEND_URL}/api/users/` + username;
         console.log('Request URI:', uri);
         const response = await axios.get(uri);
         
