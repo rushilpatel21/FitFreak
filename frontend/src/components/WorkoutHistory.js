@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bar, Doughnut } from 'react-chartjs-2';
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto';
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
@@ -27,6 +27,16 @@ function WorkoutHistory() {
       setUserName(storedUser.username);
     }
   }, []);
+
+  //For deploy
+  useEffect(() => {
+    if(!userName){
+      console.log("null username.");
+    }else{
+      console.log(userName);
+    }
+    
+  },[userName]);
 
   useEffect(() => { //This is for bar graph as it will have total workout
     

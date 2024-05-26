@@ -20,6 +20,7 @@ function CaloriesBurnt() {
     } else {
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
       setUserName(storedUser.username);
+      
     }
   }, []);
 
@@ -125,6 +126,16 @@ function CaloriesBurnt() {
   const toggleDaysMonths = () => {
     setDisplayMode(prevMode => (prevMode === 'Days' ? 'Months' : 'Days'));
   };
+
+  //For deploy
+  useEffect(() => {
+    if(!userName){
+      console.log("null username.");
+    }else{
+      console.log(userName);
+    }
+    
+  },[userName]);
 
   const usingSwal = () => {
     Swal.fire({

@@ -8,6 +8,8 @@ function UserDetails({ updateUserDetails, userDetails, toggleUserDetailsModal, s
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+
+  
   useEffect(() => {
     if(localStorage.getItem("isLoggedIn") === 'true'){
       console.log('user has already logged in');
@@ -17,7 +19,9 @@ function UserDetails({ updateUserDetails, userDetails, toggleUserDetailsModal, s
       updateUserDetails(storedUser);
       // navigate('/');
     }
-  }, []);
+  }, [updateUserDetails]); // Added updateUserDetails for deploy. 
+
+
   return (
     <div className="user-details-container align-modal">
       {/* <button onClick={toggleModal}>Open Modal</button> */}

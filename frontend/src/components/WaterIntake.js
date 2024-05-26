@@ -24,6 +24,16 @@ function WaterIntake(){
     }
   }, []);
 
+  //For deploy
+  useEffect(() => {
+    if(!userName){
+      console.log("null username.");
+    }else{
+      console.log(userName);
+    }
+    
+  },[userName]);
+
   useEffect(() => {
     
     const fetchData = async () => {

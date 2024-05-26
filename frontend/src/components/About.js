@@ -36,7 +36,7 @@ function About() {
         const githubLink1 = 'https://github.com/salonidesai16'; 
     
         return (
-          <a href={githubLink1} target="_blank" rel="noopener noreferrer1" className='gh2'>
+          <a href={githubLink1} target="_blank" rel="noopener noreferrer" className='gh2'>
             <h1 className='lk' style={{ fontSize: '34px' }}>Socials</h1><br></br>
             <img src={require("../assets/gihub4.png")} alt="GitHub icon1"  style={{ width: '35px', height: '35px' }} />
           </a>
@@ -47,7 +47,7 @@ function About() {
         const LinkedInLink1 = 'https://www.linkedin.com/in/saloni-desai-aa3a0824a/';  
         return (
          
-          <a href={LinkedInLink1} target="_blank" rel="noopener noreferrer1" className='lk4'>
+          <a href={LinkedInLink1} target="_blank" rel="noopener noreferrer" className='lk4'>
             <img src={require("../assets/lk2.webp")} alt="lk icon1"  style={{ width: '35px', height: '35px' }} />
           </a>
         );

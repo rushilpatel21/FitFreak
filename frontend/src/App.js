@@ -86,7 +86,7 @@ function App() {
       updateSignInRoute('/logOut');
       updateSignUpRoute('#');
     }
-  }, []);
+  }, [userDetails]); //Deploy change : Added userDetails;
 
   return (
     <Router>

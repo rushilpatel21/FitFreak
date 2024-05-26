@@ -13,10 +13,10 @@ function Diet() {
     }
   }, []);
 
-  const closeNotification = () => {
-    setShowNotification(false);
-    navigate('/');
-  };
+  // const closeNotification = () => {
+  //   setShowNotification(false);
+  //   navigate('/');
+  // };
 
   const usingSwal = () => {
     Swal.fire({
