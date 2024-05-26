@@ -4,7 +4,14 @@ const cors = require("cors");
 require('dotenv').config();
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://main--fitfreak10.netlify.app/', // Added this for deploying 
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
+// app.use(cors());
 app.use(express.json());
 
 const userRoutes = require('./routes/userRoutes.js'); //Normal for all users
