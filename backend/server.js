@@ -18,7 +18,8 @@ const corsOptions = {
     }
   }
 };
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors()); // To Allow all origins 
 
 // app.use(cors());
 app.use(express.json());
