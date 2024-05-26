@@ -73,13 +73,13 @@ function About() {
         </div>
       </section>
       <section className="section section3">
-        <div className="photo">
-          <img src={require("../assets/rushil2.jpg")} alt="Rushil Patel" />
+        <div className="photo" style={{ marginLeft: 160 }}>
+          <img src={require("../assets/rushil2.jpg")} alt="Rushil Patel" style={{ width: 520, height: "auto" }}/>
         </div>
       </section>
       <section className="section section4">
         <div className="text">
-        <h1 className="name" style={{ fontSize: '38px' }}>Rushil Patel</h1>
+        <h1 className="name" style={{ fontSize: '38px', marginLeft: 85}}>Rushil Patel</h1>
         </div>
       </section>
       <section className="section section5">
@@ -95,8 +95,8 @@ function About() {
       
       </section>
       <section className="section section7">
-        <div className="photo1">
-          <img src={require("../assets/saloni3.jpg")} alt="Saloni Desai" />
+        <div className="photo1"style={{ marginLeft: 950 }}>
+          <img src={require("../assets/saloni3.jpg")} alt="Saloni Desai" style={{ width: 580, height: "auto" }}/>
         </div>
       </section>
       <section className="section section8">
