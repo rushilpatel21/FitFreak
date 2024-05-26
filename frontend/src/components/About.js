@@ -136,38 +136,38 @@ function About() {
         <h1 classname="qa"  style={{ fontSize: '50px', color: 'red' }} >FAQs</h1>
         <div className="question">
           <h3>
-            Is MyFitnessPal a free calorie tracker app?
+            Is FitFreak a free calorie tracker app?
             <span className={`arrow ${showAnswers[0] ? 'up' : 'down'}`} onClick={() => toggleAnswer(0)}></span>
           </h3>
-          {showAnswers[0] && <p style={{ color: 'red' }}>Yes, MyFitnessPal is a free calorie tracker app.</p>}
+          {showAnswers[0] && <p style={{ color: 'red' }}>Yes, FitFreak is a free calorie tracker app.</p>}
         </div>
         <div className="question">
           <h3>
-            How to track calories with a calorie counter app like MyFitnessPal?
+            How to track calories with a calorie counter app like FitFreak?
             <span className={`arrow ${showAnswers[1] ? 'up' : 'down'}`} onClick={() => toggleAnswer(1)}></span>
           </h3>
-          {showAnswers[1] && <p style={{ color: 'red' }}>To track calories with MyFitnessPal, you can search for the food you ate in the app's database, enter the portion size, and the app will calculate the calorie and nutrition information for you.</p>}
+          {showAnswers[1] && <p style={{ color: 'red' }}>To track calories with FitFreak, you can search for the food you ate in the app's database, enter the portion size, and the app will calculate the calorie and nutrition information for you.</p>}
         </div>
         <div className="question">
           <h3>
             What nutrition data can I track besides calories?
             <span className={`arrow ${showAnswers[2] ? 'up' : 'down'}`} onClick={() => toggleAnswer(2)}></span>
           </h3>
-          {showAnswers[2] && <p style={{ color: 'red' }}>With MyFitnessPal, you can track a variety of nutrition data, including protein, fat, carbohydrates, fiber, sugar, and more.</p>}
+          {showAnswers[2] && <p style={{ color: 'red' }}>With FitFreak, you can track a variety of nutrition data, including protein, fat, carbohydrates, fiber, sugar, and more.</p>}
         </div>
         <div className="question">
           <h3>
-            Does MyFitnessPal use a BMI calculator or BMR calculator to set goals?
+            Does FitFreak use a BMI calculator or BMR calculator to set goals?
             <span className={`arrow ${showAnswers[3] ? 'up' : 'down'}`} onClick={() => toggleAnswer(3)}></span>
           </h3>
-          {showAnswers[3] && <p style={{ color: 'red' }}>Yes, MyFitnessPal uses both a BMI calculator and a BMR calculator to help you set weight loss, maintenance, and gain goals based on your current weight, height, age, and gender.</p>}
+          {showAnswers[3] && <p style={{ color: 'red' }}>Yes, FitFreak uses both a BMI calculator and a BMR calculator to help you set weight loss, maintenance, and gain goals based on your current weight, height, age, and gender.</p>}
         </div>
         <div className="question">
           <h3>
-            Can I track weight, workouts, water, or intermittent fasting?
+            Can I track weight, workouts, water, or food intake?
             <span className={`arrow ${showAnswers[4] ? 'up' : 'down'}`} onClick={() => toggleAnswer(4)}></span>
           </h3>
-          {showAnswers[4] && <p style={{ color: 'red' }}>Yes, MyFitnessPal allows you to track your weight, workouts, water intake, and even intermittent fasting.</p>}
+          {showAnswers[4] && <p style={{ color: 'red' }}>Yes, FitFreak allows you to track your weight, workouts, water intake, and even food intake.</p>}
         </div>
       </section>
     </div>
