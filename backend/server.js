@@ -4,11 +4,20 @@ const cors = require("cors");
 require('dotenv').config();
 const app = express();
 
-const corsOptions = {
-  origin: 'https://main--fitfreak10.netlify.app/', // Added this for deploying 
-  optionsSuccessStatus: 200
-};
+const allowedOrigins = [
+  'https://fit-freak-ini6qwbpr-rushils-projects-26391fe7.vercel.app',
+  'https://main--fitfreak10.netlify.app'
+];
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
 app.use(cors(corsOptions));
 
 // app.use(cors());
