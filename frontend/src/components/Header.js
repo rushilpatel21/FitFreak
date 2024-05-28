@@ -55,7 +55,7 @@ function Header({ updateSignUpText, signUpText, loggedIn, setLoggedIn,signInText
                                                         <li><Link to="/recommendedMusic">Recommended Playlist</Link></li>
                                                     </ul>
                                                 </li>
-                                                <li><Link to="/diet">Diet</Link></li>
+                                                {/* <li><Link to="/diet">Diet</Link></li> */}
                                                 <li><Link to="/contact">Contact</Link></li>
                                             </ul>
                                         </nav>
