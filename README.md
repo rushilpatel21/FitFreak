@@ -4,9 +4,12 @@ Unleash your fitness potential with FitFreak! This user-friendly application cat
 
 ## Live Demo
 
-Check out the live demo of FitFreak [here](https://fit-freak-theta.vercel.app/). 
+Check out the live demo of FitFreak [here](https://fit-freak-theta.vercel.app/).
+
 P.S.: There might be a 1-minute delay in the first request to the backend, as the backend server might be inactive and it takes approximately 50 seconds to start up. :)
-Eg: While signing up or while checking the Progress Tab or Log Tab. 
+
+For example: While signing up or while checking the Progress Tab or Log Tab.
+ 
 
 ## Images
 
