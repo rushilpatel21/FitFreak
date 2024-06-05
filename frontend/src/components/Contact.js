@@ -32,7 +32,15 @@ function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-  
+    if(!formData.user_name || !formData.user_email || !formData.message){
+      if(!formData.user_name){
+        alert('Please enter user name.');
+      }else if(!formData.user_email){
+        alert('Please enter user email.');
+      }else{
+        alert('Please enter a message.');
+      }
+    }
     const data = {
       service_id: service_id,
       template_id: template_id,
