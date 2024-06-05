@@ -40,6 +40,7 @@ function Contact() {
       }else{
         alert('Please enter a message.');
       }
+      return;
     }
     const data = {
       service_id: service_id,
