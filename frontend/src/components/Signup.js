@@ -163,6 +163,10 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       const calculatedAge = Math.floor(ageDifference / (1000 * 60 * 60 * 24 * 365.25));
       setAge(calculatedAge);
     };
+
+    useEffect(()=>{
+      calculateAge()
+    },[birthday])
   
     const calculateBmi = () => {
       if (!height || !weight) return;
@@ -320,7 +324,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               value={birthday}
               onChange={(e) => {
                 setBirthday(e.target.value);
-                calculateAge();
+                // calculateAge();
               }}
               required
             />
