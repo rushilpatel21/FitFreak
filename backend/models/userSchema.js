@@ -65,6 +65,8 @@ const userSchema = new mongoose.Schema({
     enum: ['Male', 'Female', 'Other'],
     description: 'Sex of the user'
   }
+},{
+  timestamps : true
 });
 
 module.exports = mongoose.model('users', userSchema);

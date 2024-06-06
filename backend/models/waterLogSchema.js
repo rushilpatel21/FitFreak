@@ -19,6 +19,8 @@ const waterLogSchema = new mongoose.Schema({
         required: true,
         enum: ['Glass', 'l', 'ml']
     }
-});
+},{
+    timestamps : true
+  });
 module.exports = mongoose.model("water logs", waterLogSchema);
  

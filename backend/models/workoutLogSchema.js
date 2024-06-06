@@ -34,6 +34,8 @@ const workoutLogSchema = new mongoose.Schema({
         required: true,
         match: /^(?:[01]\d|2[0-3]):[0-5]\d$/
     }
+},{
+    timestamps : true
 });
 
 module.exports = mongoose.model("workout logs", workoutLogSchema);
