@@ -174,6 +174,10 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       const bmiValue = parseFloat(weight) / (heightInMeters * heightInMeters);
       setBmi(parseFloat(bmiValue.toFixed(2))); // Round BMI value to two decimal places
     };
+
+    useEffect(()=>{
+      calculateBmi()
+    },[weight,height])
     
     //To check duplicate username
     const checkUserName = async () => {
@@ -253,7 +257,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               min='1'
               onChange={(e) => {
                 setWeight(e.target.value)
-                calculateBmi();
+                // calculateBmi();
                 // handleInputChange();
               }}
               placeholder='Enter weight in kg'
@@ -298,7 +302,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
               value={height}
               onChange={(e) => {
                 setHeight(e.target.value)
-                calculateBmi();
+                // calculateBmi();
               }}
               placeholder='Enter height in cm'
               required
