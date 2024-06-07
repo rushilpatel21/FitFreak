@@ -23,6 +23,10 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     const navigate = useNavigate();
     const [typingTimer, setTypingTimer] = useState(null);
 
+    const template_id = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
+    const service_id = process.env.REACT_APP_EMAIL_SERVICE_ID;
+    const user_id = process.env.REACT_APP_EMAIL_USER_ID;
+
     const handleInputChange = async () => {
       // const value = e;
       // setUsername(value);
