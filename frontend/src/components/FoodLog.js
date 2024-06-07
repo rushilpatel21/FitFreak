@@ -24,7 +24,6 @@ function FoodLog() {
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
-    // console.log(apiKey);
     if (userState===null || userState === 'false') {
       setShowNotification(true);
     }else{
@@ -36,7 +35,7 @@ function FoodLog() {
 
   useEffect(() => {
     if(foodData[0]){
-      console.log(foodData[0]);
+      // console.log(foodData[0]);
       // console.table(foodData);
       setFoodCalories(foodData[0].calories);
       setFoodFat(foodData[0].fat_total_g);
@@ -45,14 +44,15 @@ function FoodLog() {
       setFoodCarbohydrates(foodData[0].carbohydrates_total_g);
     }
   }, [foodData, setFoodCarbohydrates,setFoodProtein,setFoodSugar,setFoodFat,setFoodCalories]);
-  useEffect(() => {
-    if(foodFinalData){
-      console.log("Final food data");
-      console.log(foodFinalData[0]);
-    }
-  },[foodFinalData])
+
+  // useEffect(() => {
+  //   if(foodFinalData){
+      // console.log("Final food data");
+      // console.log(foodFinalData[0]);
+  //   }
+  // },[foodFinalData])
+
   const fetchFoodData = async (query) => {
-    console.log('inside api call');
     axios.get('https://api.api-ninjas.com/v1/nutrition', {
       params: { query },
       headers: { 'X-Api-Key': apiKey }
@@ -73,9 +73,7 @@ function FoodLog() {
       });
   }
   const handleFetchFoodData = () => {
-    console.log('From Auto Detect');
     if(foodQuantity && foodUnit && foodName){
-      console.log('Inside Auto Detect');
       const foodQuery = foodQuantity + " " + foodUnit + " " + foodName;
       fetchFoodData(foodQuery);
     }
@@ -90,10 +88,10 @@ function FoodLog() {
     if(!foodData[0] || foodName.toLowerCase() !== foodData[0].name.toLowerCase()){
       let foodGrams = 0;
       if(!foodData[0]){
-        console.log("No food data");
+        // console.log("No food data");
       }else if(foodName !== foodData[0].name){
-        console.log("2nd \nfood name " + foodName);
-        console.log("food data[0]" + foodData[0].name );
+        // console.log("2nd \nfood name " + foodName);
+        // console.log("food data[0]" + foodData[0].name );
       }
       if(foodUnit === 'g'){
         foodGrams = foodQuantity;
@@ -141,8 +139,8 @@ function FoodLog() {
           
         }
       ]
-      console.log("Inside Manual Food Entry");
-      console.log(foodObj2[0]);
+      // console.log("Inside Manual Food Entry");
+      // console.log(foodObj2[0]);
       setFoodFinalData(foodObj2);
 
       setFoodQuantity('');
@@ -153,9 +151,9 @@ function FoodLog() {
       setFoodSugar('');
       setFoodProtein('');
       setFoodCarbohydrates('');
-      console.log("Final from if for backend : ");
+      // console.log("Final from if for backend : ");
       // const foodObj = foodData[0];
-      console.log(foodObj);
+      // console.log(foodObj);
       try{
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/foodLogGet`, {
           method: 'POST',
@@ -182,7 +180,7 @@ function FoodLog() {
       setFoodProtein('');
       setFoodCarbohydrates('');
       setFoodFinalData(foodData);
-      console.log("Final from else for backend : ");
+      // console.log("Final from else for backend : ");
       // const foodObj = foodData[0];
       const foodObj = {
           userName,
@@ -200,7 +198,7 @@ function FoodLog() {
           "sugar_g": foodData[0].sugar_g,
           "date": foodDate
       }
-      console.log(foodObj);
+      // console.log(foodObj);
       try{
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/foodLogGet`, {
           method: 'POST',
@@ -210,7 +208,7 @@ function FoodLog() {
           body: JSON.stringify(foodObj)
         });
         if (response.ok) {
-          console.log('Data submitted successfully');
+          // console.log('Data submitted successfully');
           const today = new Date().toISOString().slice(0,10);
           if(foodDate === today){
             setTodayFoodData([...todayFoodData,foodObj]);
@@ -222,7 +220,7 @@ function FoodLog() {
         console.error('Error submitting data:', error);
       }
     }
-    console.log(foodData[0]);
+    // console.log(foodData[0]);
     clearValues();
     
   },[userName, foodCalories , foodCarbohydrates, foodFat, foodData, foodDate, foodName, foodProtein, foodQuantity, foodSugar, foodUnit, todayFoodData ])
@@ -245,8 +243,8 @@ function FoodLog() {
   }
 
   useEffect (() => {
-    console.log( "Api Data Final: " );
-    console.log(apiData);
+    // console.log( "Api Data Final: " );
+    // console.log(apiData);
   },[apiData]);
 
   useEffect(() => {
@@ -258,18 +256,18 @@ function FoodLog() {
         if(userId === ''){
           return;
         }
-        console.log(userId);
+        // console.log(userId);
         const uri = `${process.env.REACT_APP_BACKEND_URL}/api/foodlog/` + userId;
-        console.log('Request URI:', uri);
+        // console.log('Request URI:', uri);
         const response = await axios.get(uri);
   
   
         if (response.status === 200) {
-          console.log(typeof(response.data.foodLogs));
+          // console.log(typeof(response.data.foodLogs));
           // const parsedData = JSON.parse(response.data.foodLogs);
           setApiData(response.data.foodLogs);
-          console.log("Set API Data");
-          console.log(response.data.foodLogs);
+          // console.log("Set API Data");
+          // console.log(response.data.foodLogs);
         } else {
           throw new Error("Failed to fetch food data");
         }
@@ -291,9 +289,9 @@ function FoodLog() {
   }, [handleSubmit, todayFoodData]);
 
   useEffect(() => {
-    console.log("apiData:", typeof (apiData));
+    // console.log("apiData:", typeof (apiData));
     const today = new Date().toISOString().slice(0, 10);
-    console.log(today);
+    // console.log(today);
     const todayData = apiData.filter((item) => item.date === today);
 
     setTodayFoodData(todayData);

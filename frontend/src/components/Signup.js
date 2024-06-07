@@ -1,10 +1,6 @@
-// import { get } from 'mongoose';
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-// import ReactDOM from 'react-dom';
-// import './SignUp.css';
 
 function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute, updateUserDetails, toggleUserDetailsModal, showUserDetails  }) {
     const [username, setUsername] = useState('');
@@ -12,7 +8,6 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     const [password, setPassword] = useState('');
     const [weight, setWeight] = useState('');
     // const [targetWeight, setTargetWeight] = useState('');
-    // const [goal, setGoal] = useState('');
     const [lifestyle, setLifestyle] = useState('');
     const [goal, setGoal] = useState('');
     const [height, setHeight] = useState('');
@@ -68,7 +63,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       })
       .then((response) => {
         // console.log(response.data);
-        console.log("message sent");
+        // console.log("message sent");
       })
       .catch((error) => {
         console.error('Error sending email:', error.response ? error.response.data : error);
@@ -98,7 +93,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         age: age,
         sex: sex,
       };
-      console.log('User data:', userData); //Saving data
+      // console.log('User data:', userData); //Saving data
       // console.log(userData.age);
       // console.log(typeof(userData.age));
       try{
@@ -110,9 +105,9 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
           body: JSON.stringify(userData)
         });
         if (response.ok) {
-          console.log('Data submitted successfully');
+          // console.log('Data submitted successfully');
         } else {
-          console.log(response);
+          // console.log(response);
           console.error('Failed to submit data');
           alert("Username is already taken.");
           setUsername('');
@@ -146,9 +141,9 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       setSex('');
       localStorage.setItem('userDetail',JSON.stringify(userData));
       localStorage.setItem('isLoggedIn',true);
-      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      // const storedUser = JSON.parse(localStorage.getItem('userDetail'));
 
-      console.log(storedUser);
+      // console.log(storedUser);
       try{
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/userGet`, {
           method: 'POST',
@@ -158,7 +153,7 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
           body: JSON.stringify(userData)
         });
         if (response.ok) {
-          console.log('Data submitted successfully');
+          // console.log('Data submitted successfully');
         } else {
           console.error('Failed to submit data');
         }
@@ -223,14 +218,14 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     const checkUserName = async () => {
       try {
         const uri = `${process.env.REACT_APP_BACKEND_URL}/api/users/` + username;
-        console.log('Request URI:', uri);
+        // console.log('Request URI:', uri);
         const response = await axios.get(uri);
         
         if (response.status === 200) {
-          console.log("Username exists:", response.data);
+          // console.log("Username exists:", response.data);
           return true;
         } else {
-          console.log("Username does not exist or other server error:", response.status);
+          console.error("Username does not exist or other server error:", response.status);
           return false;
         }
       } catch (error) {

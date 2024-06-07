@@ -15,7 +15,7 @@ function UserDetails({ updateUserDetails, userDetails, toggleUserDetailsModal, s
       console.log('user has already logged in');
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
       // let username = storedUser.username;
-      console.log(storedUser);
+      // console.log(storedUser);
       updateUserDetails(storedUser);
       // navigate('/');
     }

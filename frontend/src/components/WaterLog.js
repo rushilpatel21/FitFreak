@@ -24,13 +24,13 @@ function WaterLog() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(userName);
-  }, [userName]);
+  // useEffect(() => {
+  //   console.log(userName);
+  // }, [userName]);
 
   useEffect(() => {
     if (waterData && waterData.length !== 0) {
-      console.log("Water data updated:", waterData);
+      // console.log("Water data updated:", waterData);
       setWaterUnit('');
       setWaterQuantity('');
     }
@@ -45,7 +45,7 @@ function WaterLog() {
         waterQuantity,
         waterUnit
       }
-      console.log(waterObj);
+      // console.log(waterObj);
       setWaterData(waterObj);
       try{
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/waterLogGet`, {
@@ -56,7 +56,7 @@ function WaterLog() {
           body: JSON.stringify(waterObj)
         });
         if (response.ok) {
-          console.log('Data submitted successfully');
+          // console.log('Data submitted successfully');
           const today = new Date().toISOString.slice(0,10);
           if(waterDate === today){
             setTodayWaterData([...todayWaterData,waterObj]);
@@ -79,10 +79,10 @@ function WaterLog() {
   //   navigate('/');
   // };
 
-  useEffect (() => {
-    console.log( "Api Data Final: " );
-    console.log(apiData);
-  },[apiData]);
+  // useEffect (() => {
+  //   console.log( "Api Data Final: " );
+  //   console.log(apiData);
+  // },[apiData]);
 
   useEffect(() => {
     
@@ -93,17 +93,17 @@ function WaterLog() {
         if(userId === ''){
           return;
         }
-        console.log(userId);
+        // console.log(userId);
         const uri = `${process.env.REACT_APP_BACKEND_URL}/api/waterlog/` + userId;
-        console.log('Request URI:', uri);
+        // console.log('Request URI:', uri);
         const response = await axios.get(uri);
   
   
         if (response.status === 200) {
-          console.log(typeof(response.data.waterLogs));
+          // console.log(typeof(response.data.waterLogs));
           setApiData(response.data.waterLogs);
-          console.log("Set API Data");
-          console.log(response.data.waterLogs);
+          // console.log("Set API Data");
+          // console.log(response.data.waterLogs);
         } else {
           throw new Error("Failed to fetch water data");
         }
@@ -125,9 +125,9 @@ function WaterLog() {
   }, [handleSubmit,todayWaterData]);
 
   useEffect(() => {
-    console.log("apiData:", typeof (apiData));
+    // console.log("apiData:", typeof (apiData));
     const today = new Date().toISOString().slice(0, 10);
-    console.log(today);
+    // console.log(today);
     const todayData = apiData.filter((item) => item.waterDate === today);
 
     setTodayWaterData(todayData);

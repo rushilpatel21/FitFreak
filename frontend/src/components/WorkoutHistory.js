@@ -45,7 +45,7 @@ function WorkoutHistory() {
     if(!userName){
       console.log("null username.");
     }else{
-      console.log(userName);
+      // console.log(userName);
     }
     
   },[userName]);
@@ -139,48 +139,6 @@ function WorkoutHistory() {
     fetchData();
   }, []);
 
-
-  // useEffect(() => { //This is for doughnut graph as it will have types of workout
-    
-  //   const MockWorkoutDataForDays = { // One type would be for today, different types of workout
-  //     labels: ['Cardio', 'Strength Training', 'Flexibility Training', 'Balance & Stability'],
-  //     datasets: [
-  //       {
-  //         label: 'Workout Minutes',
-  //         data: [30, 45, 60, 40],
-  //         backgroundColor: [
-  //           'rgb(83,124,56)',
-  //           'rgb(123,165,145)',
-  //           'rgb(204, 34, 43)',
-  //           'rgb(241, 91, 76)'
-  //         ],
-  //         borderColor: 'rgba(54, 162, 235, 1)',
-  //         borderWidth: 1,
-  //       },
-  //     ],
-  //   };
-  //   const MockWorkoutDataForMonths = { // this for the past 7 days, different types of workout
-  //     labels: ['Cardio', 'Strength Training', 'Flexibility Training', 'Balance & Stability'],
-  //     datasets: [
-  //       {
-  //         label: 'Workout Minutes',
-  //         data: [450, 300, 500, 460], 
-  //         backgroundColor: [
-  //           'rgb(83,124,56)',
-  //           'rgb(123,165,145)',
-  //           'rgb(204, 34, 43)',
-  //           'rgb(241, 91, 76)'
-  //         ],
-  //         borderColor: 'rgba(54, 162, 235, 1)',
-  //         borderWidth: 1,
-  //       },
-  //     ],
-  //   };
-
-  //   setWorkoutTypeDayData(MockWorkoutDataForDays);
-  //   setWorkoutTypeMonthData(MockWorkoutDataForMonths);
-  //   console.log(workoutDayData);
-  // }, []);
 
   useEffect(() => { // This is for doughnut graph as it will have types of workout
 

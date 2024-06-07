@@ -36,7 +36,6 @@ function WaterIntake(){
     }
   }, []);
 
-  //For deploy
   useEffect(() => {
     if(!userName){
       console.log("null username.");
@@ -116,7 +115,6 @@ function WaterIntake(){
           const pastSixMonthsData = waterDataInML.filter(data => {
             const waterDate = new Date(data.waterDate);
             const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 5, today.getDate());
-            console.log("Huhlalala : " + (sixMonthsAgo));
             return waterDate > sixMonthsAgo;
           });
           const waterIntakeByMonth = {};
@@ -153,13 +151,8 @@ function WaterIntake(){
     };
         
       fetchData()
-    // console.log(waterData);
   }, []);
 
-  // const closeNotification = () => {
-  //   setShowNotification(false);
-  //   navigate('/');
-  // };
 
   useEffect(() => {
     setWaterData(displayMode === 'Days' ? waterDataDay : waterDataMonth);
@@ -174,23 +167,18 @@ function WaterIntake(){
       icon: "error",
       title: "User Not Logged In",
       text: "Please sign in to view progress",
-      showCancelButton: true, // Add this to show the cancel button
-      confirmButtonColor: '#dc3545', // Change the confirm button color to red
-      cancelButtonColor: '#6c757d', // Optionally, change the cancel button color
-      confirmButtonText: 'Sign In', // Optionally, change the confirm button text
-      cancelButtonText: 'Close', // Optionally, change the cancel button text
-      // footer: '<a href="#">Why do I have this issue?</a>'
+      showCancelButton: true,
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#6c757d', 
+      confirmButtonText: 'Sign In', 
+      cancelButtonText: 'Close',
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         navigate('/signin');
-        // setShowNotification(false);
       } else {
         navigate('/');
-        // setShowNotification(false);
       }
     });
-    // navigate('/');
     setShowNotification(false);
     
   }
@@ -198,10 +186,6 @@ function WaterIntake(){
     return (
       <>
       {showNotification && (
-        // <Notification
-        //   message="Please log in to view this page."
-        //   onClose={closeNotification}
-        // />
         usingSwal()
       )}
       {!showNotification && (

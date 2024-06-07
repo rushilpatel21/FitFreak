@@ -19,11 +19,6 @@ function WorkoutLog({ userDetails }) {
   const [todayWorkoutData, setTodayWorkoutData] = useState([]); // Here i store todays data.
   
 
-  // useEffect(() => {
-  //   console.log(userDetails);
-  // }, [userDetails])
-
-
   
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
@@ -41,7 +36,7 @@ function WorkoutLog({ userDetails }) {
 
   useEffect(() => {
     if (workoutData && workoutData.length !== 0) {
-      console.log("Workout data updated:", workoutData);
+      // console.log("Workout data updated:", workoutData);
       setWorkoutType('');
       setWorkoutName('');
       setWorkoutMinutes('');
@@ -51,44 +46,9 @@ function WorkoutLog({ userDetails }) {
     }
   }, [workoutData]);
 
-  // const getWorkoutData = useCallback( async () => {
-  //   try {
-  //     const storedUser = JSON.parse(localStorage.getItem('userDetail'));
-  //     const userId = storedUser.username;
-  //     if(userId === ''){
-  //       return;
-  //     }
-  //     console.log(userId);
-  //     const uri = '/api/workoutLog/' + userId;
-  //     console.log('Request URI:', uri);
-  //     const response = await axios.get(uri);
-
-
-  //     if (response.status === 200) {
-  //       console.log(response.data.workoutLog);
-  //       setApiData(response.data.workoutLogs);
-  //       console.log(response.data.workoutLogs);
-  //     } else {
-  //       throw new Error("Failed to fetch workout data");
-  //     }
-  //   } catch (error) {
-  //     if (error.response) {
-  //       console.error('Server responded with error status:', error.response.status);
-  //       console.error('Error response data:', error.response.data);
-  //     } else if (error.request) {
-  //       console.error('No response received from the server:', error.request);
-  //     } else {
-  //       console.error('Error setting up the request:', error.message);
-  //     }
-  //   }
-  // },[]);
-
-  
-
-
   useEffect(() => {
     // Filter today's workout data
-    console.log("apiData:", typeof (apiData));
+    // console.log("apiData:", typeof (apiData));
     const today = new Date().toISOString().slice(0, 10);
     const todayData = apiData.filter((item) => item.workoutDate === today);
     setTodayWorkoutData(todayData);
@@ -120,7 +80,7 @@ function WorkoutLog({ userDetails }) {
           body: JSON.stringify(workoutObj)
         });
         if (response.ok) {
-          console.log('Data submitted successfully');
+          // console.log('Data submitted successfully');
           const today = new Date().toISOString().slice(0, 10);
           if (workoutDate === today) {
             setTodayWorkoutData([...todayWorkoutData, workoutObj]); 
@@ -142,15 +102,15 @@ function WorkoutLog({ userDetails }) {
   // };
 
 
-  useEffect (() => {
-    console.log( "Api Data Final: " );
-    console.log(apiData);
-  },[apiData]);
+  // useEffect (() => {
+  //   console.log( "Api Data Final: " );
+  //   console.log(apiData);
+  // },[apiData]);
 
   
   useEffect(() => {
     
-    const fetchData = async () => { //not an issue
+    const fetchData = async () => { 
       try {
         if(localStorage.getItem('isLoggedIn') === 'false'){
           return;
@@ -160,17 +120,16 @@ function WorkoutLog({ userDetails }) {
         if(userId === ''){
           return;
         }
-        console.log(userId);
+        // console.log(userId);
         const uri = `${process.env.REACT_APP_BACKEND_URL}/api/workoutLog/` + userId;
-        console.log('Request URI:', uri);
         const response = await axios.get(uri);
   
   
         if (response.status === 200) {
-          console.log(typeof(response.data.workoutlog));
+          // console.log(typeof(response.data.workoutlog));
           // const parsedData = JSON.parse(response.data.workoutlog);
           setApiData(response.data.workoutlog);
-          console.log(response.data.workoutlog);
+          // console.log(response.data.workoutlog);
         } else {
           throw new Error("Failed to fetch workout data");
         }

@@ -13,11 +13,11 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     const checkUserName = async () => {
       try {
         const uri = `${process.env.REACT_APP_BACKEND_URL}/api/users/` + username;
-        console.log('Request URI:', uri);
+        // console.log('Request URI:', uri);
         const response = await axios.get(uri);
         
         if (response.status === 200) {
-          console.log("Username exists:", response.data.users[0]);
+          // console.log("Username exists:", response.data.users[0]);
           setUserData(response.data.users[0]);
           if(password !== response.data.users[0].password){
             alert("Wrong Password!");
@@ -31,13 +31,13 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
             updateSignUpRoute('#');
             setUsername('');
             setPassword('');
-            console.log("Inside submit form" + JSON.stringify(response.data.users[0]));
+            // console.log("Inside submit form" + JSON.stringify(response.data.users[0]));
             localStorage.setItem('userDetail',JSON.stringify(response.data.users[0]));
             localStorage.setItem('isLoggedIn',true);
             navigate('/');
           }
         } else {
-          console.log("Username does not exist or other server error:", response.status);
+          // console.log("Username does not exist or other server error:", response.status);
           alert("UserName doesnt exsist, please sign up or re-check username");
           setUsername('');
           // return;
@@ -56,18 +56,18 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
     };
     useState(() => {
       if(userData){
-        console.log( "User Data: " + userData);
+        // console.log( "User Data: " + userData);
       }
      
     },[userData])
 
     const handleSignIn = async (e) => {
       e.preventDefault();
-      const userData1 = {
-        username: username,
-        password: password,
-      };
-      console.log('User data:', userData1); //Saving data
+      // const userData1 = {
+      //   username: username,
+      //   password: password,
+      // };
+      // console.log('User data:', userData1); //Saving data
       await checkUserName();
       // if(isExit === "2"){
       //   alert("UserName doesnt exsist, please sign up or re-check username");

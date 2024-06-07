@@ -145,7 +145,7 @@ function CaloriesBurnt() {
     if(!userName){
       console.log("null username.");
     }else{
-      console.log(userName);
+      // console.log(userName);
     }
     
   },[userName]);

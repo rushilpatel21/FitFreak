@@ -71,7 +71,7 @@ const FitnessQuote = () => {
         const data = response.data;
         const randomIndex = Math.floor(Math.random() * data.length);
         setQuoteData({quote: data[randomIndex].quote, author: data[randomIndex].author});
-        console.log(data);
+        // console.log(data);
       })
       .catch(error => {
         console.error('Error fetching quote:', error);
