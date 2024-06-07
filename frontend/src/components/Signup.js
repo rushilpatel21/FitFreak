@@ -37,6 +37,40 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         clearTimeout(typingTimer);
       };
     }, [typingTimer]);
+    const sendEmail = async () => {
+      // e.preventDefault();
+    
+      const data = {
+        service_id: service_id,
+        template_id: template_id,
+        user_id: user_id,
+        template_params: {
+          to_name: 'Rushil Patel',
+          from_name: username,
+          message: `
+          There is a new signup on FitFreak, wohooo! \n
+          Details \n
+          email: ${email} , \n
+          username: ${username}
+          `,
+          reply_to: "rushilpatel210@gmail.com"
+        }
+      };
+    
+      axios.post('https://api.emailjs.com/api/v1.0/email/send', data, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then((response) => {
+        // console.log(response.data);
+        console.log("message sent");
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error.response ? error.response.data : error);
+        console.error('Request data:', data);
+      });
+    };
 
     const handleSignUp = async (e) => {
       e.preventDefault();
@@ -84,6 +118,8 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
         console.error('Error submitting data:', error);
         return;
       }
+
+      await sendEmail();
       updateUserDetails(userData);
       // console.table(userData);
       //comment the below part 
