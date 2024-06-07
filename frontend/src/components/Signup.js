@@ -328,9 +328,10 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
             >
               <option value="">Select Goal</option>
               <option value="Weight Loss">Weight Loss</option>
-              <option value="Bulking">Bulking</option>
               <option value="Weight Gain">Weight Gain</option>
-              
+              <option value="Weight Maintain">Weight Maintain</option>
+              <option value="Bulking">Bulking</option>
+              <option value="Cutting">Cutting</option>
             </select>
           </div>
           <div>
