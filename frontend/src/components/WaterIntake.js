@@ -1,7 +1,6 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bar } from 'react-chartjs-2';
-import Chart from 'chart.js/auto';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,23 +11,22 @@ import {
   Legend,
 } from 'chart.js';
 import axios from 'axios';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-
-function WaterIntake(){
+function WaterIntake() {
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
   const [waterDataMonth, setWaterDataMonth] = useState({});
   const [waterDataDay, setWaterDataDay] = useState({});
   const [displayMode, setDisplayMode] = useState('Days');
-  const [waterData, setWaterData] = useState(); 
+  const [waterData, setWaterData] = useState();
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const userState = localStorage.getItem("isLoggedIn");
-    if (userState===null || userState === 'false') {
+    if (userState === null || userState === 'false') {
       setShowNotification(true);
     } else {
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
@@ -37,16 +35,14 @@ function WaterIntake(){
   }, []);
 
   useEffect(() => {
-    if(!userName){
+    if (!userName) {
       console.log("null username.");
-    }else{
+    } else {
       console.log(userName);
     }
-    
-  },[userName]);
+  }, [userName]);
 
   useEffect(() => {
-    
     const fetchData = async () => {
       try {
         const storedUser = JSON.parse(localStorage.getItem('userDetail'));
@@ -54,12 +50,12 @@ function WaterIntake(){
         if (!userId) {
           return;
         }
-    
+
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/waterlog/${userId}`);
-    
+
         if (response.status === 200) {
           const fetchedWaterData = response.data.waterLogs;
-    
+
           const waterDataInML = fetchedWaterData.map(data => {
             let quantityInML;
             switch (data.waterUnit) {
@@ -76,7 +72,7 @@ function WaterIntake(){
             }
             return { ...data, waterQuantity: quantityInML };
           }).sort((a, b) => new Date(a.waterDate) - new Date(b.waterDate));
-    
+
           const today = new Date();
           const pastSevenDaysData = waterDataInML.filter(data => {
             const waterDate = new Date(data.waterDate);
@@ -92,7 +88,7 @@ function WaterIntake(){
               waterIntakeByDay[waterDate] = waterQuantity;
             }
           });
-          
+
           setWaterDataDay({
             labels: Object.keys(waterIntakeByDay).map(date => new Date(date).getDate() + ' ' + new Date(date).toLocaleString('default', { month: 'long' }) + ' ' + new Date(date).getFullYear()),
             datasets: [{
@@ -111,7 +107,7 @@ function WaterIntake(){
               borderWidth: 1,
             }],
           });
-    
+
           const pastSixMonthsData = waterDataInML.filter(data => {
             const waterDate = new Date(data.waterDate);
             const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 5, today.getDate());
@@ -149,10 +145,9 @@ function WaterIntake(){
         console.error("Error fetching water data:", error);
       }
     };
-        
-      fetchData()
-  }, []);
 
+    fetchData();
+  }, []);
 
   useEffect(() => {
     setWaterData(displayMode === 'Days' ? waterDataDay : waterDataMonth);
@@ -169,8 +164,8 @@ function WaterIntake(){
       text: "Please sign in to view progress",
       showCancelButton: true,
       confirmButtonColor: '#dc3545',
-      cancelButtonColor: '#6c757d', 
-      confirmButtonText: 'Sign In', 
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sign In',
       cancelButtonText: 'Close',
     }).then((result) => {
       if (result.isConfirmed) {
@@ -180,19 +175,18 @@ function WaterIntake(){
       }
     });
     setShowNotification(false);
-    
   }
 
-    return (
-      <>
-      {showNotification && (
-        usingSwal()
-      )}
+  return (
+    <>
+      {showNotification && usingSwal()}
       {!showNotification && (
         <div className='water-container water-container-history'>
-          <div className="water-history-container-1"> {/* This is for total water for last 7 days and for last 6 months */}
-            <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>
-            <h2 className="water-history-title">{displayMode === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
+          <div className="water-history-container-1">
+            <div className="button-title-container">
+              <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>
+              <h2 className="water-history-title">{displayMode === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
+            </div>
             {waterData && Object.keys(waterData).length > 0 && (
               <div className="chart-container-water">
                 <Bar
@@ -209,11 +203,9 @@ function WaterIntake(){
             )}
           </div>
         </div>
-      )
-
-      }
+      )}
     </>
-    );
-  }
+  );
+}
 
 export default WaterIntake;
