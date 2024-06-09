@@ -1,5 +1,5 @@
 .today-workout-log-container {
-  max-width: auto;
+  max-width: 800px; /* Use a specific value for max-width */
   margin: 0 100px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -7,7 +7,7 @@
   grid-column: 1;
 }
 
-.today-workout-title{
+.today-workout-title, .workout-title, .workout-sub-title {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
@@ -22,36 +22,33 @@
 }
 
 .workout-container {
-  width: 440px ;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  grid-column: 1;
-  }
-  
-.workout-title {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: red;
+  width: 440px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    grid-column: 1;
 }
 
 .data-input {
-  width: 80% !important ;
-  padding: 8px !important ;
-  border: 1px solid #ccc !important ;
-  border-radius: 4px !important ;
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.workout-form div {
-  margin-bottom: 10px;
+.workout-form > div {
+  margin-bottom: 15px;
+  display: flex; 
+  align-items: center;
 }
+
 .workout-label {
-  width: 200px !important ;
-  font-size: 15px !important ;
-  text-align: center !important ;
+  width: 200px;
+  font-size: 15px;
+  text-align: center;
 }
+
 .workout-form input[type='text'],
 .workout-form input[type='email'],
 .workout-form input[type='password'],
@@ -64,13 +61,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.workout-form > div {
-  display: flex; 
-  align-items: center; 
-}
-.workout-form div {
-  margin-bottom: 15px;
-}
+
 .workout-form button {
   padding: 10px;
   width: 100%;
@@ -86,25 +77,18 @@
   background-color: #0056b3;
 }
 
-.workout-sub-title {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: red;
-}
-
 .workout-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-.workout-th , .workout-td {
+.workout-th, .workout-td {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  font-size: 16px; /* Increase font size */
-  line-height: 1.5; /* Increase line height */
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .workout-th {

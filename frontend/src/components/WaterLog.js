@@ -162,10 +162,6 @@ function WaterLog() {
     return (
       <>
       {showNotification && (
-        // <Notification
-        //   message="Please log in to view this page."
-        //   onClose={closeNotification}
-        // />
         usingSwal()
       )}
       <div className='water-log-container'>

@@ -1,7 +1,6 @@
 import React, { useEffect,useState, useCallback  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; 
-// import Chart from 'chart.js/auto';
 import Swal from 'sweetalert2'
 
 function WorkoutLog({ userDetails }) {
@@ -16,7 +15,7 @@ function WorkoutLog({ userDetails }) {
   const [workoutData,setWorkoutData] = useState([]);
   const [userName, setUserName] = useState('');
   const [apiData,setApiData] = useState([]);
-  const [todayWorkoutData, setTodayWorkoutData] = useState([]); // Here i store todays data.
+  const [todayWorkoutData, setTodayWorkoutData] = useState([]);
   
 
   
@@ -27,7 +26,6 @@ function WorkoutLog({ userDetails }) {
     }else{
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
       setUserName(storedUser.username);
-      
     }
   }, []);
 
@@ -36,7 +34,6 @@ function WorkoutLog({ userDetails }) {
 
   useEffect(() => {
     if (workoutData && workoutData.length !== 0) {
-      // console.log("Workout data updated:", workoutData);
       setWorkoutType('');
       setWorkoutName('');
       setWorkoutMinutes('');
@@ -47,8 +44,6 @@ function WorkoutLog({ userDetails }) {
   }, [workoutData]);
 
   useEffect(() => {
-    // Filter today's workout data
-    // console.log("apiData:", typeof (apiData));
     const today = new Date().toISOString().slice(0, 10);
     const todayData = apiData.filter((item) => item.workoutDate === today);
     setTodayWorkoutData(todayData);
@@ -80,7 +75,6 @@ function WorkoutLog({ userDetails }) {
           body: JSON.stringify(workoutObj)
         });
         if (response.ok) {
-          // console.log('Data submitted successfully');
           const today = new Date().toISOString().slice(0, 10);
           if (workoutDate === today) {
             setTodayWorkoutData([...todayWorkoutData, workoutObj]); 
@@ -96,16 +90,7 @@ function WorkoutLog({ userDetails }) {
     
   }, [workoutDate, workoutType, workoutName, workoutMinutes, caloriesBurnt, startTime, userName, todayWorkoutData])
 
-  // const closeNotification = () => {
-  //   setShowNotification(false);
-  //   navigate('/');
-  // };
-
-
-  // useEffect (() => {
-  //   console.log( "Api Data Final: " );
-  //   console.log(apiData);
-  // },[apiData]);
+  
 
   
   useEffect(() => {
@@ -120,16 +105,12 @@ function WorkoutLog({ userDetails }) {
         if(userId === ''){
           return;
         }
-        // console.log(userId);
         const uri = `${process.env.REACT_APP_BACKEND_URL}/api/workoutLog/` + userId;
         const response = await axios.get(uri);
   
   
         if (response.status === 200) {
-          // console.log(typeof(response.data.workoutlog));
-          // const parsedData = JSON.parse(response.data.workoutlog);
           setApiData(response.data.workoutlog);
-          // console.log(response.data.workoutlog);
         } else {
           throw new Error("Failed to fetch workout data");
         }
@@ -162,16 +143,12 @@ function WorkoutLog({ userDetails }) {
       cancelButtonText: 'Close', // Optionally, change the cancel button text
       // footer: '<a href="#">Why do I have this issue?</a>'
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         navigate('/signin');
-        // setShowNotification(false);
       } else {
         navigate('/');
-        // setShowNotification(false);
       }
     });
-    // navigate('/');
     setShowNotification(false);
     
   }
@@ -179,18 +156,13 @@ function WorkoutLog({ userDetails }) {
     return (
       <>
       {showNotification && (
-        // <Notification
-        //   message="Please log in to view this page."
-        //   onClose={closeNotification}
-        // />
-        // <div className='notification'></div>
         usingSwal()
       )}
       <div className='workout-log-container'>
       {!showNotification && (
         <>
-        <div className='workout-container'>
-        <h2 className='workout-title'>Add New Workout</h2>
+        <div className='water-container'>
+        <h2 className='water-title'>Add New Workout</h2>
         <form onSubmit={handleSubmit} className='workout-form'>
           <div>
             <label className='workout-label' htmlFor="workoutDate">
@@ -215,7 +187,6 @@ function WorkoutLog({ userDetails }) {
               value={workoutType}
               onChange={(e) => {
                 setWorkoutType(e.target.value);
-                // setExerciseList(e.target.value);
               }}
               required
             >
@@ -231,7 +202,6 @@ function WorkoutLog({ userDetails }) {
               Workout Name:
             </label>
             <select
-              // type="text"
               className="data-input"
               id="workoutName"
               value={workoutName}

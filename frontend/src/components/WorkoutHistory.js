@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,28 +13,25 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import axios from 'axios';
-import Swal from 'sweetalert2'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-
-function WorkoutHistory() {
+const WorkoutHistory = () => {
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
-  const [workoutDayData, setWorkoutDayData] = useState({}); // This is for 7 days
-  const [workoutMonthData, setWorkoutMonthData] = useState({}); // This is for 6 months
-  const [displayMode, setDisplayMode] = useState('Days'); // This is for display mode
-  const [dataForWorkoutTotal,setDataForWorkoutTotal] = useState({}); // This is for workout data (total)
-  const [dataForWorkoutType,setDataForWorkoutType] = useState({}); // This is for workout data (type)
-  const [workoutTypeDayData,setWorkoutTypeDayData] = useState({});
-  const [workoutTypeMonthData,setWorkoutTypeMonthData] = useState({});
+  const [workoutDayData, setWorkoutDayData] = useState({});
+  const [workoutMonthData, setWorkoutMonthData] = useState({});
+  const [displayMode, setDisplayMode] = useState('Days');
+  const [dataForWorkoutTotal, setDataForWorkoutTotal] = useState({});
+  const [dataForWorkoutType, setDataForWorkoutType] = useState({});
+  const [workoutTypeDayData, setWorkoutTypeDayData] = useState({});
+  const [workoutTypeMonthData, setWorkoutTypeMonthData] = useState({});
   const [displayModeType, setDisplayModeType] = useState('Days');
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const userState = localStorage.getItem('isLoggedIn');
-    if (userState===null || userState === 'false') {
+    if (!userState || userState === 'false') {
       setShowNotification(true);
     } else {
       const storedUser = JSON.parse(localStorage.getItem('userDetail'));
@@ -40,304 +39,121 @@ function WorkoutHistory() {
     }
   }, []);
 
-  //For deploy
   useEffect(() => {
-    if(!userName){
-      console.log("null username.");
-    }else{
-      // console.log(userName);
-    }
-    
-  },[userName]);
-
-  useEffect(() => { //This is for bar graph as it will have total workout
-    
     const fetchData = async () => {
+      if (!userName) return;
       try {
-        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
-        const userId = storedUser.username;
-        if (!userId) {
-          return;
-        }
-
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/workoutlog/${userId}`);
-
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/workoutlog/${userName}`);
         if (response.status === 200) {
-          const fetchedWorkoutData = response.data.workoutlog;
-
-          const today = new Date();
-          const pastSevenDaysData = fetchedWorkoutData.filter(data => {
-            const workoutDate = new Date(data.workoutDate);
-            return workoutDate > new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
-          });
-          const workoutMinutesByDay = {};
-          pastSevenDaysData.forEach(data => {
-            const workoutDate = data.workoutDate;
-            const workoutMinutes = parseInt(data.workoutMinutes);
-            if (workoutMinutesByDay[workoutDate]) {
-              workoutMinutesByDay[workoutDate] += workoutMinutes;
-            } else {
-              workoutMinutesByDay[workoutDate] = workoutMinutes;
-            }
-          });
-          setWorkoutDayData({
-            labels: Object.keys(workoutMinutesByDay).map(date => new Date(date).getDate() + ' ' + new Date(date).toLocaleString('default', { month: 'long' }) + ' ' + new Date(date).getFullYear()),
-            datasets: [{
-              label: 'Workout Minutes',
-              data: Object.values(workoutMinutesByDay),
-              backgroundColor: [
-                'rgb(83,124,56)',
-                'rgb(123,165,145)',
-                'rgb(204, 34, 43)',
-                'rgb(241, 91, 76)',
-                'rgb(250, 164, 27)',
-                'rgb(255,212,91)',
-                'rgb(255,229,180)'
-              ],
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 1,
-            }],
-          });
-          const pastSixMonthsData = fetchedWorkoutData.filter(data => {
-            const workoutDate = new Date(data.workoutDate);
-            const sixMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 6, today.getDate());
-            return workoutDate > sixMonthsAgo;
-          });
-          const workoutMinutesByMonth = {};
-          pastSixMonthsData.forEach(data => {
-            const workoutMonth = new Date(data.workoutDate).toLocaleString('default', { month: 'long' }) + ' ' + new Date(data.workoutDate).getFullYear();
-            const workoutMinutes = parseInt(data.workoutMinutes);
-            if (workoutMinutesByMonth[workoutMonth]) {
-              workoutMinutesByMonth[workoutMonth] += workoutMinutes;
-            } else {
-              workoutMinutesByMonth[workoutMonth] = workoutMinutes;
-            }
-          });
-          setWorkoutMonthData({
-            labels: Object.keys(workoutMinutesByMonth),
-            datasets: [{
-              label: 'Workout Minutes',
-              data: Object.values(workoutMinutesByMonth),
-              backgroundColor: [
-                'rgb(83,124,56)',
-                'rgb(123,165,145)',
-                'rgb(204, 34, 43)',
-                'rgb(241, 91, 76)',
-                'rgb(250, 164, 27)',
-                'rgb(255,212,91)'
-              ],
-              borderColor: 'rgba(255, 99, 132, 1)',
-              borderWidth: 1,
-            }],
-          });
+          processData(response.data.workoutlog);
         }
       } catch (error) {
         console.error("Error fetching workout data:", error);
       }
     };
-    
     fetchData();
-  }, []);
+  }, [userName]);
 
+  const processData = (workoutData) => {
+    const today = new Date();
+    const pastSevenDaysData = workoutData.filter(data => new Date(data.workoutDate) > new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000));
+    const pastSixMonthsData = workoutData.filter(data => new Date(data.workoutDate) > new Date(today.getFullYear(), today.getMonth() - 6, today.getDate()));
 
-  useEffect(() => { // This is for doughnut graph as it will have types of workout
+    const workoutMinutesByDay = aggregateData(pastSevenDaysData, 'workoutDate', 'workoutMinutes');
+    const workoutMinutesByMonth = aggregateData(pastSixMonthsData, data => new Date(data.workoutDate).toLocaleString('default', { month: 'long' }) + ' ' + new Date(data.workoutDate).getFullYear(), 'workoutMinutes');
 
-    const fetchData = async () => {
-      try {
-        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
-        const userId = storedUser.username;
-        if (!userId) {
-          return;
-        }
+    setWorkoutDayData(generateChartData(workoutMinutesByDay, 'Workout Minutes'));
+    setWorkoutMonthData(generateChartData(workoutMinutesByMonth, 'Workout Minutes'));
 
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/workoutlog/${userId}`);
+    const todayWorkouts = workoutData.filter(data => data.workoutDate === today.toISOString().slice(0, 10));
+    const pastMonthData = workoutData.filter(data => new Date(data.workoutDate) > new Date(today.getFullYear(), today.getMonth() - 1, today.getDate()));
 
-        if (response.status === 200) {
-          const fetchedWorkoutData = response.data.workoutlog;
+    const todayWorkoutMinutesByType = aggregateData(todayWorkouts, 'workoutType', 'workoutMinutes');
+    const pastMonthWorkoutMinutesByType = aggregateData(pastMonthData, 'workoutType', 'workoutMinutes');
 
-          // Filter data for today
-          const today = new Date().toISOString().slice(0, 10);
-          const todayWorkouts = fetchedWorkoutData.filter(data => data.workoutDate === today);
+    setWorkoutTypeDayData(generateChartData(todayWorkoutMinutesByType, 'Workout Minutes', 'doughnut'));
+    setWorkoutTypeMonthData(generateChartData(pastMonthWorkoutMinutesByType, 'Workout Minutes', 'doughnut'));
+  };
 
-          // Aggregate workout minutes by type for today
-          const todayWorkoutMinutesByType = {};
-          todayWorkouts.forEach(data => {
-            const workoutType = data.workoutType;
-            const workoutMinutes = parseInt(data.workoutMinutes);
-            if (todayWorkoutMinutesByType[workoutType]) {
-              todayWorkoutMinutesByType[workoutType] += workoutMinutes;
-            } else {
-              todayWorkoutMinutesByType[workoutType] = workoutMinutes;
-            }
-          });
+  const aggregateData = (data, key, valueKey) => {
+    return data.reduce((acc, curr) => {
+      const keyValue = typeof key === 'function' ? key(curr) : curr[key];
+      acc[keyValue] = (acc[keyValue] || 0) + parseInt(curr[valueKey]);
+      return acc;
+    }, {});
+  };
 
-          // Prepare data for today's doughnut chart
-          const todayWorkoutData = {
-            labels: Object.keys(todayWorkoutMinutesByType),
-            datasets: [{
-              label: 'Workout Minutes',
-              data: Object.values(todayWorkoutMinutesByType),
-              backgroundColor: [
-                'rgb(83,124,56)',
-                'rgb(123,165,145)',
-                'rgb(204, 34, 43)',
-                'rgb(241, 91, 76)'
-              ],
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 1,
-            }],
-          };
-
-          // Filter data for the past month
-          const pastMonthData = fetchedWorkoutData.filter(data => {
-            const workoutDate = new Date(data.workoutDate);
-            const oneMonthAgo = new Date();
-            oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-            return workoutDate > oneMonthAgo;
-          });
-
-          // Aggregate workout minutes by type for the past month
-          const pastMonthWorkoutMinutesByType = {};
-          pastMonthData.forEach(data => {
-            const workoutType = data.workoutType;
-            const workoutMinutes = parseInt(data.workoutMinutes);
-            if (pastMonthWorkoutMinutesByType[workoutType]) {
-              pastMonthWorkoutMinutesByType[workoutType] += workoutMinutes;
-            } else {
-              pastMonthWorkoutMinutesByType[workoutType] = workoutMinutes;
-            }
-          });
-
-          // Prepare data for the past month's doughnut chart
-          const pastMonthWorkoutData = {
-            labels: Object.keys(pastMonthWorkoutMinutesByType),
-            datasets: [{
-              label: 'Workout Minutes',
-              data: Object.values(pastMonthWorkoutMinutesByType),
-              backgroundColor: [
-                'rgb(83,124,56)',
-                'rgb(123,165,145)',
-                'rgb(204, 34, 43)',
-                'rgb(241, 91, 76)'
-              ],
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 1,
-            }],
-          };
-
-          // Set state with the fetched data
-          setWorkoutTypeDayData(todayWorkoutData);
-          setWorkoutTypeMonthData(pastMonthWorkoutData);
-        }
-      } catch (error) {
-        console.error("Error fetching workout data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-
-
-
+  const generateChartData = (data, label, type = 'bar') => ({
+    labels: Object.keys(data),
+    datasets: [{
+      label,
+      data: Object.values(data),
+      backgroundColor: type === 'bar'
+        ? ['rgb(83,124,56)', 'rgb(123,165,145)', 'rgb(204, 34, 43)', 'rgb(241, 91, 76)', 'rgb(250, 164, 27)', 'rgb(255,212,91)', 'rgb(255,229,180)']
+        : ['rgb(83,124,56)', 'rgb(123,165,145)', 'rgb(204, 34, 43)', 'rgb(241, 91, 76)'],
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1,
+    }],
+  });
 
   useEffect(() => {
     setDataForWorkoutTotal(displayMode === 'Days' ? workoutDayData : workoutMonthData);
     setDataForWorkoutType(displayModeType === 'Days' ? workoutTypeDayData : workoutTypeMonthData);
   }, [displayMode, displayModeType, workoutDayData, workoutMonthData, workoutTypeDayData, workoutTypeMonthData]);
 
-  // const closeNotification = () => {
-  //   setShowNotification(false);
-  //   navigate('/');
-  // };
-
-  const toggleDaysMonths = () => {
-    
-    setDisplayMode(prevMode => (prevMode === 'Days' ? 'Months' : 'Days'));
-    if(displayMode === 'Days'){
-      setDataForWorkoutTotal(workoutDayData);
-      // setDataForWorkoutType(workoutTypeDayData);
-    }else {
-      setDataForWorkoutTotal(workoutMonthData);
-      // setDataForWorkoutType(workoutTypeMonthData);
-    }
-
-  };
-
-  const toggleDaysMonthsType = () => {
-    setDisplayModeType(prevMode => (prevMode==='Days' ? 'Months' : 'Days'));
-    if(displayModeType === 'Days'){
-      // setDataForWorkoutTotal(workoutDayData);
-      setDataForWorkoutType(workoutTypeDayData);
-    }else {
-      // setDataForWorkoutTotal(workoutMonthData);
-      setDataForWorkoutType(workoutTypeMonthData);
-    }
-  }
+  const toggleDaysMonths = () => setDisplayMode(prevMode => prevMode === 'Days' ? 'Months' : 'Days');
+  const toggleDaysMonthsType = () => setDisplayModeType(prevMode => prevMode === 'Days' ? 'Months' : 'Days');
 
   const usingSwal = () => {
     Swal.fire({
       icon: "error",
       title: "User Not Logged In",
       text: "Please sign in to view progress",
-      showCancelButton: true, // Add this to show the cancel button
-      confirmButtonColor: '#dc3545', // Change the confirm button color to red
-      cancelButtonColor: '#6c757d', // Optionally, change the cancel button color
-      confirmButtonText: 'Sign In', // Optionally, change the confirm button text
-      cancelButtonText: 'Close', // Optionally, change the cancel button text
-      // footer: '<a href="#">Why do I have this issue?</a>'
+      showCancelButton: true,
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sign In',
+      cancelButtonText: 'Close',
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         navigate('/signin');
-        // setShowNotification(false);
       } else {
         navigate('/');
-        // setShowNotification(false);
       }
     });
-    // navigate('/');
     setShowNotification(false);
-    
-  }
+  };
 
   return (
     <>
-      {showNotification && (
-        // <Notification
-        //   message="Please log in to view this page."
-        //   onClose={closeNotification}
-        // />
-        usingSwal()
-      )}
-      {!showNotification && (
+      {showNotification ? usingSwal() : (
         <div className='workout-container workout-container-history'>
-          <div className="workout-history-container-1"> {/* This is for total workout for last 7 days and for last 6 months */}
-            <button className="toggle-button-workout" onClick={toggleDaysMonths}>{displayMode}</button>
-            <h2 className="workout-history-title">{displayMode === 'Days' ? 'Workout Minutes by Days' : 'Workout Minutes by Months'}</h2>
+          <div className="workout-history-container">
+          <div className="button-title-container">
+              <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>
+              <h2 className="water-history-title">{displayMode === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
+            </div>
             {dataForWorkoutTotal && Object.keys(dataForWorkoutTotal).length > 0 && (
               <div className="chart-container">
                 <Bar
                   data={dataForWorkoutTotal}
                   options={{
                     scales: {
-                      x: {
-                        type: 'category',
-                      },
+                      x: { type: 'category' },
                     },
                   }}
                 />
               </div>
             )}
           </div>
-          <div className="workout-history-container-2"> {/* This is for Types of workout. 1) Today's and 2) This week's, can add more later */}
-            <button className="toggle-button-workout" onClick={toggleDaysMonthsType}>{displayModeType}</button>
-            <h2 className="workout-history-title">{displayModeType === 'Days' ? 'Today\'s Workout Distribution' : 'Month\'s Workout Distribution'}</h2>
+          <div className="workout-history-container">
+          <div className="button-title-container">
+              <button className="toggle-button-water" onClick={toggleDaysMonthsType}>{displayModeType}</button>
+              <h2 className="water-history-title">{displayMode === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
+            </div>
             {dataForWorkoutType && Object.keys(dataForWorkoutType).length > 0 && (
-              <div className="chart-container-1">
-                <Doughnut
-                  data={dataForWorkoutType}
-                />
+              <div className="chart-container">
+                <Doughnut data={dataForWorkoutType} />
               </div>
             )}
           </div>

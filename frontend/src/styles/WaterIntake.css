@@ -68,10 +68,10 @@
 }
 
 .water-container-history {
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 150px);
     overflow: hidden;
     justify-content: center;
     padding: 20px;
