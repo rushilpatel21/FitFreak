@@ -177,18 +177,14 @@ function CaloriesBurnt() {
   }
   return (
     <>
-      {showNotification && (
-        // <Notification
-        //   message="Please log in to view this page."
-        //   onClose={closeNotification}
-        // />
-        usingSwal()
-      )}
+      {showNotification && usingSwal()}
       {!showNotification && (
         <div className='water-container water-container-history'>
           <div className="water-history-container-1">
-            <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>
-            <h2 className="calories-history-title">{displayMode === 'Days' ? 'Calories Burned by Days' : 'Calories Burned by Months'}</h2>
+          <div className="button-title-container">
+              <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>
+              <h2 className="water-history-title">{displayMode === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
+            </div>
             {waterData && Object.keys(waterData).length > 0 && (
               <div className="chart-container-water">
                 <Bar
