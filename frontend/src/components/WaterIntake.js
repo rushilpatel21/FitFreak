@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bar } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
 import {
   Chart as ChartJS,
   CategoryScale,

@@ -149,7 +149,7 @@ const WorkoutHistory = () => {
           <div className="workout-history-container">
           <div className="button-title-container">
               <button className="toggle-button-water" onClick={toggleDaysMonthsType}>{displayModeType}</button>
-              <h2 className="water-history-title">{displayMode === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
+              <h2 className="water-history-title">{displayModeType === 'Days' ? 'Water Intake by Days' : 'Water Intake by Months'}</h2>
             </div>
             {dataForWorkoutType && Object.keys(dataForWorkoutType).length > 0 && (
               <div className="chart-container">

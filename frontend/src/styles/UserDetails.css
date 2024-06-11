@@ -18,7 +18,18 @@
     border: 2px solid red;
     justify-content: center; 
     margin-left: 600px;
-    /* margin-right: 50%; */
+}
+
+@media only screen and (max-width: 1500px) {
+    .user-details-grid {
+        gap: 8px
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .user-details-grid {
+        gap: 5px
+    }
 }
 
 .user-details-grid p {
