@@ -136,12 +136,11 @@ function WorkoutLog({ userDetails }) {
       icon: "error",
       title: "User Not Logged In",
       text: "Please sign in to view log",
-      showCancelButton: true, // Add this to show the cancel button
-      confirmButtonColor: '#dc3545', // Change the confirm button color to red
-      cancelButtonColor: '#6c757d', // Optionally, change the cancel button color
-      confirmButtonText: 'Sign In', // Optionally, change the confirm button text
-      cancelButtonText: 'Close', // Optionally, change the cancel button text
-      // footer: '<a href="#">Why do I have this issue?</a>'
+      showCancelButton: true,
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sign In',
+      cancelButtonText: 'Close',
     }).then((result) => {
       if (result.isConfirmed) {
         navigate('/signin');

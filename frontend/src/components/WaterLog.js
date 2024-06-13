@@ -24,13 +24,8 @@ function WaterLog() {
     }
   }, []);
 
-  // useEffect(() => {
-  //   console.log(userName);
-  // }, [userName]);
-
   useEffect(() => {
     if (waterData && waterData.length !== 0) {
-      // console.log("Water data updated:", waterData);
       setWaterUnit('');
       setWaterQuantity('');
     }
@@ -45,7 +40,6 @@ function WaterLog() {
         waterQuantity,
         waterUnit
       }
-      // console.log(waterObj);
       setWaterData(waterObj);
       try{
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/waterLogGet`, {
@@ -56,7 +50,6 @@ function WaterLog() {
           body: JSON.stringify(waterObj)
         });
         if (response.ok) {
-          // console.log('Data submitted successfully');
           const today = new Date().toISOString.slice(0,10);
           if(waterDate === today){
             setTodayWaterData([...todayWaterData,waterObj]);
@@ -74,15 +67,6 @@ function WaterLog() {
 
 
   },[userName,waterQuantity,waterDate, waterUnit, todayWaterData])
-  // const closeNotification = () => {
-  //   setShowNotification(false);
-  //   navigate('/');
-  // };
-
-  // useEffect (() => {
-  //   console.log( "Api Data Final: " );
-  //   console.log(apiData);
-  // },[apiData]);
 
   useEffect(() => {
     
@@ -93,17 +77,12 @@ function WaterLog() {
         if(userId === ''){
           return;
         }
-        // console.log(userId);
         const uri = `${process.env.REACT_APP_BACKEND_URL}/api/waterlog/` + userId;
-        // console.log('Request URI:', uri);
         const response = await axios.get(uri);
   
   
         if (response.status === 200) {
-          // console.log(typeof(response.data.waterLogs));
           setApiData(response.data.waterLogs);
-          // console.log("Set API Data");
-          // console.log(response.data.waterLogs);
         } else {
           throw new Error("Failed to fetch water data");
         }
@@ -125,9 +104,7 @@ function WaterLog() {
   }, [handleSubmit,todayWaterData]);
 
   useEffect(() => {
-    // console.log("apiData:", typeof (apiData));
     const today = new Date().toISOString().slice(0, 10);
-    // console.log(today);
     const todayData = apiData.filter((item) => item.waterDate === today);
 
     setTodayWaterData(todayData);
@@ -138,23 +115,18 @@ function WaterLog() {
       icon: "error",
       title: "User Not Logged In",
       text: "Please sign in to view log",
-      showCancelButton: true, // Add this to show the cancel button
-      confirmButtonColor: '#dc3545', // Change the confirm button color to red
-      cancelButtonColor: '#6c757d', // Optionally, change the cancel button color
-      confirmButtonText: 'Sign In', // Optionally, change the confirm button text
-      cancelButtonText: 'Close', // Optionally, change the cancel button text
-      // footer: '<a href="#">Why do I have this issue?</a>'
+      showCancelButton: true,
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sign In',
+      cancelButtonText: 'Close',
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         navigate('/signin');
-        // setShowNotification(false);
       } else {
         navigate('/');
-        // setShowNotification(false);
       }
     });
-    // navigate('/');
     setShowNotification(false);
     
   }

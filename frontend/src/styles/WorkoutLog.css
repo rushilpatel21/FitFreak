@@ -1,5 +1,5 @@
 .today-workout-log-container {
-  max-width: 800px; /* Use a specific value for max-width */
+  max-width: auto;
   margin: 0 100px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -21,17 +21,41 @@
   padding-left: 190px;
 }
 
-.workout-container {
-  width: 440px;
+@media screen and (max-width: 1032px) {
+  .workout-log-container {
+    display: block;
+    padding-left: 0;
+  }
+
+  .today-workout-log-container, .workout-container {
+    max-width: 100%;
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    grid-column: 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .workout-log-container {
+    grid-template-columns: 1fr 3fr;
+    padding-left: 50px;
+  }
+
+  .today-workout-log-container, .workout-container {
+    padding: 40px;
+    margin: 0 50px;
+  }
+}
+
+.workout-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  grid-column: 1;
 }
 
 .data-input {
-  width: 80%;
+  width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -39,12 +63,12 @@
 
 .workout-form > div {
   margin-bottom: 15px;
-  display: flex; 
+  display: flex;
   align-items: center;
 }
 
 .workout-label {
-  width: 200px;
+  width: 150px;
   font-size: 15px;
   text-align: center;
 }
