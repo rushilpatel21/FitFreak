@@ -182,7 +182,7 @@ function WaterIntake() {
     <>
       {showNotification && usingSwal()}
       {!showNotification && (
-        <div className='water-container water-container-history'>
+        <div className='water-container-1 water-container-history'>
           <div className="water-history-container-1">
             <div className="button-title-container">
               <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>

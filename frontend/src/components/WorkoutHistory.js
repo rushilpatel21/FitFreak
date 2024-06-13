@@ -127,7 +127,7 @@ const WorkoutHistory = () => {
   return (
     <>
       {showNotification ? usingSwal() : (
-        <div className='workout-container workout-container-history'>
+        <div className='workout-container-1 workout-container-history'>
           <div className="workout-history-container">
           <div className="button-title-container">
               <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>

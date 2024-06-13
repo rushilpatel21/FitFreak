@@ -76,3 +76,17 @@
     justify-content: center;
     padding: 20px;
 }
+.water-container-1 {
+    width: 90%;
+      display: flex;
+      align-items: center;
+      height: calc(100vh - 150px);
+      overflow: hidden;
+      justify-content: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+      grid-column: 1;
+  }

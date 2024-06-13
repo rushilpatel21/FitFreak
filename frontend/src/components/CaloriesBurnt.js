@@ -127,10 +127,7 @@ function CaloriesBurnt() {
     fetchData();
   }, []);
 
-  // const closeNotification = () => {
-  //   setShowNotification(false);
-  //   navigate('/');
-  // };
+
 
   useEffect(() => {
     setWaterData(displayMode === 'Days' ? waterDataDay : waterDataMonth);
@@ -140,14 +137,10 @@ function CaloriesBurnt() {
     setDisplayMode(prevMode => (prevMode === 'Days' ? 'Months' : 'Days'));
   };
 
-  //For deploy
   useEffect(() => {
     if(!userName){
       console.log("null username.");
-    }else{
-      // console.log(userName);
     }
-    
   },[userName]);
 
   const usingSwal = () => {
@@ -155,23 +148,18 @@ function CaloriesBurnt() {
       icon: "error",
       title: "User Not Logged In",
       text: "Please sign in to view progress",
-      showCancelButton: true, // Add this to show the cancel button
-      confirmButtonColor: '#dc3545', // Change the confirm button color to red
-      cancelButtonColor: '#6c757d', // Optionally, change the cancel button color
-      confirmButtonText: 'Sign In', // Optionally, change the confirm button text
-      cancelButtonText: 'Close', // Optionally, change the cancel button text
-      // footer: '<a href="#">Why do I have this issue?</a>'
+      showCancelButton: true,
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sign In',
+      cancelButtonText: 'Close',
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         navigate('/signin');
-        // setShowNotification(false);
       } else {
         navigate('/');
-        // setShowNotification(false);
       }
     });
-    // navigate('/');
     setShowNotification(false);
     
   }
@@ -179,7 +167,7 @@ function CaloriesBurnt() {
     <>
       {showNotification && usingSwal()}
       {!showNotification && (
-        <div className='water-container water-container-history'>
+        <div className='water-container-1 water-container-history'>
           <div className="water-history-container-1">
           <div className="button-title-container">
               <button className="toggle-button-water" onClick={toggleDaysMonths}>{displayMode}</button>
