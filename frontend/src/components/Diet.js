@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import Cookies from "js-cookie";
 
 function Diet() {
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
-    const userState = localStorage.getItem("isLoggedIn");
+    const userState = Cookies.get("isLoggedIn");
     if (userState===null || userState === 'false') {
       setShowNotification(true);
     }

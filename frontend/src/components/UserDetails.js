@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Popup from './Popup.js';
+import Cookies from "js-cookie";
 
 function UserDetails({ updateUserDetails, userDetails, toggleUserDetailsModal, showUserDetails }) {
   const [showModal, setShowModal] = useState(true);
@@ -10,8 +11,8 @@ function UserDetails({ updateUserDetails, userDetails, toggleUserDetailsModal, s
 
   
   useEffect(() => {
-    if(localStorage.getItem("isLoggedIn") === 'true'){
-      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+    if(Cookies.get("isLoggedIn") === 'true'){
+      const storedUser = JSON.parse(Cookies.get('userDetail'));
       updateUserDetails(storedUser);
     }
   }, [updateUserDetails]); // Added updateUserDetails for deploy. 

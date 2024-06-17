@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from "@vercel/analytics/react"
-
+import Cookies from "js-cookie";
 //CSS
 import './styles/Header.css'
 import './styles/SignIn.css'
@@ -72,14 +72,14 @@ function App() {
 
   useEffect(() => {
     console.log(userDetails);
-    if(localStorage.getItem("isLoggedIn") === 'true'){
+    if(Cookies.get("isLoggedIn") === 'true'){
       console.log('user has already logged in');
-      if(!localStorage.getItem('userDetail')){
-        localStorage.setItem("isLoggedIn" , "false");
-        alert("Critical Error: Error with localstorage");
+      if(!Cookies.get('userDetail')){
+        Cookies.set("isLoggedIn" , "false");
+        alert("Critical Error: Error with Cookies");
         return;
       }
-      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      const storedUser = JSON.parse(Cookies.get('userDetail'));
       let username = storedUser.username;
       updateSignUpText(username);
       setLoggedIn(true);

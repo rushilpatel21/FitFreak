@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from "js-cookie";
 
 
 function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute, toggleUserDetailsModal, showUserDetails}) {
@@ -32,8 +33,8 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
             setUsername('');
             setPassword('');
             // console.log("Inside submit form" + JSON.stringify(response.data.users[0]));
-            localStorage.setItem('userDetail',JSON.stringify(response.data.users[0]));
-            localStorage.setItem('isLoggedIn',true);
+            Cookies.set('userDetail',JSON.stringify(response.data.users[0]));
+            Cookies.set('isLoggedIn',true);
             navigate('/');
           }
         } else {
@@ -90,8 +91,8 @@ function Signin({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       // setUsername('');
       // setPassword('');
       // console.log("Inside submit form" + JSON.stringify(userData));
-      // localStorage.setItem('userDetail',JSON.stringify(userData));
-      // localStorage.setItem('isLoggedIn',true);
+      // Cookies.set('userDetail',JSON.stringify(userData));
+      // Cookies.set('isLoggedIn',true);
       // navigate('/');
     };
   

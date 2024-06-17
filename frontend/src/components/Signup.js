@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from "js-cookie";
 
 function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute, updateUserDetails, toggleUserDetailsModal, showUserDetails  }) {
     const [username, setUsername] = useState('');
@@ -139,9 +140,9 @@ function Signup({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
       setBirthday('');
       setAge('');
       setSex('');
-      localStorage.setItem('userDetail',JSON.stringify(userData));
-      localStorage.setItem('isLoggedIn',true);
-      // const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      Cookies.set('userDetail',JSON.stringify(userData));
+      Cookies.set('isLoggedIn',true);
+      // const storedUser = JSON.parse(Cookies.get('userDetail'));
 
       // console.log(storedUser);
       try{

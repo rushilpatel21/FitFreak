@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import Cookies from "js-cookie";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -27,11 +28,11 @@ function CaloriesBurnt() {
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
-    const userState = localStorage.getItem("isLoggedIn");
+    const userState = Cookies.get("isLoggedIn");
     if (userState===null || userState === 'false') {
       setShowNotification(true);
     } else {
-      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      const storedUser = JSON.parse(Cookies.get('userDetail'));
       setUserName(storedUser.username);
       
     }
@@ -40,7 +41,7 @@ function CaloriesBurnt() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+        const storedUser = JSON.parse(Cookies.get('userDetail'));
         const userId = storedUser.username;
         if (!userId) {
           return;

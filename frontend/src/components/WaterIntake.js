@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import Cookies from "js-cookie";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,11 +28,11 @@ function WaterIntake() {
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
-    const userState = localStorage.getItem("isLoggedIn");
+    const userState = Cookies.get("isLoggedIn");
     if (userState === null || userState === 'false') {
       setShowNotification(true);
     } else {
-      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      const storedUser = JSON.parse(Cookies.get('userDetail'));
       setUserName(storedUser.username);
     }
   }, []);
@@ -46,7 +48,7 @@ function WaterIntake() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+        const storedUser = JSON.parse(Cookies.get('userDetail'));
         const userId = storedUser.username;
         if (!userId) {
           return;

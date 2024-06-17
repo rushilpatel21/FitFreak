@@ -2,6 +2,7 @@ import React, { useEffect,useState, useCallback  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; 
 import Swal from 'sweetalert2'
+import Cookies from "js-cookie";
 
 function WaterLog() {
   const navigate = useNavigate();
@@ -15,11 +16,11 @@ function WaterLog() {
   const [todayWaterData, setTodayWaterData] = useState([]); // Here i store todays data.
 
   useEffect(() => {
-    const userState = localStorage.getItem("isLoggedIn");
+    const userState = Cookies.get("isLoggedIn");
     if (userState===null || userState === 'false') {
       setShowNotification(true);
     }else{
-      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      const storedUser = JSON.parse(Cookies.get('userDetail'));
       setUserName(storedUser.username);
     }
   }, []);
@@ -72,7 +73,7 @@ function WaterLog() {
     
     const fetchData = async () => {
       try {
-        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+        const storedUser = JSON.parse(Cookies.get('userDetail'));
         const userId = storedUser.username;
         if(userId === ''){
           return;

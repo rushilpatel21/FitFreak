@@ -13,6 +13,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import Cookies from "js-cookie";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -30,11 +31,11 @@ const WorkoutHistory = () => {
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
-    const userState = localStorage.getItem('isLoggedIn');
+    const userState = Cookies.get('isLoggedIn');
     if (!userState || userState === 'false') {
       setShowNotification(true);
     } else {
-      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      const storedUser = JSON.parse(Cookies.get('userDetail'));
       setUserName(storedUser.username);
     }
   }, []);

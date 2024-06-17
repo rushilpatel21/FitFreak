@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 function LogOut({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText, updateSignInText,updateSignInRoute,updateSignUpRoute, signUpRoute, signInRoute, updateUserDetails, toggleUserDetailsModal, showUserDetails  }) {
   const navigate = useNavigate();
@@ -8,7 +9,9 @@ function LogOut({updateSignUpText, signUpText, loggedIn, setLoggedIn, signInText
   updateSignInText('Sign In');
   updateSignInRoute('/signin');
   updateSignUpRoute('/signup');
-  localStorage.setItem("isLoggedIn",false);
+  Cookies.set("isLoggedIn",false);
+  Cookies.remove("userDetails");
+  // toggleUserDetailsModal(false);
 
   navigate('/');
 

@@ -15,11 +15,7 @@
     margin-top: 5px;
     height: 5px;  
   }
-  
-  
-  
- 
-  
+
   .section { 
     width: 100%; 
     padding: 20px; 
@@ -60,32 +56,69 @@
   
   .section4 {
     display: flex;
-    
     margin-left: 1070px;
     margin-top: 1px;
-   
-    
-   
-    
-    
   }
   .section4 .name {
     font-size: 4em;
     color:red;
   }
   
-  .section5  {
-    flex: 1;
-     
-    margin-left: 800px;
-    margin-top: -5px;
-    
+  .section5 {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%; 
+}
 
-  }
-  .section5 .toto  {
-    font-size: 2em;
-    color:white;
-  }
+.section5 .para {
+    max-width: 50%; 
+    margin-right: 20px; 
+}
+
+.section5 .toto {
+    font-size: 1.5em;
+    color: white;
+}
+
+@media (max-width: 1200px) {
+    .section5 .para {
+        max-width: 60%;
+    }
+
+    .section5 .toto {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 768px) {
+    .section5 {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .section5 .para {
+        max-width: 80%; 
+    }
+
+    .section5 .toto {
+        font-size: 1.1em; 
+    }
+}
+
+@media (max-width: 480px) {
+    .section5 .para {
+        max-width: 90%;
+    }
+
+    .section5 .toto {
+        font-size: 1em;
+    }
+}
+
+
   .section6 {
     margin-left: 800px;
     margin-top: -15px;

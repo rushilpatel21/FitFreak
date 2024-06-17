@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import Cookies from "js-cookie";
 
 function FoodLog() {
   const apiKey = process.env.REACT_APP_API_KEY_NINJA;  //Api Key from api-ninjas.com 
@@ -23,11 +24,11 @@ function FoodLog() {
   const [todayFoodData, setTodayFoodData] = useState([]); // Here i store todays data.
 
   useEffect(() => {
-    const userState = localStorage.getItem("isLoggedIn");
+    const userState = Cookies.get("isLoggedIn");
     if (userState===null || userState === 'false') {
       setShowNotification(true);
     }else{
-      const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+      const storedUser = JSON.parse(Cookies.get('userDetail'));
       setUserName(storedUser.username);
       
     }
@@ -36,12 +37,13 @@ function FoodLog() {
   useEffect(() => {
     if(foodData[0]){
       // console.log(foodData[0]);
-      // console.table(foodData);
-      setFoodCalories(foodData[0].calories);
-      setFoodFat(foodData[0].fat_total_g);
-      setFoodSugar(foodData[0].sugar_g);
-      setFoodProtein(foodData[0].protein_g);
-      setFoodCarbohydrates(foodData[0].carbohydrates_total_g);
+      console.table(foodData[0]);
+      // setFoodCalories(Number(foodData[0].calories));
+      setFoodCalories(isNaN(Number(foodData[0].calories)) ? 0 : Number(foodData[0].calories));
+      setFoodFat(Number(foodData[0].fat_total_g));
+      setFoodSugar(Number(foodData[0].sugar_g));
+      setFoodProtein(isNaN(Number(foodData[0].protein_g)) ? 0 : Number(foodData[0].protein_g));
+      setFoodCarbohydrates(Number(foodData[0].carbohydrates_total_g));
     }
   }, [foodData, setFoodCarbohydrates,setFoodProtein,setFoodSugar,setFoodFat,setFoodCalories]);
 
@@ -66,6 +68,8 @@ function FoodLog() {
         // setFoodCarbohydrates(response.data.carbohydrates_total_g);
         if(!response.data[0]){
           alert('Sorry, We dont have the food name in our database. Please Fill the details manually');
+        }else{
+          alert('Sorry, due to a recent change in policy of our api provider for nutrition database, we wont be able to fetch Calories and Protein from the database.');
         }
       })
       .catch(error => {
@@ -185,11 +189,11 @@ function FoodLog() {
       const foodObj = {
           userName,
           "name": foodData[0].name,
-          "calories": foodData[0].calories,
-          "serving_size_g": foodData[0].serving_size_g,
+          "calories": (isNaN(Number(foodData[0].calories)) ? 0 : Number(foodData[0].calories)),
+          "serving_size_g": (isNaN(Number(foodData[0].serving_size_g)) ? 0 : Number(foodData[0].serving_size_g)),
           "fat_total_g": foodData[0].fat_total_g,
           "fat_saturated_g": foodData[0].fat_saturated_g,
-          "protein_g": foodData[0].protein_g,
+          "protein_g": (isNaN(Number(foodData[0].protein_g)) ? 0 : Number(foodData[0].protein_g)),
           "sodium_mg": foodData[0].sodium_mg,
           "potassium_mg": foodData[0].potassium_mg,
           "cholesterol_mg": foodData[0].cholesterol_mg,
@@ -251,7 +255,7 @@ function FoodLog() {
     
     const fetchData = async () => {
       try {
-        const storedUser = JSON.parse(localStorage.getItem('userDetail'));
+        const storedUser = JSON.parse(Cookies.get('userDetail'));
         const userId = storedUser.username;
         if(userId === ''){
           return;
