@@ -9,7 +9,7 @@ function Diet() {
 
   useEffect(() => {
     const userState = Cookies.get("isLoggedIn");
-    if (userState===null || userState === 'false') {
+    if ( !userState  || userState===null || userState === 'false') {
       setShowNotification(true);
     }
   }, []);

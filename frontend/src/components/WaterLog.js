@@ -17,7 +17,7 @@ function WaterLog() {
 
   useEffect(() => {
     const userState = Cookies.get("isLoggedIn");
-    if (userState===null || userState === 'false') {
+    if ( !userState  || userState===null || userState === 'false') {
       setShowNotification(true);
     }else{
       const storedUser = JSON.parse(Cookies.get('userDetail'));
