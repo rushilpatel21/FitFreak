@@ -50,7 +50,8 @@
 }
 
 .user-details {
-    color: rgba(255, 0, 0, 0.598);
+    /* color: rgba(255, 0, 0, 0.598); */
+    color: white;
     border-left: 1px solid white;
     padding-left: 10px;
     flex: 1;
