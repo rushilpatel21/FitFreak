@@ -33,7 +33,7 @@ import CaloriesBurnt from './components/CaloriesBurnt.js'
 import WaterIntake from './components/WaterIntake.js'
 import SearchMusic from './components/SearchMusic.js'
 import RecommendedMusic from './components/RecommendedMusic.js'
-import Diet from './components/Diet.js' //For diet: two options 1) Veg 2)Non Veg and depending upon the option (ie. Bulking or Weight loss) we give them diet plan.
+// import Diet from './components/Diet.js'
 import Contact from './components/Contact.js'
 import UserDetails from './components/UserDetails.js'
 import LogOut from './components/LogOut.js'
@@ -41,16 +41,14 @@ import WorkoutHistory from './components/WorkoutHistory.js'
 
 function App() {
 
-  //State for user authentication status and username
   const [signUpText, setSignUpText] = useState('Sign Up');
   const [signInText, setSignInText] = useState('Sign In');
-  const [loggedIn, setLoggedIn] = useState(false); // we need to use this to verify if the user is logged in or not, especially for Progress and Workout Log
+  const [loggedIn, setLoggedIn] = useState(false);
   const [signUpRoute, setSignUpRoute] = useState('/signup');
   const [signInRoute, setSignInRoute] = useState('/signin');
   const [userDetails, setUserDetails] = useState('');
   const [showUserDetails, setShowUserDetails] = useState(false);
   
-  //Methods  for handling button clicks and routing
   const toggleUserDetailsModal = () => {
     setShowUserDetails(!showUserDetails);
   };
@@ -71,23 +69,29 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(userDetails);
-    if(Cookies.get("isLoggedIn") === 'true'){
-      console.log('user has already logged in');
-      if(!Cookies.get('userDetail')){
-        Cookies.set("isLoggedIn" , "false");
-        alert("Critical Error: Error with Cookies");
-        return;
+    const checkUserLoginStatus = () => {
+      console.log(userDetails);
+      if (Cookies.get("isLoggedIn") === 'true') {
+        console.log('user has already logged in');
+        const userDetailCookie = Cookies.get('userDetail');
+        if (!userDetailCookie) {
+          Cookies.set("isLoggedIn", "false");
+          alert("Critical Error: Error with Cookies, Clear All the Cookies.");
+          return;
+        }
+        const storedUser = JSON.parse(userDetailCookie);
+        let username = storedUser.username;
+        updateSignUpText(username);
+        setLoggedIn(true);
+        updateSignInText('Log Out');
+        updateSignInRoute('/logOut');
+        updateSignUpRoute('#');
       }
-      const storedUser = JSON.parse(Cookies.get('userDetail'));
-      let username = storedUser.username;
-      updateSignUpText(username);
-      setLoggedIn(true);
-      updateSignInText('Log Out');
-      updateSignInRoute('/logOut');
-      updateSignUpRoute('#');
-    }
-  }, [userDetails]); //Deploy change : Added userDetails;
+    };
+
+    checkUserLoginStatus();
+}, [userDetails]);
+
 
   return (
     <>
@@ -105,7 +109,7 @@ function App() {
             <Route path="/workoutHistory" element={<WorkoutHistory signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
             <Route path="/caloriesBurnt" element={<CaloriesBurnt signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
             <Route path="/waterIntake" element={<WaterIntake signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
-            <Route path="/diet" element={<Diet signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} />
+            {/* <Route path="/diet" element={<Diet signUpText={signUpText} updateSignUpText={updateSignUpText} loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInText={signInText} updateSignInText={updateSignInText} updateSignInRoute={updateSignInRoute} updateSignUpRoute={updateSignUpRoute} signUpRoute={signUpRoute} signInRoute={signInRoute} />} /> */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/searchMusic" element={<SearchMusic />} />
             <Route path="/recommendedMusic" element={<RecommendedMusic />} />
