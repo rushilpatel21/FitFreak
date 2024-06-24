@@ -5,8 +5,7 @@ require('dotenv').config();
 const app = express();
 
 const allowedOrigins = [
-  'https://fit-freak-ini6qwbpr-rushils-projects-26391fe7.vercel.app',
-  'https://main--fitfreak10.netlify.app'
+  'https://fit-freak-ini6qwbpr-rushils-projects-26391fe7.vercel.app'
 ];
 
 const corsOptions = {
