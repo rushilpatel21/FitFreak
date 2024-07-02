@@ -48,6 +48,9 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error("MongoDB connection error:", error));
 db.once("open", () => console.log("Connected to MongoDB"));
 
+app.get('/', (req, res) => {
+  res.send("Server is running.")
+})
 
 // This is for all the users.
 app.use("/api/users", userRoutes);
